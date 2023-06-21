@@ -17,6 +17,8 @@ HEADERS :=
 # other places to look for files for this project
 SEARCH  := 
 
+SERIAL_PORT ?= COM8
+
 # set RELATIVE to the next higher directory 
 # and defer to the Makefile.* there
 RELATIVE := ..
