@@ -1061,6 +1061,7 @@ Discarded input sections
  .group         0x00000000        0xc main.o
  .group         0x00000000        0xc main.o
  .group         0x00000000        0xc main.o
+ .group         0x00000000        0xc main.o
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
@@ -1163,7 +1164,7 @@ LOAD d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib
                 [!provide]                PROVIDE (__ram_size = __ram_size)
                 [!provide]                PROVIDE (__ram_end = __ram_end)
 
-.text           0x00000000      0xc6c
+.text           0x00000000      0xcb4
                 0x00000000                . = ALIGN (0x4)
                 0x00000000                __text_start = .
                 [!provide]                PROVIDE (__text_start = __text_start)
@@ -1284,79 +1285,83 @@ LOAD d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib
                 0x000006a8       0x34 main.o
                 0x000006a8                due::pin_oc::pin_oc(due::pins)
                 0x000006a8                due::pin_oc::pin_oc(due::pins)
+ .text._ZN7i2c_mux6selectEi
+                0x000006dc       0x56 main.o
+                0x000006dc                i2c_mux::select(int)
+ *fill*         0x00000732        0x2 
  .text.startup.main
-                0x000006dc      0x10c main.o
-                0x000006dc                main
+                0x00000734       0xfc main.o
+                0x00000734                main
  .text.__startup
-                0x000007e8       0x40 bmptk_cortex.o
-                0x000007e8                __startup
- .text          0x00000828       0x30 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
-                0x00000828                __aeabi_uldivmod
- .text          0x00000858      0x2c4 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
-                0x00000858                __udivmoddi4
- .text          0x00000b1c        0x4 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_dvmd_tls.o)
-                0x00000b1c                __aeabi_ldiv0
-                0x00000b20                . = ALIGN (0x4)
+                0x00000830       0x40 bmptk_cortex.o
+                0x00000830                __startup
+ .text          0x00000870       0x30 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
+                0x00000870                __aeabi_uldivmod
+ .text          0x000008a0      0x2c4 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
+                0x000008a0                __udivmoddi4
+ .text          0x00000b64        0x4 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_dvmd_tls.o)
+                0x00000b64                __aeabi_ldiv0
+                0x00000b68                . = ALIGN (0x4)
  *(.glue_7t .glue_7)
- .glue_7        0x00000b20        0x0 linker stubs
- .glue_7t       0x00000b20        0x0 linker stubs
-                0x00000b20                . = ALIGN (0x4)
+ .glue_7        0x00000b68        0x0 linker stubs
+ .glue_7t       0x00000b68        0x0 linker stubs
+                0x00000b68                . = ALIGN (0x4)
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata._ZN3due8pin_infoENS_4pinsE.str1.1
-                0x00000b20       0x32 hwlib.o
- *fill*         0x00000b52        0x2 
+                0x00000b68       0x32 hwlib.o
+ *fill*         0x00000b9a        0x2 
  .rodata._ZTVN5hwlib20cout_using_uart_putcE
-                0x00000b54       0x10 hwlib.o
-                0x00000b54                vtable for hwlib::cout_using_uart_putc
+                0x00000b9c       0x10 hwlib.o
+                0x00000b9c                vtable for hwlib::cout_using_uart_putc
  .rodata._ZZN3due8pin_infoENS_4pinsEE14pin_info_array
-                0x00000b64       0xa4 hwlib.o
+                0x00000bac       0xa4 hwlib.o
  .rodata.main.str1.1
-                0x00000c08       0x17 main.o
- *fill*         0x00000c1f        0x1 
+                0x00000c50       0x17 main.o
+ *fill*         0x00000c67        0x1 
  .rodata._ZTVN5hwlib26i2c_bus_bit_banged_scl_sdaE
-                0x00000c20       0x34 main.o
-                0x00000c20                vtable for hwlib::i2c_bus_bit_banged_scl_sda
+                0x00000c68       0x34 main.o
+                0x00000c68                vtable for hwlib::i2c_bus_bit_banged_scl_sda
  .rodata._ZTVN3due6pin_ocE
-                0x00000c54       0x18 main.o
-                0x00000c54                vtable for due::pin_oc
-                0x00000c6c                . = ALIGN (0x4)
+                0x00000c9c       0x18 main.o
+                0x00000c9c                vtable for due::pin_oc
+                0x00000cb4                . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x00000c6c                . = ALIGN (0x4)
+                0x00000cb4                . = ALIGN (0x4)
  *(.gcc_except_table)
-                0x00000c6c                . = ALIGN (0x4)
+                0x00000cb4                . = ALIGN (0x4)
  *(.eh_frame_hdr)
-                0x00000c6c                . = ALIGN (0x4)
+                0x00000cb4                . = ALIGN (0x4)
  *(.eh_frame)
-                0x00000c6c                . = ALIGN (0x4)
-                0x00000c6c                __text_end = .
+                0x00000cb4                . = ALIGN (0x4)
+                0x00000cb4                __text_end = .
                 [!provide]                PROVIDE (__text_end = __text_end)
 
-.vfp11_veneer   0x00000c6c        0x0
- .vfp11_veneer  0x00000c6c        0x0 linker stubs
+.vfp11_veneer   0x00000cb4        0x0
+ .vfp11_veneer  0x00000cb4        0x0 linker stubs
 
-.v4_bx          0x00000c6c        0x0
- .v4_bx         0x00000c6c        0x0 linker stubs
+.v4_bx          0x00000cb4        0x0
+ .v4_bx         0x00000cb4        0x0 linker stubs
 
-.iplt           0x00000c6c        0x0
- .iplt          0x00000c6c        0x0 hwlib.o
+.iplt           0x00000cb4        0x0
+ .iplt          0x00000cb4        0x0 hwlib.o
 
 .IF_YOU_SEE_THIS_YOU_HAVE_ONE_OR_MORE_GLOBAL_OBJECT_CONSTRUCTORS
  *(.init)
  *(.preinit_array)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array)
-                0x00000c6c                . = ALIGN (0x4)
-                0x00000c6c                __exidx_start = .
+                0x00000cb4                . = ALIGN (0x4)
+                0x00000cb4                __exidx_start = .
                 [!provide]                PROVIDE (__exidx_start = __exidx_start)
 
-.ARM.exidx      0x00000c6c        0x8
+.ARM.exidx      0x00000cb4        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x00000c6c        0x8 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
+ .ARM.exidx     0x00000cb4        0x8 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
 
-.rel.dyn        0x00000c74        0x0
- .rel.iplt      0x00000c74        0x0 hwlib.o
-                0x00000c74                . = ALIGN (0x4)
-                0x00000c74                __exidx_end = .
+.rel.dyn        0x00000cbc        0x0
+ .rel.iplt      0x00000cbc        0x0 hwlib.o
+                0x00000cbc                . = ALIGN (0x4)
+                0x00000cbc                __exidx_end = .
                 [!provide]                PROVIDE (__exidx_end = __exidx_end)
 
 .bss            0x20070000    0x12020
@@ -1403,9 +1408,9 @@ LOAD d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib
                 0x20082020                __bss_end = .
                 [!provide]                PROVIDE (__bss_end = __bss_end)
 
-.data           0x20082020       0x1c load address 0x00000c74
+.data           0x20082020       0x1c load address 0x00000cbc
                 0x20082020                . = ALIGN (0x4)
-                0x00000c74                __data_init_start = LOADADDR (.data)
+                0x00000cbc                __data_init_start = LOADADDR (.data)
                 [!provide]                PROVIDE (__data_init_start = __data_init_start)
                 0x20082020                __data_start = .
                 [!provide]                PROVIDE (__data_start = __data_start)
@@ -1423,13 +1428,13 @@ LOAD d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib
                 0x2008203c                . = ALIGN (0x4)
                 0x2008203c                __data_end = .
                 [!provide]                PROVIDE (__data_end = __data_end)
-                0x00000c74                __data_init_end = LOADADDR (.data)
+                0x00000cbc                __data_init_end = LOADADDR (.data)
                 [!provide]                PROVIDE (__data_init_end = __data_init_end)
                 [!provide]                PROVIDE (__data_size = (__data_end - __data_start))
                 [!provide]                PROVIDE (__data_init_size = __data_size)
                 [!provide]                PROVIDE (__data_init_end = (__data_init_start + __data_init_size))
 
-.igot.plt       0x2008203c        0x0 load address 0x00000c90
+.igot.plt       0x2008203c        0x0 load address 0x00000cd8
  .igot.plt      0x2008203c        0x0 hwlib.o
                 0x2008203c                . = ALIGN (0x4)
                 0x2008203c                __heap_start = .
