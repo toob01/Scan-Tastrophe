@@ -14,8 +14,12 @@
 #ifndef TCS3472_HPP 
 #define TCS3472_HPP
 
+/// I2C address of TCS3742 color sensor
+#define TCS 0x29
+
 /// includes
 #include "hwlib.hpp"
+#include <array>
 
 /// Color register (low bit) address definitions
 #define RDATA 0x16
@@ -55,9 +59,6 @@
 #define SET_WTIME_204MS 0xAB
 #define SET_WTIME_614MS 0x00
 
-/// wlong setting definition
-#define SET_WLONG 0x02
-
 /// gain definitions
 #define SET_AGAIN_1X 0x00
 #define SET_AGAIN_4X 0x01
@@ -72,13 +73,25 @@
 /// This implementation only works for sensors with I2C address 0x29, which most of these sensors will have.
 /// To use this sensor in amounts more than one or with other devices that have the same address, you have the option to either define multiple I2C busses, or use an I2C multiplexer like the TCA9548A (I recommend the latter).
 /// If you happen to have a sensor that has a discrepant address, please contact me at tobias.bosch@student.hu.nl, I am happy to offer assistance :)
-/// This library provides no capabilities for the interrupt output that some TCS3472 devices may have.
-
+/// Limitations:
+///     - no capabilities for the interrupt output that some TCS3472 devices may have.
+///     - no capabilities for the WLONG option.
 class tcs3472 {
 private:
-    hwlib::i2c_bus & bus;
-    const uint8_t tcs = 0x29;
+
+    hwlib::i2c_primitives & bus;
+    uint8_t enable_option;
+    uint8_t atime_option;
+    uint8_t wtime_option;
+    uint8_t again_option;
+    
+    void set_active_register_new_trans(uint8_t reg_address);
+    void set_active_register_existing_trans(hwlib::i2c_write_transaction & set_trans, uint8_t reg_address);
+    int get_wait_time();
+    uint8_t* read_color_register(uint8_t reg_address);
+    
 public:
+
     /// \brief
     /// Constructor for tcs3472 color sensor 
     /// \details
@@ -88,17 +101,14 @@ public:
     ///     - ATIME     : 2.4 ms
     ///     - WTIME     : 2.4 ms
     ///     - AGAIN     : 4X
-    tcs3472(hwlib::i2c_bus & bus, uint8_t enable_option=SET_AEN|SET_WEN, uint8_t atime_option=SET_ATIME_2_4MS, uint8_t wtime_option=SET_WTIME_2_4MS, uint8_t again_option=SET_AGAIN_4X);
+    tcs3472(hwlib::i2c_primitives & bus, uint8_t c_enable_option, uint8_t c_atime_option, uint8_t c_wtime_option, uint8_t c_again_option);
     
-    /// Destructor for tcs3472 color sensor, resets all configurations to factory values.
+    /// Destructor for tcs3472 color sensor, resets all configurations to default values as described in constructor.
     ~tcs3472();
     
-    /// Start a sense cycle
-    void start();
-    
     /// Read a register specified by address
-    int read_register(uint8_t reg_address, uint8_t );
-    
+    int read_register(uint8_t reg_address);
+
     /// Read 16-bit data from Clear data register
     int read_clear();
     
@@ -111,17 +121,20 @@ public:
     /// Read 16-bit data from Blue data register
     int read_blue();
     
+    /// Start a sense cycle
+    void start();
+    
     /// \brief
     /// Read raw data from clear, red, green, and blue registers
     /// \return
-    /// Returns an array of integers, indeces 0, 1, 2, 3 being C, R, G, and B respectively.
-    int[] get_rgb();
+    /// Returns an array of integers (0-65535), indeces 0, 1, 2, 3 being C, R, G, and B respectively.
+    std::array<int, 4> get_rgb();
     
     /// \brief
     /// Read data fron clear, red, green, and blue registers converted to explicit 8-bit values.
     /// \return
-    /// Returns an array of 8-bit values, indeces 0, 1, 2, 3 being C, R, G, and B respectively.
-    uint8_t[] get_rgb_8bit();
+    /// Returns an array of 8-bit values (0-255), indeces 0, 1, 2, 3 being C, R, G, and B respectively.
+    std::array<uint8_t, 4> get_rgb_8bit();
     
     /// \brief
     /// Test if color sensor is available on I2C bus and functional.
@@ -140,6 +153,13 @@ public:
     /// \return
     /// 0 on successful test, corresponding error code on failed test.
     int selftest();
+    
+    /// Set configuration to default values as described in constructor:
+    ///     - ENABLE    : AEN | WEN
+    ///     - ATIME     : 2.4 ms
+    ///     - WTIME     : 2.4 ms
+    ///     - AGAIN     : 4X
+    void reset_factory_settings();
     
 };
 
