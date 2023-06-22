@@ -17,58 +17,71 @@
 /// I2C address of TCS3742 color sensor
 #define TCS 0x29
 
-/// includes
 #include "hwlib.hpp"
 #include <array>
 
-/// Color register (low bit) address definitions
+/// @name Color register (low bit) address definitions.
+/// @{
 #define RDATA 0x16
 #define BDATA 0x18
 #define GDATA 0x1A
 #define CDATA 0x14
+/// @}
 
-/// Optional high bit address definitions
+/// @name Optional high bit address definitions
+/// @{
 #define H_CDATA 0x15
 #define H_RDATA 0x17
 #define H_BDATA 0x19
 #define H_GDATA 0x1B
+/// @}
 
-/// Device configuration register address definitions
+/// @name Device configuration register address definitions
+/// @{
 #define ENABLE 0x00
 #define ATIME 0x01
 #define WTIME 0x03
 #define WLONG 0x0D
 #define AGAIN 0x0F
 #define STATUS 0x13
+/// @}
 
-/// Enable register options
+/// @name Enable register options
+/// @{
 #define SET_WEN 0x08
 #define SET_AEN 0x02
 #define SET_PON 0x01
+/// @}
 
-/// integration time definitions
+/// @name Integration time definitions
+/// @{
 #define SET_ATIME_2_4MS 0xFF
 #define SET_ATIME_24MS 0xF6
 #define SET_ATIME_50MS 0xEB
 #define SET_ATIME_101MS 0xD5
 #define SET_ATIME_154MS 0xC0
 #define SET_ATIME_700MS 0x00
+/// @}
 
-/// wait time definitions
+/// @name Wait time definitions
+/// @{
 #define SET_WTIME_2_4MS 0xFF
 #define SET_WTIME_204MS 0xAB
 #define SET_WTIME_614MS 0x00
+/// @}
 
-/// gain definitions
+/// @name Gain definitions
+/// @{
 #define SET_AGAIN_1X 0x00
 #define SET_AGAIN_4X 0x01
 #define SET_AGAIN_16X 0x02
 #define SET_AGAIN_60X 0x03
+/// @}
 
 
-/// \brief
+/// @brief
 /// Interface for TCS3472(5) color sensor using (abstractions and functions from) HWLIB
-/// \details
+/// @details
 /// This class provides an interface for the TCS3472(5) color sensor
 /// This implementation only works for sensors with I2C address 0x29, which most of these sensors will have.
 /// To use this sensor in amounts more than one or with other devices that have the same address, you have the option to either define multiple I2C busses, or use an I2C multiplexer like the TCA9548A (I recommend the latter).
@@ -91,10 +104,10 @@ private:
     uint8_t* read_color_register(uint8_t reg_address);
     
 public:
-
-    /// \brief
+    // TODO: Get macros recognized as links in default values of constructor
+    /// @brief
     /// Constructor for tcs3472 color sensor 
-    /// \details
+    /// @details
     /// This constructor creates an interface for the tcs3472 color sensor IC.
     /// Default values are:
     ///     - ENABLE    : AEN | WEN
@@ -124,21 +137,21 @@ public:
     /// Start a sense cycle
     void start();
     
-    /// \brief
+    /// @brief
     /// Read raw data from clear, red, green, and blue registers
-    /// \return
-    /// Returns an array of integers (0-65535), indeces 0, 1, 2, 3 being C, R, G, and B respectively.
+    /// @return
+    /// Array of integers (0-65535), indeces 0, 1, 2, 3 being C, R, G, and B respectively.
     std::array<int, 4> get_rgb();
     
-    /// \brief
+    /// @brief
     /// Read data fron clear, red, green, and blue registers converted to explicit 8-bit values.
-    /// \return
-    /// Returns an array of 8-bit values (0-255), indeces 0, 1, 2, 3 being C, R, G, and B respectively.
+    /// @return
+    /// Array of 8-bit values (0-255), indeces 0, 1, 2, 3 being C, R, G, and B respectively.
     std::array<uint8_t, 4> get_rgb_8bit();
     
-    /// \brief
+    /// @brief
     /// Test if color sensor is available on I2C bus and functional.
-    /// \details
+    /// @details
     /// Execute a self-test program that reads the Device ID, tries to set certain configuration values and reads if said values are actually stored in the corresponding registers,
     /// and tests if the color sensor functions by executing two cycles and checking if values change between cycles
     /// Execution is terminated immediately if an error occurs, error codes correspond to:
@@ -150,7 +163,7 @@ public:
     ///     - 5 : error with WTIME register
     ///     - 6 : error with CONTROL register
     ///     - 7 : no change between cycles
-    /// \return
+    /// @return
     /// 0 on successful test, corresponding error code on failed test.
     int selftest();
     
