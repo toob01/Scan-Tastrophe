@@ -6,6 +6,8 @@ d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/
                               d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o) (__udivmoddi4)
 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_dvmd_tls.o)
                               d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o) (__aeabi_ldiv0)
+d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc.a(lib_a-memset.o)
+                              main.o (memset)
 
 Allocating common symbols
 Common symbol       size              file
@@ -850,8 +852,6 @@ Discarded input sections
                 0x00000000       0x14 hwlib.o
  .text._ZN5hwlib24uart_getc_bit_banged_pinERNS_6pin_inE
                 0x00000000       0x72 hwlib.o
- .text._ZN5hwlib7wait_msEi
-                0x00000000       0x16 hwlib.o
  .text._ZN5hwlib5blinkERNS_7pin_outEj
                 0x00000000       0x38 hwlib.o
  .text._ZN5hwlib5blinkERNS_10pin_in_outEj
@@ -1057,7 +1057,7 @@ Discarded input sections
  .group         0x00000000        0xc main.o
  .group         0x00000000        0xc main.o
  .group         0x00000000        0x8 main.o
- .group         0x00000000        0xc main.o
+ .group         0x00000000        0x8 main.o
  .group         0x00000000        0xc main.o
  .group         0x00000000        0xc main.o
  .group         0x00000000        0xc main.o
@@ -1093,6 +1093,8 @@ Discarded input sections
                 0x00000000        0x4 main.o
  .text._ZN5hwlib9uart_getcEv
                 0x00000000        0x4 main.o
+ .text._Z16write_start_stopRN5hwlib6pin_ocES1_
+                0x00000000       0x34 main.o
  .bss._ZZN3due9now_ticksEvE4high
                 0x00000000        0x8 main.o
  .bss._ZZN3due9now_ticksEvE8last_low
@@ -1131,6 +1133,9 @@ Discarded input sections
  .ARM.extab     0x00000000        0x0 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
  .data          0x00000000        0x0 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_dvmd_tls.o)
  .bss           0x00000000        0x0 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_dvmd_tls.o)
+ .text          0x00000000        0x0 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc.a(lib_a-memset.o)
+ .data          0x00000000        0x0 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc.a(lib_a-memset.o)
+ .bss           0x00000000        0x0 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc.a(lib_a-memset.o)
 
 Memory Configuration
 
@@ -1164,7 +1169,7 @@ LOAD d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib
                 [!provide]                PROVIDE (__ram_size = __ram_size)
                 [!provide]                PROVIDE (__ram_end = __ram_end)
 
-.text           0x00000000      0xcb4
+.text           0x00000000      0xe08
                 0x00000000                . = ALIGN (0x4)
                 0x00000000                __text_start = .
                 [!provide]                PROVIDE (__text_start = __text_start)
@@ -1230,138 +1235,147 @@ LOAD d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib
  .text._ZN5hwlib7wait_usEi
                 0x00000432       0x22 hwlib.o
                 0x00000432                hwlib::wait_us(int)
+ .text._ZN5hwlib7wait_msEi
+                0x00000454       0x16 hwlib.o
+                0x00000454                hwlib::wait_ms(int)
  .text._ZN5hwlib14i2c_primitives8read_ackEv
-                0x00000454       0x10 main.o
-                0x00000454                hwlib::i2c_primitives::read_ack()
+                0x0000046a       0x10 main.o
+                0x0000046a                hwlib::i2c_primitives::read_ack()
  .text._ZN5hwlib14i2c_primitives9write_ackEv
-                0x00000464        0x8 main.o
-                0x00000464                hwlib::i2c_primitives::write_ack()
+                0x0000047a        0x8 main.o
+                0x0000047a                hwlib::i2c_primitives::write_ack()
  .text._ZN5hwlib14i2c_primitives10write_nackEv
-                0x0000046c        0x8 main.o
-                0x0000046c                hwlib::i2c_primitives::write_nack()
+                0x00000482        0x8 main.o
+                0x00000482                hwlib::i2c_primitives::write_nack()
  .text._ZN5hwlib14i2c_primitives5writeEh
-                0x00000474       0x1c main.o
-                0x00000474                hwlib::i2c_primitives::write(unsigned char)
+                0x0000048a       0x1c main.o
+                0x0000048a                hwlib::i2c_primitives::write(unsigned char)
  .text._ZN5hwlib14i2c_primitives5writeEPKhj
-                0x00000490       0x24 main.o
-                0x00000490                hwlib::i2c_primitives::write(unsigned char const*, unsigned int)
+                0x000004a6       0x24 main.o
+                0x000004a6                hwlib::i2c_primitives::write(unsigned char const*, unsigned int)
  .text._ZN5hwlib14i2c_primitives9read_byteEv
-                0x000004b4       0x20 main.o
-                0x000004b4                hwlib::i2c_primitives::read_byte()
+                0x000004ca       0x20 main.o
+                0x000004ca                hwlib::i2c_primitives::read_byte()
  .text._ZN5hwlib14i2c_primitives4readEbPhj
-                0x000004d4       0x36 main.o
-                0x000004d4                hwlib::i2c_primitives::read(bool, unsigned char*, unsigned int)
+                0x000004ea       0x36 main.o
+                0x000004ea                hwlib::i2c_primitives::read(bool, unsigned char*, unsigned int)
  .text._ZN3due6pin_oc4readEv
-                0x0000050a       0x10 main.o
-                0x0000050a                due::pin_oc::read()
+                0x00000520       0x10 main.o
+                0x00000520                due::pin_oc::read()
  .text._ZN3due6pin_oc5writeEb
-                0x0000051a       0x10 main.o
-                0x0000051a                due::pin_oc::write(bool)
+                0x00000530       0x10 main.o
+                0x00000530                due::pin_oc::write(bool)
  .text._ZN3due6pin_oc5flushEv
-                0x0000052a        0x2 main.o
-                0x0000052a                due::pin_oc::flush()
+                0x00000540        0x2 main.o
+                0x00000540                due::pin_oc::flush()
  .text._ZN3due6pin_oc7refreshEv
-                0x0000052c        0x2 main.o
-                0x0000052c                due::pin_oc::refresh()
+                0x00000542        0x2 main.o
+                0x00000542                due::pin_oc::refresh()
+ .text._ZN5hwlib21i2c_write_transaction5writeEh.isra.0
+                0x00000544       0x18 main.o
  .text._ZN5hwlib26i2c_bus_bit_banged_scl_sda16wait_half_periodEv.isra.0
-                0x0000052e        0x6 main.o
- .text._ZN5hwlib26i2c_bus_bit_banged_scl_sda10write_stopEv
-                0x00000534       0x60 main.o
-                0x00000534                hwlib::i2c_bus_bit_banged_scl_sda::write_stop()
+                0x0000055c        0x6 main.o
  .text._ZN5hwlib26i2c_bus_bit_banged_scl_sda11write_startEv
-                0x00000594       0x34 main.o
-                0x00000594                hwlib::i2c_bus_bit_banged_scl_sda::write_start()
- .text._ZN5hwlib26i2c_bus_bit_banged_scl_sda8read_bitEv
-                0x000005c8       0x68 main.o
-                0x000005c8                hwlib::i2c_bus_bit_banged_scl_sda::read_bit()
+                0x00000562       0x34 main.o
+                0x00000562                hwlib::i2c_bus_bit_banged_scl_sda::write_start()
  .text._ZN5hwlib26i2c_bus_bit_banged_scl_sda9write_bitEb
-                0x00000630       0x52 main.o
-                0x00000630                hwlib::i2c_bus_bit_banged_scl_sda::write_bit(bool)
+                0x00000596       0x52 main.o
+                0x00000596                hwlib::i2c_bus_bit_banged_scl_sda::write_bit(bool)
+ .text._ZN5hwlib26i2c_bus_bit_banged_scl_sda8read_bitEv
+                0x000005e8       0x68 main.o
+                0x000005e8                hwlib::i2c_bus_bit_banged_scl_sda::read_bit()
+ .text._ZN5hwlib26i2c_bus_bit_banged_scl_sda10write_stopEv
+                0x00000650       0x60 main.o
+                0x00000650                hwlib::i2c_bus_bit_banged_scl_sda::write_stop()
+ .text._ZN5hwlib21i2c_write_transactionC2ERNS_14i2c_primitivesEj
+                0x000006b0       0x28 main.o
+                0x000006b0                hwlib::i2c_write_transaction::i2c_write_transaction(hwlib::i2c_primitives&, unsigned int)
+                0x000006b0                hwlib::i2c_write_transaction::i2c_write_transaction(hwlib::i2c_primitives&, unsigned int)
  .text._ZN5hwlib21i2c_write_transactionD2Ev
-                0x00000682       0x26 main.o
-                0x00000682                hwlib::i2c_write_transaction::~i2c_write_transaction()
-                0x00000682                hwlib::i2c_write_transaction::~i2c_write_transaction()
+                0x000006d8       0x26 main.o
+                0x000006d8                hwlib::i2c_write_transaction::~i2c_write_transaction()
+                0x000006d8                hwlib::i2c_write_transaction::~i2c_write_transaction()
+ *fill*         0x000006fe        0x2 
  .text._ZN3due6pin_ocC2ENS_4pinsE
-                0x000006a8       0x34 main.o
-                0x000006a8                due::pin_oc::pin_oc(due::pins)
-                0x000006a8                due::pin_oc::pin_oc(due::pins)
- .text._ZN7i2c_mux6selectEi
-                0x000006dc       0x56 main.o
-                0x000006dc                i2c_mux::select(int)
- *fill*         0x00000732        0x2 
+                0x00000700       0x34 main.o
+                0x00000700                due::pin_oc::pin_oc(due::pins)
+                0x00000700                due::pin_oc::pin_oc(due::pins)
  .text.startup.main
-                0x00000734       0xfc main.o
+                0x00000734      0x1bc main.o
                 0x00000734                main
  .text.__startup
-                0x00000830       0x40 bmptk_cortex.o
-                0x00000830                __startup
- .text          0x00000870       0x30 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
-                0x00000870                __aeabi_uldivmod
- .text          0x000008a0      0x2c4 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
-                0x000008a0                __udivmoddi4
- .text          0x00000b64        0x4 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_dvmd_tls.o)
-                0x00000b64                __aeabi_ldiv0
-                0x00000b68                . = ALIGN (0x4)
+                0x000008f0       0x40 bmptk_cortex.o
+                0x000008f0                __startup
+ .text          0x00000930       0x30 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
+                0x00000930                __aeabi_uldivmod
+ .text          0x00000960      0x2c4 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
+                0x00000960                __udivmoddi4
+ .text          0x00000c24        0x4 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_dvmd_tls.o)
+                0x00000c24                __aeabi_ldiv0
+ .text.memset   0x00000c28       0xa0 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc.a(lib_a-memset.o)
+                0x00000c28                memset
+                0x00000cc8                . = ALIGN (0x4)
  *(.glue_7t .glue_7)
- .glue_7        0x00000b68        0x0 linker stubs
- .glue_7t       0x00000b68        0x0 linker stubs
-                0x00000b68                . = ALIGN (0x4)
+ .glue_7        0x00000cc8        0x0 linker stubs
+ .glue_7t       0x00000cc8        0x0 linker stubs
+                0x00000cc8                . = ALIGN (0x4)
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata._ZN3due8pin_infoENS_4pinsE.str1.1
-                0x00000b68       0x32 hwlib.o
- *fill*         0x00000b9a        0x2 
+                0x00000cc8       0x32 hwlib.o
+ *fill*         0x00000cfa        0x2 
  .rodata._ZTVN5hwlib20cout_using_uart_putcE
-                0x00000b9c       0x10 hwlib.o
-                0x00000b9c                vtable for hwlib::cout_using_uart_putc
+                0x00000cfc       0x10 hwlib.o
+                0x00000cfc                vtable for hwlib::cout_using_uart_putc
  .rodata._ZZN3due8pin_infoENS_4pinsEE14pin_info_array
-                0x00000bac       0xa4 hwlib.o
+                0x00000d0c       0xa4 hwlib.o
  .rodata.main.str1.1
-                0x00000c50       0x17 main.o
- *fill*         0x00000c67        0x1 
+                0x00000db0        0x9 main.o
+                                  0xc (size before relaxing)
+ *fill*         0x00000db9        0x3 
  .rodata._ZTVN5hwlib26i2c_bus_bit_banged_scl_sdaE
-                0x00000c68       0x34 main.o
-                0x00000c68                vtable for hwlib::i2c_bus_bit_banged_scl_sda
+                0x00000dbc       0x34 main.o
+                0x00000dbc                vtable for hwlib::i2c_bus_bit_banged_scl_sda
  .rodata._ZTVN3due6pin_ocE
-                0x00000c9c       0x18 main.o
-                0x00000c9c                vtable for due::pin_oc
-                0x00000cb4                . = ALIGN (0x4)
+                0x00000df0       0x18 main.o
+                0x00000df0                vtable for due::pin_oc
+                0x00000e08                . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x00000cb4                . = ALIGN (0x4)
+                0x00000e08                . = ALIGN (0x4)
  *(.gcc_except_table)
-                0x00000cb4                . = ALIGN (0x4)
+                0x00000e08                . = ALIGN (0x4)
  *(.eh_frame_hdr)
-                0x00000cb4                . = ALIGN (0x4)
+                0x00000e08                . = ALIGN (0x4)
  *(.eh_frame)
-                0x00000cb4                . = ALIGN (0x4)
-                0x00000cb4                __text_end = .
+                0x00000e08                . = ALIGN (0x4)
+                0x00000e08                __text_end = .
                 [!provide]                PROVIDE (__text_end = __text_end)
 
-.vfp11_veneer   0x00000cb4        0x0
- .vfp11_veneer  0x00000cb4        0x0 linker stubs
+.vfp11_veneer   0x00000e08        0x0
+ .vfp11_veneer  0x00000e08        0x0 linker stubs
 
-.v4_bx          0x00000cb4        0x0
- .v4_bx         0x00000cb4        0x0 linker stubs
+.v4_bx          0x00000e08        0x0
+ .v4_bx         0x00000e08        0x0 linker stubs
 
-.iplt           0x00000cb4        0x0
- .iplt          0x00000cb4        0x0 hwlib.o
+.iplt           0x00000e08        0x0
+ .iplt          0x00000e08        0x0 hwlib.o
 
 .IF_YOU_SEE_THIS_YOU_HAVE_ONE_OR_MORE_GLOBAL_OBJECT_CONSTRUCTORS
  *(.init)
  *(.preinit_array)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array)
-                0x00000cb4                . = ALIGN (0x4)
-                0x00000cb4                __exidx_start = .
+                0x00000e08                . = ALIGN (0x4)
+                0x00000e08                __exidx_start = .
                 [!provide]                PROVIDE (__exidx_start = __exidx_start)
 
-.ARM.exidx      0x00000cb4        0x8
+.ARM.exidx      0x00000e08        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x00000cb4        0x8 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
+ .ARM.exidx     0x00000e08        0x8 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
 
-.rel.dyn        0x00000cbc        0x0
- .rel.iplt      0x00000cbc        0x0 hwlib.o
-                0x00000cbc                . = ALIGN (0x4)
-                0x00000cbc                __exidx_end = .
+.rel.dyn        0x00000e10        0x0
+ .rel.iplt      0x00000e10        0x0 hwlib.o
+                0x00000e10                . = ALIGN (0x4)
+                0x00000e10                __exidx_end = .
                 [!provide]                PROVIDE (__exidx_end = __exidx_end)
 
 .bss            0x20070000    0x12020
@@ -1408,9 +1422,9 @@ LOAD d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib
                 0x20082020                __bss_end = .
                 [!provide]                PROVIDE (__bss_end = __bss_end)
 
-.data           0x20082020       0x1c load address 0x00000cbc
+.data           0x20082020       0x1c load address 0x00000e10
                 0x20082020                . = ALIGN (0x4)
-                0x00000cbc                __data_init_start = LOADADDR (.data)
+                0x00000e10                __data_init_start = LOADADDR (.data)
                 [!provide]                PROVIDE (__data_init_start = __data_init_start)
                 0x20082020                __data_start = .
                 [!provide]                PROVIDE (__data_start = __data_start)
@@ -1428,13 +1442,13 @@ LOAD d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib
                 0x2008203c                . = ALIGN (0x4)
                 0x2008203c                __data_end = .
                 [!provide]                PROVIDE (__data_end = __data_end)
-                0x00000cbc                __data_init_end = LOADADDR (.data)
+                0x00000e10                __data_init_end = LOADADDR (.data)
                 [!provide]                PROVIDE (__data_init_end = __data_init_end)
                 [!provide]                PROVIDE (__data_size = (__data_end - __data_start))
                 [!provide]                PROVIDE (__data_init_size = __data_size)
                 [!provide]                PROVIDE (__data_init_end = (__data_init_start + __data_init_size))
 
-.igot.plt       0x2008203c        0x0 load address 0x00000cd8
+.igot.plt       0x2008203c        0x0 load address 0x00000e2c
  .igot.plt      0x2008203c        0x0 hwlib.o
                 0x2008203c                . = ALIGN (0x4)
                 0x2008203c                __heap_start = .
@@ -1476,10 +1490,11 @@ LOAD d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib
 .debug_line
  *(.debug_line)
 
-.debug_frame    0x00000000       0x60
+.debug_frame    0x00000000       0x98
  *(.debug_frame)
  .debug_frame   0x00000000       0x2c d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
  .debug_frame   0x0000002c       0x34 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x00000060       0x38 d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc.a(lib_a-memset.o)
 
 .comment        0x00000000       0x79
  .comment       0x00000000       0x79 hwlib.o
@@ -1531,6 +1546,8 @@ LOAD d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib
                 0x00000104       0x2d d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
  .ARM.attributes
                 0x00000131       0x1d d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7-m/nofp\libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x0000014e       0x2d d:/school/ti_environment/gcc-arm-none-eabi-9-2019-q4-major-win32/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc.a(lib_a-memset.o)
 
 /DISCARD/
  *(.note.GNU-stack)

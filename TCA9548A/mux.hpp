@@ -19,5 +19,11 @@ public:
         trans.write(1 << output);
         return output;
     };
+    
+//    void select_write(int output, uint8_t data){
+//        select(output);
+//        auto trans = hwlib::i2c_write_transaction(i2c_bus, address);
+//        trans.write(data);
+//    }
 }; // class i2c_mux
 #endif // MUX_HPP
