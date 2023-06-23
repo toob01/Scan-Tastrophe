@@ -11,7 +11,7 @@ void tcs3472::set_active_register_single_byte(uint8_t reg_address) {
 }
 
 int tcs3472::get_wait_time() {
-    int time_ms = 0;
+    int time_ms = 50;
     switch(atime_option) {
         case SET_ATIME_2_4MS:
             time_ms += 3;
@@ -114,8 +114,7 @@ std::array<uint8_t, 2> tcs3472::read_color_register(uint8_t reg_address) {
         auto trans = hwlib::i2c_read_transaction(bus, 0x29);
         trans.read(data, 2);
     }
-    hwlib::cout << hwlib::bin << ((data[0] << 8) | data[1]);
-    std::array<uint8_t, 2> read_data = {data[0], data[1]};
+    std::array<uint8_t, 2> read_data = {data[1], data[0]};
     return read_data;
 }
 
@@ -143,35 +142,41 @@ int tcs3472::read_blue() {
     return ((blue_data[0] << 8) | blue_data[1]);
 }
 
+void tcs3472::sleep(){
+    set_active_register_single_byte(ENABLE);
+    auto sleep_trans = hwlib::i2c_write_transaction(bus, TCS);
+    sleep_trans.write(enable_option & (~SET_PON));
+}
+
+void tcs3472::wake() {
+    set_active_register_single_byte(ENABLE);
+    auto sleep_trans = hwlib::i2c_write_transaction(bus, TCS);
+    sleep_trans.write(enable_option | SET_PON);
+}
+
 void tcs3472::start() {
-//    set_active_register_single_byte(ENABLE);
-//    {
-//        auto pon_trans = hwlib::i2c_write_transaction(bus, TCS);
-//        pon_trans.write(SET_AEN|SET_WEN|SET_PON);
-//    }
-//    {
-//        auto start_trans = hwlib::i2c_write_transaction(bus, TCS);
-//        hwlib::wait_ms(get_wait_time());
-//    }
     uint8_t current_enable;
     current_enable = read_register(ENABLE);
-//    { // select enable register
-//        auto trans = hwlib::i2c_write_transaction(bus, 0x29);
-//        trans.write(0x80);
-//    }
+    enable_option = current_enable;
     set_active_register_single_byte(ENABLE);
-    { // write AEN | WEN | PON
-        auto trans = hwlib::i2c_write_transaction(bus, 0x29);
+    { // write AEN
+        auto trans = hwlib::i2c_write_transaction(bus, TCS);
         trans.write(0x03 | current_enable);
+        enable_option = SET_AEN | current_enable;
+        hwlib::wait_ms(3);
     }
     { // start transaction
-        auto start = hwlib::i2c_write_transaction(bus, 0x29);
-        hwlib::wait_ms(1000);
+        auto start = hwlib::i2c_write_transaction(bus, TCS);
+        hwlib::wait_ms(get_wait_time());
+    }
+    {
+        auto poff = hwlib::i2c_write_transaction(bus, TCS);
+        poff.write(current_enable & (~SET_AEN));
     }
 }
 
 std::array<int, 4> tcs3472::get_rgb() {
-    std::array<int, 4> rgb_data_raw;
+    std::array<int, 4> rgb_data_raw = {0, 0, 0, 0};
     rgb_data_raw[0] = read_clear();
     rgb_data_raw[1] = read_red();
     rgb_data_raw[2] = read_green();
@@ -180,7 +185,7 @@ std::array<int, 4> tcs3472::get_rgb() {
 }
 
 std::array<uint8_t, 4> tcs3472::get_rgb_8bit() {
-    std::array<uint8_t, 4> rgb_data_8bit;
+    std::array<uint8_t, 4> rgb_data_8bit = {0, 0, 0, 0};
     rgb_data_8bit[0] = sqrt(read_clear());
     rgb_data_8bit[1] = sqrt(read_red());
     rgb_data_8bit[2] = sqrt(read_green());
@@ -209,8 +214,8 @@ void tcs3472::reset_factory_settings() {
     set_active_register_single_byte(ENABLE);
     {
         auto enable_trans = hwlib::i2c_write_transaction(bus, TCS);
-        enable_trans.write(SET_PON);
-        enable_option = (SET_AEN|SET_WEN);
+        enable_trans.write(SET_AEN|SET_PON);
+        enable_option = (SET_AEN|SET_PON);
     }
     
     set_active_register_single_byte(ATIME);

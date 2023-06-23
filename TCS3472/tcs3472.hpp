@@ -102,6 +102,12 @@ private:
     void set_active_register_multi_byte(uint8_t reg_address);
     int get_wait_time();
     std::array<uint8_t, 2> read_color_register(uint8_t reg_address);
+    /// Set configuration to default values as described in constructor:
+    ///     - ENABLE    : AEN | PON (0x03)
+    ///     - ATIME     : 2.4 ms (0xFF)
+    ///     - WTIME     : 2.4 ms (0xFF)
+    ///     - AGAIN     : 4X (0x01)
+    void reset_factory_settings();
     
 public:
     // TODO: Get macros recognized as links in default values of constructor
@@ -133,6 +139,10 @@ public:
     
     /// Read 16-bit data from Blue data register
     int read_blue();
+    
+    void sleep();
+    
+    void wake();
     
     /// Start a sense cycle
     void start();
@@ -168,13 +178,6 @@ public:
     int selftest();
     
     std::array<uint8_t, 4> read_config();
-    
-    /// Set configuration to default values as described in constructor:
-    ///     - ENABLE    : AEN | WEN (0x0A)
-    ///     - ATIME     : 2.4 ms (0xFF)
-    ///     - WTIME     : 2.4 ms (0xFF)
-    ///     - AGAIN     : 4X (0x01)
-    void reset_factory_settings();
     
 };
 

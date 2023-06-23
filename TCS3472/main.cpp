@@ -11,14 +11,21 @@ int main(int argc, char **argv){
     uint8_t mux_address = 0x70;
     
     auto mux = i2c_mux(i2c_bus, mux_address);
-    mux.select(0);
-    auto tcs0 = tcs3472(i2c_bus, SET_AEN|SET_WEN, SET_ATIME_2_4MS, SET_WTIME_2_4MS, SET_AGAIN_60X);
+    mux.select(4);
+    auto tcs0 = tcs3472(i2c_bus, SET_AEN|SET_PON, SET_ATIME_614MS, SET_WTIME_2_4MS, SET_AGAIN_4X);
 
     tcs0.start();
     auto data_clear = tcs0.read_clear();
     hwlib::cout << "\n" << data_clear << "\n";
-    auto data_red = tcs0.read_red();
-    hwlib::cout << "\n" << data_red << "\n";
+    for(int i=0; i < 20; i++){
+        tcs0.start();
+        hwlib::wait_ms(100);
+        auto data_clear = tcs0.read_clear();
+        hwlib::cout << "\n" << data_clear << "\n";
+    }
+
+//    auto data_red = tcs0.read_red();
+//    hwlib::cout << "\n" << data_red << "\n";
     
 //    std::array<int, 4> rgb_data = tcs0.get_rgb();
 //    hwlib::cout << "TCS 0 data : \n";
