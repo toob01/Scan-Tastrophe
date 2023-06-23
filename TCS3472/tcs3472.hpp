@@ -60,7 +60,7 @@
 #define SET_ATIME_50MS 0xEB
 #define SET_ATIME_101MS 0xD5
 #define SET_ATIME_154MS 0xC0
-#define SET_ATIME_700MS 0x00
+#define SET_ATIME_614MS 0x00
 /// @}
 
 /// @name Wait time definitions
@@ -98,10 +98,10 @@ private:
     uint8_t wtime_option;
     uint8_t again_option;
     
-    void set_active_register_new_trans(uint8_t reg_address);
-    void set_active_register_existing_trans(hwlib::i2c_write_transaction & set_trans, uint8_t reg_address);
+    void set_active_register_single_byte(uint8_t reg_address);
+    void set_active_register_multi_byte(uint8_t reg_address);
     int get_wait_time();
-    uint8_t* read_color_register(uint8_t reg_address);
+    std::array<uint8_t, 2> read_color_register(uint8_t reg_address);
     
 public:
     // TODO: Get macros recognized as links in default values of constructor
@@ -114,7 +114,7 @@ public:
     ///     - ATIME     : 2.4 ms
     ///     - WTIME     : 2.4 ms
     ///     - AGAIN     : 4X
-    tcs3472(hwlib::i2c_primitives & bus, uint8_t c_enable_option, uint8_t c_atime_option, uint8_t c_wtime_option, uint8_t c_again_option);
+    tcs3472(hwlib::i2c_primitives & c_bus, uint8_t c_enable_option=SET_AEN|SET_WEN, uint8_t c_atime_option=SET_ATIME_2_4MS, uint8_t c_wtime_option=SET_WTIME_2_4MS, uint8_t c_again_option=SET_AGAIN_4X);
     
     /// Destructor for tcs3472 color sensor, resets all configurations to default values as described in constructor.
     ~tcs3472();
@@ -167,11 +167,13 @@ public:
     /// 0 on successful test, corresponding error code on failed test.
     int selftest();
     
+    std::array<uint8_t, 4> read_config();
+    
     /// Set configuration to default values as described in constructor:
-    ///     - ENABLE    : AEN | WEN
-    ///     - ATIME     : 2.4 ms
-    ///     - WTIME     : 2.4 ms
-    ///     - AGAIN     : 4X
+    ///     - ENABLE    : AEN | WEN (0x0A)
+    ///     - ATIME     : 2.4 ms (0xFF)
+    ///     - WTIME     : 2.4 ms (0xFF)
+    ///     - AGAIN     : 4X (0x01)
     void reset_factory_settings();
     
 };
