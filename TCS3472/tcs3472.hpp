@@ -23,8 +23,8 @@
 /// @name Color register (low bit) address definitions.
 /// @{
 #define RDATA 0x16
-#define BDATA 0x18
-#define GDATA 0x1A
+#define GDATA 0x18
+#define BDATA 0x1A
 #define CDATA 0x14
 /// @}
 
@@ -38,12 +38,11 @@
 
 /// @name Device configuration register address definitions
 /// @{
-#define ENABLE 0x00
-#define ATIME 0x01
-#define WTIME 0x03
-#define WLONG 0x0D
-#define AGAIN 0x0F
-#define STATUS 0x13
+#define TCS_ENABLE 0x00
+#define TCS_ATIME 0x01
+#define TCS_WTIME 0x03
+#define TCS_AGAIN 0x0F
+#define TCS_STATUS 0x13
 /// @}
 
 /// @name Enable register options
@@ -60,13 +59,32 @@
 #define SET_ATIME_50MS 0xEB
 #define SET_ATIME_101MS 0xD5
 #define SET_ATIME_154MS 0xC0
+#define SET_ATIME_200MS 0XAC
+#define SET_ATIME_267MS 0X90
+#define SET_ATIME_320MS 0X7A
+#define SET_ATIME_385MS 0X5F
+#define SET_ATIME_420MS 0X50
+#define SET_ATIME_500MS 0X2F
+#define SET_ATIME_532MS 0X22
+#define SET_ATIME_570MS 0X12
 #define SET_ATIME_614MS 0x00
 /// @}
 
 /// @name Wait time definitions
 /// @{
 #define SET_WTIME_2_4MS 0xFF
-#define SET_WTIME_204MS 0xAB
+#define SET_WTIME_24MS 0xF6
+#define SET_WTIME_50MS 0xEB
+#define SET_WTIME_101MS 0xD5
+#define SET_WTIME_154MS 0xC0
+#define SET_WTIME_200MS 0XAC
+#define SET_WTIME_267MS 0X90
+#define SET_WTIME_320MS 0X7A
+#define SET_WTIME_385MS 0X5F
+#define SET_WTIME_420MS 0X50
+#define SET_WTIME_500MS 0X2F
+#define SET_WTIME_532MS 0X22
+#define SET_WTIME_570MS 0X12
 #define SET_WTIME_614MS 0x00
 /// @}
 
@@ -100,14 +118,8 @@ private:
     
     void set_active_register_single_byte(uint8_t reg_address);
     void set_active_register_multi_byte(uint8_t reg_address);
-    int get_wait_time();
     std::array<uint8_t, 2> read_color_register(uint8_t reg_address);
-    /// Set configuration to default values as described in constructor:
-    ///     - ENABLE    : AEN | PON (0x03)
-    ///     - ATIME     : 2.4 ms (0xFF)
-    ///     - WTIME     : 2.4 ms (0xFF)
-    ///     - AGAIN     : 4X (0x01)
-    void reset_factory_settings();
+    int get_wait_time();
     
 public:
     // TODO: Get macros recognized as links in default values of constructor
@@ -116,18 +128,15 @@ public:
     /// @details
     /// This constructor creates an interface for the tcs3472 color sensor IC.
     /// Default values are:
-    ///     - ENABLE    : AEN | WEN
+    ///     - TCS_ENABLE    : AEN | PON
     ///     - ATIME     : 2.4 ms
     ///     - WTIME     : 2.4 ms
-    ///     - AGAIN     : 4X
-    tcs3472(hwlib::i2c_primitives & c_bus, uint8_t c_enable_option=SET_AEN|SET_WEN, uint8_t c_atime_option=SET_ATIME_2_4MS, uint8_t c_wtime_option=SET_WTIME_2_4MS, uint8_t c_again_option=SET_AGAIN_4X);
-    
-    /// Destructor for tcs3472 color sensor, resets all configurations to default values as described in constructor.
-    ~tcs3472();
+    ///     - AGAIN     : 1X
+    tcs3472(hwlib::i2c_primitives & c_bus, uint8_t c_enable_option=SET_AEN|SET_PON, uint8_t c_atime_option=SET_ATIME_2_4MS, uint8_t c_wtime_option=SET_WTIME_2_4MS, uint8_t c_again_option=SET_AGAIN_1X);
     
     /// Read a register specified by address
     int read_register(uint8_t reg_address);
-
+    
     /// Read 16-bit data from Clear data register
     int read_clear();
     
@@ -148,37 +157,36 @@ public:
     void start();
     
     /// @brief
-    /// Read raw data from clear, red, green, and blue registers
+    /// Read raw data from red, green, blue, and clear registers
     /// @return
-    /// Array of integers (0-65535), indeces 0, 1, 2, 3 being C, R, G, and B respectively.
-    std::array<int, 4> get_rgb();
+    /// Array of integers (0-65535), indeces 0, 1, 2, 3 being R, G, B, and C respectively.
+    std::array<int, 4> read_rgbc();
     
     /// @brief
-    /// Read data fron clear, red, green, and blue registers converted to explicit 8-bit values.
+    /// Convert values from RGBC to RGB representation.
+    /// @param rgbc
+    /// an array of 4 integer values corresponding to R, G, B, and C.
     /// @return
-    /// Array of 8-bit values (0-255), indeces 0, 1, 2, 3 being C, R, G, and B respectively.
-    std::array<uint8_t, 4> get_rgb_8bit();
+    /// Array of three 8-bit values (0-255), indeces 0, 1, 2 being R, G, and B values
+    std::array<uint8_t, 3> calculate_rgb_array(const std::array<int, 4> & rgbc);
     
     /// @brief
-    /// Test if color sensor is available on I2C bus and functional.
-    /// @details
-    /// Execute a self-test program that reads the Device ID, tries to set certain configuration values and reads if said values are actually stored in the corresponding registers,
-    /// and tests if the color sensor functions by executing two cycles and checking if values change between cycles
-    /// Execution is terminated immediately if an error occurs, error codes correspond to:
-    ///     - 0 : no errors
-    ///     - 1 : problem with I2C communication
-    ///     - 2 : unknown device ID
-    ///     - 3 : error with enable register
-    ///     - 4 : error with ATIME register
-    ///     - 5 : error with WTIME register
-    ///     - 6 : error with CONTROL register
-    ///     - 7 : no change between cycles
+    /// Convert values from RGBC to RGB representation, individual parameters per channel.
+    /// @param red
+    /// (16-bit) integer red channel value
+    /// @param green
+    /// (16-bit) integer green channel value
+    /// @param blue
+    /// (16-bit) integer blue channel value
+    /// @param clear
+    /// (16-bit) integer clear channel value
     /// @return
-    /// 0 on successful test, corresponding error code on failed test.
-    int selftest();
+    /// Array of three 8-bit values (0-255), indeces 0, 1, 2 being R, G, and B values
+    std::array<uint8_t, 3> calculate_rgb_array(int red, int green, int blue, int clear);
     
-    std::array<uint8_t, 4> read_config();
+    int calculate_rgb_integer(std::array<int, 4> rgbc);
     
+    void reload_config();
 };
 
 #endif // TCS3472_HPP

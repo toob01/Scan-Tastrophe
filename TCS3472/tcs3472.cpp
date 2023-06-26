@@ -5,47 +5,128 @@ void tcs3472::set_active_register_multi_byte(uint8_t reg_address) {
     set_trans.write(0xA0 | reg_address);
 }
 
+
 void tcs3472::set_active_register_single_byte(uint8_t reg_address) {
     auto set_trans = hwlib::i2c_write_transaction(bus, TCS);
     set_trans.write(0x80 | reg_address);
 }
 
+
 int tcs3472::get_wait_time() {
-    int time_ms = 50;
-    switch(atime_option) {
+    int time_ms = 5;
+    switch (atime_option) {
         case SET_ATIME_2_4MS:
             time_ms += 3;
             break;
-            
+
         case SET_ATIME_24MS:
             time_ms += 25;
             break;
-            
+
         case SET_ATIME_50MS:
             time_ms += 51;
             break;
-            
+
         case SET_ATIME_101MS:
             time_ms += 102;
             break;
-            
+
         case SET_ATIME_154MS:
             time_ms += 155;
             break;
-            
+
+        case SET_ATIME_200MS:
+            time_ms += 201;
+            break;
+
+        case SET_ATIME_267MS:
+            time_ms += 268;
+            break;
+
+        case SET_ATIME_320MS:
+            time_ms += 321;
+            break;
+
+        case SET_ATIME_385MS:
+            time_ms += 386;
+            break;
+
+        case SET_ATIME_420MS:
+            time_ms += 421;
+            break;
+
+        case SET_ATIME_500MS:
+            time_ms += 501;
+            break;
+
+        case SET_ATIME_532MS:
+            time_ms += 533;
+            break;
+
+        case SET_ATIME_570MS:
+            time_ms += 571;
+            break;
+
         case SET_ATIME_614MS:
             time_ms += 615;
             break;
     }
+
     
     if((enable_option & SET_WEN) == SET_WEN){
-        switch(wtime_option){
+        switch (wtime_option) {
             case SET_WTIME_2_4MS:
                 time_ms += 3;
                 break;
-            case SET_WTIME_204MS:
-                time_ms += 205;
+
+            case SET_WTIME_24MS:
+                time_ms += 25;
                 break;
+
+            case SET_WTIME_50MS:
+                time_ms += 51;
+                break;
+
+            case SET_WTIME_101MS:
+                time_ms += 102;
+                break;
+
+            case SET_WTIME_154MS:
+                time_ms += 155;
+                break;
+
+            case SET_WTIME_200MS:
+                time_ms += 201;
+                break;
+
+            case SET_WTIME_267MS:
+                time_ms += 268;
+                break;
+
+            case SET_WTIME_320MS:
+                time_ms += 321;
+                break;
+
+            case SET_WTIME_385MS:
+                time_ms += 386;
+                break;
+
+            case SET_WTIME_420MS:
+                time_ms += 421;
+                break;
+
+            case SET_WTIME_500MS:
+                time_ms += 501;
+                break;
+
+            case SET_WTIME_532MS:
+                time_ms += 533;
+                break;
+
+            case SET_WTIME_570MS:
+                time_ms += 571;
+                break;
+
             case SET_WTIME_614MS:
                 time_ms += 615;
                 break;
@@ -53,6 +134,7 @@ int tcs3472::get_wait_time() {
     }
     return time_ms;
 }
+
 
 tcs3472::tcs3472(hwlib::i2c_primitives & c_bus, uint8_t c_enable_option, uint8_t c_atime_option, uint8_t c_wtime_option, uint8_t c_again_option):
     bus(c_bus),
@@ -62,41 +144,38 @@ tcs3472::tcs3472(hwlib::i2c_primitives & c_bus, uint8_t c_enable_option, uint8_t
     again_option(c_again_option)
 {
     // write enable
-    set_active_register_single_byte(ENABLE);
+    set_active_register_single_byte(TCS_ENABLE);
     {
         auto enable_trans = hwlib::i2c_write_transaction(bus, TCS);
         enable_trans.write(enable_option);
     }
     
     // write atime
-    set_active_register_single_byte(ATIME);
+    set_active_register_single_byte(TCS_ATIME);
     {
         auto atime_trans = hwlib::i2c_write_transaction(bus, TCS);
         atime_trans.write(atime_option);
     }
     
     // write wtime
-    set_active_register_single_byte(WTIME);
+    set_active_register_single_byte(TCS_WTIME);
     {
         auto wtime_trans = hwlib::i2c_write_transaction(bus, TCS);
         wtime_trans.write(wtime_option);
     }
     
     // write again
-    set_active_register_single_byte(AGAIN);
+    set_active_register_single_byte(TCS_AGAIN);
     {
         auto again_trans = hwlib::i2c_write_transaction(bus, TCS);
         again_trans.write(again_option);
     }
 }
 
-tcs3472::~tcs3472() {
-    
-}
 
 int tcs3472::read_register(uint8_t reg_address) {
     uint8_t read_data;
-    set_active_register_single_byte(reg_address);
+    set_active_register_multi_byte(reg_address);
     {
         auto read_trans = hwlib::i2c_read_transaction(bus, TCS);
         read_trans.read(read_data);
@@ -104,12 +183,10 @@ int tcs3472::read_register(uint8_t reg_address) {
     return read_data;
 }
 
+
 std::array<uint8_t, 2> tcs3472::read_color_register(uint8_t reg_address) {
     uint8_t data[2] = {0, 0};
-    { // select register in auto-increment mode
-        auto fuck = hwlib::i2c_write_transaction(bus, 0x29);
-        fuck.write(0b10100000 | reg_address);
-    }
+    set_active_register_multi_byte(reg_address);
     { // read 2 bytes from register
         auto trans = hwlib::i2c_read_transaction(bus, 0x29);
         trans.read(data, 2);
@@ -118,11 +195,13 @@ std::array<uint8_t, 2> tcs3472::read_color_register(uint8_t reg_address) {
     return read_data;
 }
 
+
 int tcs3472::read_clear() {
     std::array<uint8_t, 2> clear_data;
     clear_data = read_color_register(CDATA);
     return ((clear_data[0] << 8) | clear_data[1]);
 }
+
 
 int tcs3472::read_red() {
     std::array<uint8_t, 2> red_data;
@@ -130,11 +209,13 @@ int tcs3472::read_red() {
     return ((red_data[0] << 8) | red_data[1]);
 }
 
+
 int tcs3472::read_green() {
     std::array<uint8_t, 2> green_data;
     green_data = read_color_register(GDATA);
     return ((green_data[0] << 8) | green_data[1]);
 }
+
 
 int tcs3472::read_blue() {
     std::array<uint8_t, 2> blue_data;
@@ -142,100 +223,110 @@ int tcs3472::read_blue() {
     return ((blue_data[0] << 8) | blue_data[1]);
 }
 
+
 void tcs3472::sleep(){
-    set_active_register_single_byte(ENABLE);
-    auto sleep_trans = hwlib::i2c_write_transaction(bus, TCS);
-    sleep_trans.write(enable_option & (~SET_PON));
+    {
+        set_active_register_single_byte(TCS_ENABLE);
+        auto sleep_trans = hwlib::i2c_write_transaction(bus, TCS);
+        sleep_trans.write(enable_option & (~SET_PON));
+        enable_option &= (~SET_PON);
+    }
+    hwlib::wait_ms(5);
 }
+
 
 void tcs3472::wake() {
-    set_active_register_single_byte(ENABLE);
-    auto sleep_trans = hwlib::i2c_write_transaction(bus, TCS);
-    sleep_trans.write(enable_option | SET_PON);
+    {
+        set_active_register_single_byte(TCS_ENABLE);
+        auto sleep_trans = hwlib::i2c_write_transaction(bus, TCS);
+        sleep_trans.write(enable_option | SET_PON);
+        enable_option |= SET_PON;
+    }
+    hwlib::wait_ms(5);
 }
 
+
 void tcs3472::start() {
-    uint8_t current_enable;
-    current_enable = read_register(ENABLE);
-    enable_option = current_enable;
-    set_active_register_single_byte(ENABLE);
+    set_active_register_single_byte(TCS_ENABLE);
     { // write AEN
         auto trans = hwlib::i2c_write_transaction(bus, TCS);
-        trans.write(0x03 | current_enable);
-        enable_option = SET_AEN | current_enable;
+        trans.write(enable_option | SET_AEN);
+        enable_option |= SET_AEN;
         hwlib::wait_ms(3);
     }
     { // start transaction
         auto start = hwlib::i2c_write_transaction(bus, TCS);
-        hwlib::wait_ms(get_wait_time());
     }
-    {
-        auto poff = hwlib::i2c_write_transaction(bus, TCS);
-        poff.write(current_enable & (~SET_AEN));
-    }
+        int time = get_wait_time();
+        hwlib::wait_ms(time);
 }
 
-std::array<int, 4> tcs3472::get_rgb() {
+
+std::array<int, 4> tcs3472::read_rgbc() {
     std::array<int, 4> rgb_data_raw = {0, 0, 0, 0};
-    rgb_data_raw[0] = read_clear();
-    rgb_data_raw[1] = read_red();
-    rgb_data_raw[2] = read_green();
-    rgb_data_raw[3] = read_blue();
+    rgb_data_raw[0] = read_red();
+    rgb_data_raw[1] = read_green();
+    rgb_data_raw[2] = read_blue();
+    rgb_data_raw[3] = read_clear();
     return rgb_data_raw;
 }
 
-std::array<uint8_t, 4> tcs3472::get_rgb_8bit() {
-    std::array<uint8_t, 4> rgb_data_8bit = {0, 0, 0, 0};
-    rgb_data_8bit[0] = sqrt(read_clear());
-    rgb_data_8bit[1] = sqrt(read_red());
-    rgb_data_8bit[2] = sqrt(read_green());
-    rgb_data_8bit[3] = sqrt(read_blue());
+
+std::array<uint8_t, 3> tcs3472::calculate_rgb_array(const std::array<int, 4> & rgbc) {
+    std::array<uint8_t, 3> rgb_data_8bit = {0, 0, 0};
+    
+    rgb_data_8bit[0] = static_cast<float>(rgbc[0]) / static_cast<float>(rgbc[3]) * 255;
+    rgb_data_8bit[1] = static_cast<float>(rgbc[1]) / static_cast<float>(rgbc[3]) * 255;
+    rgb_data_8bit[2] = static_cast<float>(rgbc[2]) / static_cast<float>(rgbc[3]) * 255;
+
     return rgb_data_8bit;
 }
 
-int tcs3472::selftest() {
-    return 0;
+std::array<uint8_t, 3> tcs3472::calculate_rgb_array(int red, int green, int blue, int clear){
+    std::array<uint8_t, 3> rgb_data_8bit = {0, 0, 0};
+    
+    rgb_data_8bit[0] = static_cast<float>(red) / static_cast<float>(clear) * 255;
+    rgb_data_8bit[1] = static_cast<float>(green) / static_cast<float>(clear) * 255;
+    rgb_data_8bit[2] = static_cast<float>(blue) / static_cast<float>(clear) * 255;
+    return rgb_data_8bit;
 }
 
-std::array<uint8_t, 4> tcs3472::read_config() {
-    uint8_t enable_data;
-    enable_data = read_register(ENABLE);
-    uint8_t atime_data;
-    atime_data = read_register(ATIME);
-    uint8_t wtime_data;
-    wtime_data = read_register(WTIME);
-    uint8_t again_data;
-    again_data = read_register(AGAIN);
-    std::array<uint8_t, 4> config = {enable_data, atime_data, wtime_data, again_data};
-    return config;
+int tcs3472::calculate_rgb_integer(std::array<int, 4> rgbc) {
+    
+    int red = static_cast<float>(rgbc[0]) / static_cast<float>(rgbc[3]) * 255;
+    int green = static_cast<float>(rgbc[1]) / static_cast<float>(rgbc[3]) * 255;
+    int blue =  static_cast<float>(rgbc[2]) / static_cast<float>(rgbc[3]) * 255;
+    
+    int rgb_data_24bit = ((red << 16) | (green << 8) | blue);
+    return rgb_data_24bit;
 }
 
-void tcs3472::reset_factory_settings() {
-    set_active_register_single_byte(ENABLE);
+void tcs3472::reload_config(){
+    // write enable
+    set_active_register_single_byte(TCS_ENABLE);
     {
         auto enable_trans = hwlib::i2c_write_transaction(bus, TCS);
-        enable_trans.write(SET_AEN|SET_PON);
-        enable_option = (SET_AEN|SET_PON);
+        enable_trans.write(enable_option);
     }
     
-    set_active_register_single_byte(ATIME);
+    // write atime
+    set_active_register_single_byte(TCS_ATIME);
     {
         auto atime_trans = hwlib::i2c_write_transaction(bus, TCS);
-        atime_trans.write(SET_ATIME_2_4MS);
-        atime_option = SET_ATIME_2_4MS;
-    }
-
-    set_active_register_single_byte(WTIME);
-    {
-        auto wtime_trans = hwlib::i2c_write_transaction(bus, TCS);
-        wtime_trans.write(SET_WTIME_2_4MS);
-        wtime_option = SET_WTIME_2_4MS;
+        atime_trans.write(atime_option);
     }
     
-    set_active_register_single_byte(AGAIN);
+    // write wtime
+    set_active_register_single_byte(TCS_WTIME);
+    {
+        auto wtime_trans = hwlib::i2c_write_transaction(bus, TCS);
+        wtime_trans.write(wtime_option);
+    }
+    
+    // write again
+    set_active_register_single_byte(TCS_AGAIN);
     {
         auto again_trans = hwlib::i2c_write_transaction(bus, TCS);
-        again_trans.write(SET_AGAIN_4X);
-        again_option = SET_AGAIN_4X;
+        again_trans.write(again_option);
     }
 }
