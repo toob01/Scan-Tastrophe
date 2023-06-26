@@ -175,7 +175,7 @@ tcs3472::tcs3472(hwlib::i2c_primitives & c_bus, uint8_t c_enable_option, uint8_t
 
 int tcs3472::read_register(uint8_t reg_address) {
     uint8_t read_data;
-    set_active_register_multi_byte(reg_address);
+    set_active_register_single_byte(reg_address);
     {
         auto read_trans = hwlib::i2c_read_transaction(bus, TCS);
         read_trans.read(read_data);
@@ -251,7 +251,6 @@ void tcs3472::start() {
     { // write AEN
         auto trans = hwlib::i2c_write_transaction(bus, TCS);
         trans.write(enable_option | SET_AEN);
-        enable_option |= SET_AEN;
         hwlib::wait_ms(3);
     }
     { // start transaction

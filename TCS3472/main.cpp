@@ -15,7 +15,7 @@ int main(int argc, char **argv){
     
     auto mux = i2c_mux(i2c_bus, mux_address);
     mux.select(0);
-    auto tcs = tcs3472(i2c_bus, SET_AEN|SET_PON|SET_WEN, SET_ATIME_24MS, SET_WTIME_24MS, SET_AGAIN_1X);
+    auto tcs = tcs3472(i2c_bus, SET_PON|SET_AEN|SET_WEN, SET_ATIME_267MS, SET_WTIME_267MS, SET_AGAIN_1X);
     
     leds.write(0);
     
