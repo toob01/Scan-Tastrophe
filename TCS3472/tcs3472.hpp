@@ -18,6 +18,7 @@
 #define TCS 0x29
 
 #include "hwlib.hpp"
+#include "rgbc.hpp"
 #include <array>
 
 /// @name Color register (low bit) address definitions.
@@ -159,7 +160,7 @@ public:
     /// Read raw data from red, green, blue, and clear registers
     /// @return
     /// Array of integers (0-65535), indeces 0, 1, 2, 3 being R, G, B, and C respectively.
-    std::array<int, 4> read_rgbc();
+    rgbc read_rgbc();
     
     /// @brief
     /// Convert values from RGBC to RGB representation.
@@ -167,7 +168,7 @@ public:
     /// an array of 4 integer values corresponding to R, G, B, and C.
     /// @return
     /// Array of three 8-bit values (0-255), indeces 0, 1, 2 being R, G, and B values
-    std::array<uint8_t, 3> calculate_rgb_array(const std::array<int, 4> & rgbc);
+    std::array<uint8_t, 3> calculate_rgb_array(rgbc & rgbc_data);
     
     /// @brief
     /// Convert values from RGBC to RGB representation, individual parameters per channel.
@@ -183,7 +184,7 @@ public:
     /// Array of three 8-bit values (0-255), indeces 0, 1, 2 being R, G, and B values
     std::array<uint8_t, 3> calculate_rgb_array(int red, int green, int blue, int clear);
     
-    int calculate_rgb_integer(std::array<int, 4> rgbc);
+    int calculate_rgb_integer(rgbc & rgbc_data);
     
     void reload_config();
 };

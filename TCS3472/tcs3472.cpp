@@ -261,28 +261,26 @@ void tcs3472::start() {
 }
 
 
-std::array<int, 4> tcs3472::read_rgbc() {
-    std::array<int, 4> rgb_data_raw = {0, 0, 0, 0};
-    rgb_data_raw[0] = read_red();
-    rgb_data_raw[1] = read_green();
-    rgb_data_raw[2] = read_blue();
-    rgb_data_raw[3] = read_clear();
-    return rgb_data_raw;
+rgbc tcs3472::read_rgbc() {
+    rgbc data_raw(read_red(), read_green(), read_blue(), read_clear());
+    return data_raw;
 }
 
 
-std::array<uint8_t, 3> tcs3472::calculate_rgb_array(const std::array<int, 4> & rgbc) {
+std::array<uint8_t, 3> tcs3472::calculate_rgb_array(rgbc & rgbc_data) {
     std::array<uint8_t, 3> rgb_data_8bit = {0, 0, 0};
+    if(rgbc_data.clear_get() == 0) return {0, 0, 0};
     
-    rgb_data_8bit[0] = static_cast<float>(rgbc[0]) / static_cast<float>(rgbc[3]) * 255;
-    rgb_data_8bit[1] = static_cast<float>(rgbc[1]) / static_cast<float>(rgbc[3]) * 255;
-    rgb_data_8bit[2] = static_cast<float>(rgbc[2]) / static_cast<float>(rgbc[3]) * 255;
+    rgb_data_8bit[0] = static_cast<float>(rgbc_data[0]) / static_cast<float>(rgbc_data[3]) * 255;
+    rgb_data_8bit[1] = static_cast<float>(rgbc_data[1]) / static_cast<float>(rgbc_data[3]) * 255;
+    rgb_data_8bit[2] = static_cast<float>(rgbc_data[2]) / static_cast<float>(rgbc_data[3]) * 255;
 
     return rgb_data_8bit;
 }
 
-std::array<uint8_t, 3> tcs3472::calculate_rgb_array(int red, int green, int blue, int clear){
+std::array<uint8_t, 3> tcs3472::calculate_rgb_array(int red, int green, int blue, int clear) {
     std::array<uint8_t, 3> rgb_data_8bit = {0, 0, 0};
+    if(clear == 0) return {0, 0, 0};
     
     rgb_data_8bit[0] = static_cast<float>(red) / static_cast<float>(clear) * 255;
     rgb_data_8bit[1] = static_cast<float>(green) / static_cast<float>(clear) * 255;
@@ -290,11 +288,12 @@ std::array<uint8_t, 3> tcs3472::calculate_rgb_array(int red, int green, int blue
     return rgb_data_8bit;
 }
 
-int tcs3472::calculate_rgb_integer(std::array<int, 4> rgbc) {
+int tcs3472::calculate_rgb_integer(rgbc & rgbc_data) {
+    if(rgbc_data.clear_get() == 0) return 0;
     
-    int red = static_cast<float>(rgbc[0]) / static_cast<float>(rgbc[3]) * 255;
-    int green = static_cast<float>(rgbc[1]) / static_cast<float>(rgbc[3]) * 255;
-    int blue =  static_cast<float>(rgbc[2]) / static_cast<float>(rgbc[3]) * 255;
+    int red = static_cast<float>(rgbc_data[0]) / static_cast<float>(rgbc_data[3]) * 255;
+    int green = static_cast<float>(rgbc_data[1]) / static_cast<float>(rgbc_data[3]) * 255;
+    int blue =  static_cast<float>(rgbc_data[2]) / static_cast<float>(rgbc_data[3]) * 255;
     
     int rgb_data_24bit = ((red << 16) | (green << 8) | blue);
     return rgb_data_24bit;
