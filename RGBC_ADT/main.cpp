@@ -1,5 +1,2 @@
-#include "hwlib.hpp"
-#include "rgbc.hpp"
-
-int main(int argc, char **argv){
-}
+#define CATCH_CONFIG_MAIN
+#include "catch.hpp"

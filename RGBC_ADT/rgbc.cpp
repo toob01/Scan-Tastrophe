@@ -102,11 +102,6 @@ rgbc operator/(const rgbc& lhs, const int& factor) {
     return result;
 }
 
-rgbc operator/(const int& factor, const rgbc& rhs) {
-    rgbc result(rhs.red_get() / factor, rhs.green_get() / factor, rhs.blue_get() / factor, rhs.clear_get() / factor);
-    return result;
-}
-
 rgbc& rgbc::operator/=(const rgbc& rhs) {
     red /= rhs.red_get();
     green /= rhs.green_get();
@@ -129,7 +124,10 @@ rgbc rgbc::operator|(const rgbc& rhs) const {
 }
 
 rgbc operator|(rgbc lhs, const int& mask) {
-    rgbc result(lhs.red_get() | mask, lhs.green_get() | mask, lhs.blue_get() | mask, lhs.clear_get() | mask);
+    rgbc result(lhs.red_get() | mask, 
+                lhs.green_get() | mask, 
+                lhs.blue_get() | mask, 
+                lhs.clear_get() | mask);
     return result;
 }
 
@@ -240,7 +238,7 @@ bool rgbc::operator>=(const rgbc & rhs) const {
 }
 
 uint16_t& rgbc::operator[](int index) {
-    static uint16_t null = 65535;
+    static uint16_t null = 0;
     switch(index){
         case 0:
             return red;

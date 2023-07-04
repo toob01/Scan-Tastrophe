@@ -149,10 +149,6 @@ public:
     friend rgbc operator/(const rgbc & lhs, const int & factor);
 
     /// @brief 
-    /// Divide an rgbc value by a factor : inverted parameters
-    friend rgbc operator/(const int & factor, const rgbc & rhs);
-
-    /// @brief 
     /// Divide an rgbc value by another
     /// @details
     /// This operator/= divides the contents of one rgbc value by another, modifying the original contents of the rgbc value.
@@ -179,7 +175,7 @@ public:
     /// Bitwise OR an rgbc value with an integer mask
     /// @details
     /// This operator| performs a Bitwise OR operation on the contents of an rgbc value with a given mask.
-    /// e.g. rgbc(1, 0, 1, 0) | 0b0101 = rgbc(1, 1, 1, 1)
+    /// e.g. rgbc(0, 0, 0, 0) | 0b1 = rgbc(1, 1, 1, 1)
     /// @return   
     /// New rgbc object with result of Bitwise OR operation
     friend rgbc operator|(rgbc rhs, const int & mask);
@@ -213,7 +209,7 @@ public:
     /// Bitwise AND an rgbc value with an integer mask
     /// @details
     /// This operator& performs a Bitwise AND operation on the contents of an rgbc value with a given mask.
-    /// e.g. rgbc(1, 0, 1, 0) & 0b0101 = rgbc(0, 0, 0, 0)
+    /// e.g. rgbc(1, 0, 1, 0) & 0b1 = rgbc(1, 0, 1, 0)
     /// @return   
     /// New rgbc object with result of Bitwise AND operation
     friend rgbc operator&(rgbc rhs, const int & mask);
@@ -281,6 +277,7 @@ public:
     /// @details
     /// This operator[] allows for the capability of addressing the contents of an rgbc value by index in order R, G, B, C.
     /// Thus, to address the red, green, blue, and clear values, we can use rgbc[0], rgbc[1], rgbc[2], and rgbc[3] respectively.
+    /// NOTE : operator[] does not check if the index you've entered is out of range because bmptk-make does not allow for throwing exceptions, instead it will return 0.
     /// @return
     /// Reference to the addressed colour value.
     uint16_t& operator[](int index);

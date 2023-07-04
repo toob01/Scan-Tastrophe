@@ -9,7 +9,7 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := rgbc.cpp
+SOURCES := tests.cpp rgbc.cpp
 
 # header files in this project
 HEADERS := rgbc.hpp
@@ -23,4 +23,4 @@ RELATIVE := ..
 
 SERIAL_PORT ?= COM8
 
-include $(RELATIVE)/Makefile.due
+include $(RELATIVE)/Makefile.native
