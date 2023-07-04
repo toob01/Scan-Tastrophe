@@ -9,10 +9,10 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := 
+SOURCES := ../TCS3472/tcs3472.cpp
 
 # header files in this project
-HEADERS :=
+HEADERS := ../TCS3472/tcs3472.hpp ../TCA9548A/mux.hpp
 
 # other places to look for files for this project
 SEARCH  := 
