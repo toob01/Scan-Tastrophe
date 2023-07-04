@@ -130,11 +130,7 @@ public:
     /// Multiply an rgbc value by a factor, modifying the original
     /// @return   
     /// Modified rgbc value object by reference
-    friend rgbc& operator*=(const int & factor, const rgbc & rhs);
-
-    /// @brief 
-    /// Multiply an rgbc value by a factor, modifying the original : inverted parameters
-    friend rgbc& operator*=(const rgbc & lhs, const int & factor);
+    rgbc& operator*=(const int & factor);
 
     /// @brief 
     /// Divide two rgbc values
@@ -151,11 +147,11 @@ public:
     /// e.g. rgbc(2, 4, 6, 8) / 2 = rgbc(1, 2, 3, 4)
     /// @return   
     /// New rgbc object with divided contents
-    friend rgbc& operator/(const rgbc & lhs, const int & factor);
+    friend rgbc operator/(const rgbc & lhs, const int & factor);
 
     /// @brief 
     /// Divide an rgbc value by a factor : inverted parameters
-    friend rgbc& operator/(const int & factor, const rgbc & rhs);
+    friend rgbc operator/(const int & factor, const rgbc & rhs);
 
     /// @brief 
     /// Divide an rgbc value by another
@@ -169,11 +165,7 @@ public:
     /// Divide an rgbc value by a factor, modifying the original
     /// @return   
     /// Modified rgbc value object by refernce
-    friend rgbc& operator/=(const rgbc & lhs, const int & factor);
-
-    /// @brief 
-    /// Divide an rgbc value by a factor, modifying the original : inverted parameters
-    friend rgbc& operator/=(const int & factor, const rgbc & rhs);
+    rgbc& operator/=(const int & factor);
 
     /// @brief 
     /// Bitwise OR two rgbc values
@@ -207,11 +199,7 @@ public:
     /// Bitwise OR an rgbc value with a integer mask, modifying the original
     /// @return   
     /// Modified rgbc value object by reference
-    friend rgbc& operator|=(rgbc rhs, const int & mask);
-
-    /// @brief 
-    /// Bitwise OR an rgbc value with a integer mask, modifying the original : inverted parameters
-    friend rgbc& operator|=(const int & mask, rgbc rhs);
+    rgbc& operator|=(const int & mask);
 
     /// @brief 
     /// Bitwise AND two rgbc values
@@ -245,11 +233,7 @@ public:
     /// Bitwise AND an rgbc value with a integer mask, modifying the original
     /// @return   
     /// Modified rgbc value object by reference
-    friend rgbc& operator&=(rgbc rhs, const int & mask);
-    
-    /// @brief 
-    /// Bitwise AND an rgbc value with a integer mask, modifying the original : inverted parameters
-    friend rgbc& operator&=(const int & mask, rgbc rhs);
+    rgbc& operator&=(const int & mask);
 
     /// @brief 
     /// Compare two rgbc values for equality
@@ -309,7 +293,7 @@ public:
     /// e.g. std::cout << "values : " << rgbc(1, 2, 3, 4) would result in string : "values : { r:1, g:2, b:3, c:4 }"
     /// @return   
     /// std::ostream object with added string
-    friend std::ostream & operator<<(std::ostream & lhs, rgbc rhs);
+    friend std::ostream& operator<<(std::ostream & lhs, rgbc rhs);
 
     /// @brief 
     /// Insertion operator for rgbc values, using hwlib::ostream
@@ -318,6 +302,6 @@ public:
     /// e.g. hwlib::cout << "values : " << rgbc(1, 2, 3, 4) would result in string : "values : { r:1, g:2, b:3, c:4 }"
     /// @return   
     /// hwlib::ostream object with added string
-    friend hwlib::ostream & operator<<(hwlib::ostream & lhs, rgbc rhs);
+    friend hwlib::ostream& operator<<(hwlib::ostream & lhs, rgbc rhs);
 };
 #endif // RGBC_HPP
