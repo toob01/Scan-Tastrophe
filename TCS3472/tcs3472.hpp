@@ -103,7 +103,7 @@
 /// This class provides an interface for the TCS3472(5) color sensor
 /// This implementation only works for sensors with I2C address 0x29, which most of these sensors will have.
 /// To use this sensor in amounts more than one or with other devices that have the same address, you have the option to either define multiple I2C busses, or use an I2C multiplexer like the TCA9548A (I recommend the latter).
-/// If you happen to have a sensor that has a discrepant address, please contact me at tobias.bosch@student.hu.nl, I am happy to offer assistance :)
+/// If you happen to have a sensor that has a discrepant address and you haven't been able to figure out how to make it work, feel free to contact me at tobias.bosch@student.hu.nl, I am happy to offer assistance :)
 /// Limitations:
 ///     - no capabilities for the interrupt output that some TCS3472 devices may have.
 ///     - no capabilities for the WLONG option.
@@ -122,16 +122,15 @@ private:
     int get_wait_time();
     
 public:
-    // TODO: Get macros recognized as links in default values of constructor
     /// @brief
     /// Constructor for tcs3472 color sensor 
     /// @details
-    /// This constructor creates an interface for the tcs3472 color sensor IC.
+    /// This constructor creates an interface for the tcs3472 color sensor.
     /// Default values are:
     ///     - TCS_ENABLE    : AEN | PON
-    ///     - ATIME     : 2.4 ms
-    ///     - WTIME     : 2.4 ms
-    ///     - AGAIN     : 1X
+    ///     - ATIME         : 2.4 ms
+    ///     - WTIME         : 2.4 ms
+    ///     - AGAIN         : 1X
     tcs3472(hwlib::i2c_primitives & c_bus, uint8_t c_enable_option=SET_AEN|SET_PON, uint8_t c_atime_option=SET_ATIME_2_4MS, uint8_t c_wtime_option=SET_WTIME_2_4MS, uint8_t c_again_option=SET_AGAIN_1X);
     
     /// Read a register specified by address
