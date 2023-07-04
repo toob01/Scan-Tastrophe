@@ -240,6 +240,7 @@ bool rgbc::operator>=(const rgbc & rhs) const {
 }
 
 uint16_t& rgbc::operator[](int index) {
+    static uint16_t null = 65535;
     switch(index){
         case 0:
             return red;
@@ -250,21 +251,8 @@ uint16_t& rgbc::operator[](int index) {
         case 3:
             return clear;
         default:
-            throw std::out_of_range("Invalid index to rgbc value");
+            return null;
     }
-}
-
-std::ostream& operator<<(std::ostream& lhs, const rgbc rhs) {
-    return lhs
-        << "{ r:"
-        << rhs.red_get()
-        << ", g:"
-        << rhs.green_get()
-        << ", b:"
-        << rhs.blue_get()
-        << ", c:"
-        << rhs.clear_get()
-        << " }";
 }
 
 hwlib::ostream& operator<<(hwlib::ostream & lhs, rgbc rhs) {

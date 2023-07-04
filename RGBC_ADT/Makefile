@@ -20,4 +20,7 @@ SEARCH  :=
 # set RELATIVE to the next higher directory 
 # and defer to the Makefile.* there
 RELATIVE := ..
-include $(RELATIVE)/Makefile.native
+
+SERIAL_PORT ?= COM8
+
+include $(RELATIVE)/Makefile.due

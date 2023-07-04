@@ -2,7 +2,6 @@
 #define RGBC_HPP
 
 #include <stdint.h>
-#include <iostream>
 #include "hwlib.hpp"
 
 /// @file rgbc.hpp
@@ -285,15 +284,6 @@ public:
     /// @return
     /// Reference to the addressed colour value.
     uint16_t& operator[](int index);
-
-    /// @brief 
-    /// Insertion operator for rgbc values, using std::ostream
-    /// @details
-    /// This operator<< adds the contents of an rgbc value as formatted string to a std::ostream object.
-    /// e.g. std::cout << "values : " << rgbc(1, 2, 3, 4) would result in string : "values : { r:1, g:2, b:3, c:4 }"
-    /// @return   
-    /// std::ostream object with added string
-    friend std::ostream& operator<<(std::ostream & lhs, rgbc rhs);
 
     /// @brief 
     /// Insertion operator for rgbc values, using hwlib::ostream
