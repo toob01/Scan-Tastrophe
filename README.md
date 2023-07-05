@@ -36,6 +36,7 @@ RGBC stores four 16-bit unsigned integers, one for each of the Red, Green, Blue,
 RGB stores three 8-bit unsigned integers, one for each 8-bit representation of the values as described in the RGBC datatype.
 
 Both provide a range of operators to make it easy to interact with and modify colour data.
+
 Operators included are: +, +=, -, -=, *, *=, /, /=, |, |=, &, &=, ==, !=, <, <=, >, >=, [], <<
 
 See DOCS for implementation details.
