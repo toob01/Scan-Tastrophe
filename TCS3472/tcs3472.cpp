@@ -267,9 +267,9 @@ rgbc tcs3472::read_rgbc() {
 }
 
 
-std::array<uint8_t, 3> tcs3472::calculate_rgb_array(rgbc & rgbc_data) {
-    std::array<uint8_t, 3> rgb_data_8bit = {0, 0, 0};
-    if(rgbc_data.clear_get() == 0) return {0, 0, 0};
+rgb tcs3472::calculate_rgb_array(rgbc & rgbc_data) {
+    rgb rgb_data_8bit(0, 0, 0);
+    if(rgbc_data.clear_get() == 0) return rgb_data_8bit;
     
     rgb_data_8bit[0] = static_cast<float>(rgbc_data[0]) / static_cast<float>(rgbc_data[3]) * 255;
     rgb_data_8bit[1] = static_cast<float>(rgbc_data[1]) / static_cast<float>(rgbc_data[3]) * 255;
@@ -278,9 +278,9 @@ std::array<uint8_t, 3> tcs3472::calculate_rgb_array(rgbc & rgbc_data) {
     return rgb_data_8bit;
 }
 
-std::array<uint8_t, 3> tcs3472::calculate_rgb_array(int red, int green, int blue, int clear) {
-    std::array<uint8_t, 3> rgb_data_8bit = {0, 0, 0};
-    if(clear == 0) return {0, 0, 0};
+rgb tcs3472::calculate_rgb_array(int red, int green, int blue, int clear) {
+    rgb rgb_data_8bit(0, 0, 0);
+    if(clear == 0) return rgb_data_8bit;
     
     rgb_data_8bit[0] = static_cast<float>(red) / static_cast<float>(clear) * 255;
     rgb_data_8bit[1] = static_cast<float>(green) / static_cast<float>(clear) * 255;

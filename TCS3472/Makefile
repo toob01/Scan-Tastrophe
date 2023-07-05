@@ -9,10 +9,10 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := tcs3472.cpp
+SOURCES := ../RGBC_ADT/rgbc.cpp ../RGB_ADT/rgb.cpp tcs3472.cpp
 
 # header files in this project
-HEADERS := tcs3472.hpp
+HEADERS := ../RGBC_ADT/rgbc.hpp ../RGB_ADT/rgb.hpp tcs3472.hpp
 
 # other places to look for files for this project
 SEARCH  := 
