@@ -238,8 +238,8 @@ void tcs3472::sleep(){
 void tcs3472::wake() {
     {
         set_active_register_single_byte(TCS_ENABLE);
-        auto sleep_trans = hwlib::i2c_write_transaction(bus, TCS);
-        sleep_trans.write(enable_option | SET_PON);
+        auto wake_trans = hwlib::i2c_write_transaction(bus, TCS);
+        wake_trans.write(enable_option | SET_PON);
         enable_option |= SET_PON;
     }
     hwlib::wait_ms(5);
@@ -267,7 +267,7 @@ rgbc tcs3472::read_rgbc() {
 }
 
 
-rgb tcs3472::calculate_rgb_array(rgbc & rgbc_data) {
+rgb tcs3472::calculate_rgb(rgbc & rgbc_data) {
     rgb rgb_data_8bit(0, 0, 0);
     if(rgbc_data.clear_get() == 0) return rgb_data_8bit;
     
@@ -278,7 +278,7 @@ rgb tcs3472::calculate_rgb_array(rgbc & rgbc_data) {
     return rgb_data_8bit;
 }
 
-rgb tcs3472::calculate_rgb_array(int red, int green, int blue, int clear) {
+rgb tcs3472::calculate_rgb(int red, int green, int blue, int clear) {
     rgb rgb_data_8bit(0, 0, 0);
     if(clear == 0) return rgb_data_8bit;
     

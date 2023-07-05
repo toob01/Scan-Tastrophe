@@ -100,15 +100,17 @@
 
 
 /// @brief
-/// Interface for TCS3472(5) color sensor using (abstractions and functions from) HWLIB
+/// Interface for TCS3472(5/7) color sensor using (abstractions and functions from) HWLIB
 /// @details
-/// This class provides an interface for the TCS3472(5) color sensor
+/// This class provides an interface for the TCS3472(5/7) color sensor
 /// This implementation only works for sensors with I2C address 0x29, which most of these sensors will have.
 /// To use this sensor in amounts more than one or with other devices that have the same address, you have the option to either define multiple I2C busses, or use an I2C multiplexer like the TCA9548A (I recommend the latter).
 /// If you happen to have a sensor that has a discrepant address and you haven't been able to figure out how to make it work, feel free to contact me at tobias.bosch@student.hu.nl, I am happy to offer assistance :)
+/// 
 /// Limitations:
 ///     - no capabilities for the interrupt output that some TCS3472 devices may have.
 ///     - no capabilities for the WLONG option.
+///     - no capabilities for calibrating sensors
 class tcs3472 {
 private:
 
@@ -150,29 +152,37 @@ public:
     /// Read 16-bit data from Blue data register
     int read_blue();
     
+    /// @brief
+    /// Put device in sleep state
+    /// @details
+    /// Write the current enable option (typically this is as configured in constructor) explicitly without PON bit to the enable register.
     void sleep();
     
+    /// @brief
+    /// Put device in wake / idle state
+    /// @details
+    /// Write the current enable option (typically this is as configured in constructor) explicitely with PON bit to the enable register.
     void wake();
-    
+
     /// Start a sense cycle
     void start();
     
     /// @brief
     /// Read raw data from red, green, blue, and clear registers
     /// @return
-    /// Array of integers (0-65535), indeces 0, 1, 2, 3 being R, G, B, and C respectively.
+    /// RGBC object with uint16_t data per channel
     rgbc read_rgbc();
     
     /// @brief
-    /// Convert values from RGBC to RGB representation.
+    /// Convert values from 16-bit RGBC to 8-bit RGB representation.
     /// @param rgbc
-    /// an array of 4 integer values corresponding to R, G, B, and C.
+    /// RGBC object with 16-bit RGBC data
     /// @return
-    /// Array of three 8-bit values (0-255), indeces 0, 1, 2 being R, G, and B values
-    rgb calculate_rgb_array(rgbc & rgbc_data);
+    /// RGB object with uint8_t data per channel
+    rgb calculate_rgb(rgbc & rgbc_data);
     
     /// @brief
-    /// Convert values from RGBC to RGB representation, individual parameters per channel.
+    /// Convert values from 16-bit RGBC to 8-bit RGB representation, individual parameters per channel.
     /// @param red
     /// (16-bit) integer red channel value
     /// @param green
@@ -182,11 +192,22 @@ public:
     /// @param clear
     /// (16-bit) integer clear channel value
     /// @return
-    /// Array of three 8-bit values (0-255), indeces 0, 1, 2 being R, G, and B values
-    rgb calculate_rgb_array(int red, int green, int blue, int clear);
+    /// RGB object with uint8_t data per channel
+    rgb calculate_rgb(int red, int green, int blue, int clear);
     
+    /// @brief
+    /// Convert values from 16-bit RGBC to one continuous 24-bit integer
+    /// @param rgbc_data 
+    /// RGBC object with 16-bit RGBC data
+    /// @return 
+    /// 24-bit integer, bytes corresponding to red, green, and blue 8-bit data
     int calculate_rgb_integer(rgbc & rgbc_data);
     
+    /// @brief
+    /// Write current configuration to device
+    /// @details
+    /// Write the current configuration (typically this is as configured in constructor) to the device again
+    /// Useful for working with multiplexer
     void reload_config();
 };
 

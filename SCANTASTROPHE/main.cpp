@@ -14,14 +14,14 @@ void print_rgb_info(rgb & RGB, int result){
 }
 
 void print_grid_colors(std::array<rgb, 8> & RGB){
-    hwlib::cout << "\x1b[48;2;" << RGB[3] << "m   \x1b[39;49m\x1b[48;2;" << RGB[7] << "m    \x1b[39;49m\n";
-    hwlib::cout << "\x1b[48;2;" << RGB[3] << "m   \x1b[39;49m\x1b[48;2;" << RGB[7] << "m    \x1b[39;49m\n";
-    hwlib::cout << "\x1b[48;2;" << RGB[2] << "m   \x1b[39;49m\x1b[48;2;" << RGB[6] << "m    \x1b[39;49m\n";
-    hwlib::cout << "\x1b[48;2;" << RGB[2] << "m   \x1b[39;49m\x1b[48;2;" << RGB[6] << "m    \x1b[39;49m\n";
-    hwlib::cout << "\x1b[48;2;" << RGB[1] << "m   \x1b[39;49m\x1b[48;2;" << RGB[5] << "m    \x1b[39;49m\n";
-    hwlib::cout << "\x1b[48;2;" << RGB[1] << "m   \x1b[39;49m\x1b[48;2;" << RGB[5] << "m    \x1b[39;49m\n";
-    hwlib::cout << "\x1b[48;2;" << RGB[0] << "m   \x1b[39;49m\x1b[48;2;" << RGB[4] << "m    \x1b[39;49m\n";
-    hwlib::cout << "\x1b[48;2;" << RGB[0] << "m   \x1b[39;49m\x1b[48;2;" << RGB[4] << "m    \x1b[39;49m\n";
+    hwlib::cout << "\x1b[48;2;" << RGB[3] << "m    \x1b[39;49m\x1b[48;2;" << RGB[7] << "m    \x1b[39;49m\n";
+    hwlib::cout << "\x1b[48;2;" << RGB[3] << "m    \x1b[39;49m\x1b[48;2;" << RGB[7] << "m    \x1b[39;49m\n";
+    hwlib::cout << "\x1b[48;2;" << RGB[2] << "m    \x1b[39;49m\x1b[48;2;" << RGB[6] << "m    \x1b[39;49m\n";
+    hwlib::cout << "\x1b[48;2;" << RGB[2] << "m    \x1b[39;49m\x1b[48;2;" << RGB[6] << "m    \x1b[39;49m\n";
+    hwlib::cout << "\x1b[48;2;" << RGB[1] << "m    \x1b[39;49m\x1b[48;2;" << RGB[5] << "m    \x1b[39;49m\n";
+    hwlib::cout << "\x1b[48;2;" << RGB[1] << "m    \x1b[39;49m\x1b[48;2;" << RGB[5] << "m    \x1b[39;49m\n";
+    hwlib::cout << "\x1b[48;2;" << RGB[0] << "m    \x1b[39;49m\x1b[48;2;" << RGB[4] << "m    \x1b[39;49m\n";
+    hwlib::cout << "\x1b[48;2;" << RGB[0] << "m    \x1b[39;49m\x1b[48;2;" << RGB[4] << "m    \x1b[39;49m\n";
     hwlib::cout << "\n";
 }
 
