@@ -1,33 +1,27 @@
 #include "hwlib.hpp"
 #include "../TCS3472/tcs3472.hpp"
 #include "../TCA9548A/mux.hpp"
+#include "../RGBC_ADT/rgbc.hpp"
+#include "../RGB_ADT/rgb.hpp"
 
-void write_pwm(hwlib::pin_out & pin, int period_us, int duty){
-    pin.write(0);
-    pin.write(1);
-    hwlib::wait_us((duty/100)*period_us);
-    pin.write(0);
-    hwlib::wait_us(period_us-((duty/100)*period_us));
-}
-
-void print_rgb_info(std::array<int, 3> & RGB, int result){
+void print_rgb_info(rgb & RGB, int result){
     hwlib::cout << hwlib::hex << result << "\n";
     hwlib::cout << hwlib::dec << "RED: " << RGB[0] << "\n";
     hwlib::cout << hwlib::dec << "GREEN: " << RGB[1] << "\n";
     hwlib::cout << hwlib::dec << "BLUE: " << RGB[2] << "\n\n";
-    hwlib::cout << "\x1b[48;2;"<< RGB[0] << ";" << RGB[1] << ";" << RGB[2] << "m    " << "\x1b[39;49m\n";
-    hwlib::cout << "\x1b[48;2;"<< RGB[0] << ";" << RGB[1] << ";" << RGB[2] << "m    " << "\x1b[39;49m\n";
+    hwlib::cout << "\x1b[48;2;"<< RGB << "m    " << "\x1b[39;49m\n";
+    hwlib::cout << "\x1b[48;2;"<< RGB << "m    " << "\x1b[39;49m\n";
 }
 
-void print_grid_colors(std::array<std::array<int, 3>, 8> & RGB){
-    hwlib::cout << "\x1b[48;2;" << RGB[3][0] << ";" << RGB[3][1] << ";" << RGB[3][2] << "m   \x1b[39;49m\x1b[48;2;" << RGB[7][0] << ";" << RGB[7][1] << ";" << RGB[7][2] << "m    \x1b[39;49m\n";
-    hwlib::cout << "\x1b[48;2;" << RGB[3][0] << ";" << RGB[3][1] << ";" << RGB[3][2] << "m   \x1b[39;49m\x1b[48;2;" << RGB[7][0] << ";" << RGB[7][1] << ";" << RGB[7][2] << "m    \x1b[39;49m\n";
-    hwlib::cout << "\x1b[48;2;" << RGB[2][0] << ";" << RGB[2][1] << ";" << RGB[2][2] << "m   \x1b[39;49m\x1b[48;2;" << RGB[6][0] << ";" << RGB[6][1] << ";" << RGB[6][2] << "m    \x1b[39;49m\n";
-    hwlib::cout << "\x1b[48;2;" << RGB[2][0] << ";" << RGB[2][1] << ";" << RGB[2][2] << "m   \x1b[39;49m\x1b[48;2;" << RGB[6][0] << ";" << RGB[6][1] << ";" << RGB[6][2] << "m    \x1b[39;49m\n";
-    hwlib::cout << "\x1b[48;2;" << RGB[1][0] << ";" << RGB[1][1] << ";" << RGB[1][2] << "m   \x1b[39;49m\x1b[48;2;" << RGB[5][0] << ";" << RGB[5][1] << ";" << RGB[5][2] << "m    \x1b[39;49m\n";
-    hwlib::cout << "\x1b[48;2;" << RGB[1][0] << ";" << RGB[1][1] << ";" << RGB[1][2] << "m   \x1b[39;49m\x1b[48;2;" << RGB[5][0] << ";" << RGB[5][1] << ";" << RGB[5][2] << "m    \x1b[39;49m\n";
-    hwlib::cout << "\x1b[48;2;" << RGB[0][0] << ";" << RGB[0][1] << ";" << RGB[0][2] << "m   \x1b[39;49m\x1b[48;2;" << RGB[4][0] << ";" << RGB[4][1] << ";" << RGB[4][2] << "m    \x1b[39;49m\n";
-    hwlib::cout << "\x1b[48;2;" << RGB[0][0] << ";" << RGB[0][1] << ";" << RGB[0][2] << "m   \x1b[39;49m\x1b[48;2;" << RGB[4][0] << ";" << RGB[4][1] << ";" << RGB[4][2] << "m    \x1b[39;49m\n";
+void print_grid_colors(std::array<rgb, 8> & RGB){
+    hwlib::cout << "\x1b[48;2;" << RGB[3] << "m   \x1b[39;49m\x1b[48;2;" << RGB[7] << "m    \x1b[39;49m\n";
+    hwlib::cout << "\x1b[48;2;" << RGB[3] << "m   \x1b[39;49m\x1b[48;2;" << RGB[7] << "m    \x1b[39;49m\n";
+    hwlib::cout << "\x1b[48;2;" << RGB[2] << "m   \x1b[39;49m\x1b[48;2;" << RGB[6] << "m    \x1b[39;49m\n";
+    hwlib::cout << "\x1b[48;2;" << RGB[2] << "m   \x1b[39;49m\x1b[48;2;" << RGB[6] << "m    \x1b[39;49m\n";
+    hwlib::cout << "\x1b[48;2;" << RGB[1] << "m   \x1b[39;49m\x1b[48;2;" << RGB[5] << "m    \x1b[39;49m\n";
+    hwlib::cout << "\x1b[48;2;" << RGB[1] << "m   \x1b[39;49m\x1b[48;2;" << RGB[5] << "m    \x1b[39;49m\n";
+    hwlib::cout << "\x1b[48;2;" << RGB[0] << "m   \x1b[39;49m\x1b[48;2;" << RGB[4] << "m    \x1b[39;49m\n";
+    hwlib::cout << "\x1b[48;2;" << RGB[0] << "m   \x1b[39;49m\x1b[48;2;" << RGB[4] << "m    \x1b[39;49m\n";
     hwlib::cout << "\n";
 }
 
@@ -53,9 +47,9 @@ int main(int argc, char **argv){
         tcs.reload_config();
     }
     
-    std::array<int, 4> data[8] = {};
+    std::array<rgbc, 8> data;
     int result;
-    std::array<std::array<int, 3>, 8> RGB;
+    std::array<rgb, 8> RGB;
     std::array<int, 8> HEX;
     
     while(true){
@@ -69,7 +63,7 @@ int main(int argc, char **argv){
             leds.write(0);
             for (int s = 0; s<8; s++){
                 result = tcs.calculate_rgb_integer(data[s]);
-                RGB[s] = {((result>>16)&0x0000FF), ((result>>8)&0x0000FF), (result&0x0000FF)};
+                RGB[s] = rgb(((result>>16)&0x0000FF), ((result>>8)&0x0000FF), (result&0x0000FF));
                 HEX[s] = result;
             }
             print_grid_colors(RGB);
