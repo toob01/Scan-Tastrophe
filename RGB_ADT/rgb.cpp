@@ -1,3 +1,15 @@
+// =============================================================
+//
+// File         : rgb.cpp
+// Copyright    : tobias.bosch@student.hu.nl 2023
+//
+// Distributed under the Boost Software License, Version 1.0.
+// (See https://www.boost.org/LICENSE_1_0.txt)
+//
+// =============================================================
+
+/// @file rgb.cpp
+
 #include "rgb.hpp"
 
 rgb::rgb(uint8_t red, uint8_t green, uint8_t blue)

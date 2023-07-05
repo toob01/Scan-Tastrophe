@@ -1,6 +1,16 @@
+// =============================================================
+//
+// File         : main.cpp in TCS3472/
+// Copyright    : tobias.bosch@student.hu.nl 2023
+//
+// Distributed under the Boost Software License, Version 1.0.
+// (See https://www.boost.org/LICENSE_1_0.txt)
+//
+// =============================================================
+
 #include "hwlib.hpp"
 #include "tcs3472.hpp"
-#include "../TCA9548A/mux.hpp"
+#include "../TCA9548A/tca9548a.hpp"
 #include "../RGBC_ADT/rgbc.hpp"
 #include "../RGB_ADT/rgb.hpp"
 
@@ -25,7 +35,7 @@ int main(int argc, char **argv){
     
     uint8_t mux_address = 0x70;
     
-    auto mux = i2c_mux(i2c_bus, mux_address);
+    auto mux = tca9548a(i2c_bus, mux_address);
     mux.select(0);
     auto tcs = tcs3472(i2c_bus, SET_PON|SET_AEN|SET_WEN, SET_ATIME_267MS, SET_WTIME_267MS, SET_AGAIN_1X);
     

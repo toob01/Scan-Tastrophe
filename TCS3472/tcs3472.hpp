@@ -1,6 +1,6 @@
 // =============================================================
 //
-// File         : tca3472.hpp
+// File         : tcs3472.hpp
 // Copyright    : tobias.bosch@student.hu.nl 2023
 //
 // Distributed under the Boost Software License, Version 1.0.
@@ -9,9 +9,9 @@
 // =============================================================
 
 // this file contains Doxygen comments
-/// @file
+/// @file tcs3472.hpp
 
-#ifndef TCS3472_HPP 
+#ifndef TCS3472_HPP
 #define TCS3472_HPP
 
 /// I2C address of TCS3742 color sensor

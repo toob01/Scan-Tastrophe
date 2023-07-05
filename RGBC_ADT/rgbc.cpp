@@ -1,3 +1,17 @@
+// =============================================================
+//
+// File         : rgbc.cpp
+// Copyright    : tobias.bosch@student.hu.nl 2023
+//
+// Distributed under the Boost Software License, Version 1.0.
+// (See https://www.boost.org/LICENSE_1_0.txt)
+//
+// =============================================================
+
+// this file contains Doxygen comments
+
+/// @file rgbc.hpp
+
 #include "rgbc.hpp"
 
 rgbc::rgbc(uint16_t red, uint16_t green, uint16_t blue, uint16_t clear)

@@ -2,7 +2,7 @@
 #
 # Project Makefile
 #
-# (c) Wouter van Ooijen (www.voti.nl) 2016
+# (c) Tobias Bosch 2023
 #
 # This file is in the public domain.
 # 

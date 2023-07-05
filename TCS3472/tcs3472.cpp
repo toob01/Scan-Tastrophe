@@ -1,3 +1,16 @@
+// =============================================================
+//
+// File         : tcs3472.cpp
+// Copyright    : tobias.bosch@student.hu.nl 2023
+//
+// Distributed under the Boost Software License, Version 1.0.
+// (See https://www.boost.org/LICENSE_1_0.txt)
+//
+// =============================================================
+
+// this file contains Doxygen comments
+/// @file tcs3472.cpp
+
 #include "tcs3472.hpp"
 
 void tcs3472::set_active_register_multi_byte(uint8_t reg_address) {
