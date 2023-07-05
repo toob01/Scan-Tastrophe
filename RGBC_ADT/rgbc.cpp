@@ -255,13 +255,11 @@ uint16_t& rgbc::operator[](int index) {
 
 hwlib::ostream& operator<<(hwlib::ostream & lhs, rgbc rhs) {
         return lhs
-        << "{ r:"
         << rhs.red_get()
-        << ", g:"
+        << ";"
         << rhs.green_get()
-        << ", b:"
+        << ";"
         << rhs.blue_get()
-        << ", c:"
-        << rhs.clear_get()
-        << " }";
+        << ";"
+        << rhs.clear_get();
 }

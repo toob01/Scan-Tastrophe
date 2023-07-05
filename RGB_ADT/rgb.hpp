@@ -56,7 +56,7 @@ public:
     /// @brief 
     /// Add two rgb values together
     /// @details
-    /// This operator+ adds one rgb value to another, by taking the sum of each corresponding r, g, b, c value.
+    /// This operator+ adds one rgb value to another, by taking the sum of each corresponding r, g, b value.
     /// e.g. rgb(1, 2, 3) + rgb(1, 2, 3) = rgb(2, 4, 6)
     /// @return 
     /// New rgb object with summed contents
@@ -73,7 +73,7 @@ public:
     /// @brief 
     /// Subract two rgb values
     /// @details
-    /// This operator- subtracts the contents of one rgb value from another, by taking the difference of each corresponding r, g, b, c value.
+    /// This operator- subtracts the contents of one rgb value from another, by taking the difference of each corresponding r, g, b value.
     /// @return
     /// New rgb object with subtracted contents
     rgb operator-(const rgb & rhs) const;
@@ -89,7 +89,7 @@ public:
     /// @brief 
     /// Multiply two rgb values
     /// @details
-    /// This operator* multiplies the contents of one rgb value by another, by taking the product of each corresponding r, g, b, c value.
+    /// This operator* multiplies the contents of one rgb value by another, by taking the product of each corresponding r, g, b value.
     /// e.g. rgb(1, 2, 3) * rgb(1, 2, 3) = rgb(1, 4, 9)
     /// @return 
     /// New rgb object with multiplied contents
@@ -125,7 +125,7 @@ public:
     /// @brief 
     /// Divide two rgb values
     /// @details
-    /// This operator/ divides the contents of an rgb value by another, by taking the quotient of each corresponding r, g, b, c value.
+    /// This operator/ divides the contents of an rgb value by another, by taking the quotient of each corresponding r, g, b value.
     /// @return   
     /// New rgb value with divided contents
     rgb operator/(const rgb & rhs) const;
@@ -266,7 +266,7 @@ public:
     /// @brief 
     /// Indexing operator for rgb value
     /// @details
-    /// This operator[] allows for the capability of addressing the contents of an rgb value by index in order R, G, B, C.
+    /// This operator[] allows for the capability of addressing the contents of an rgb value by index in order R, G, B.
     /// Thus, to address the red, green, and blue values, we can use rgb[0], rgb[1], and rgb[2] respectively.
     /// NOTE : operator[] does not check if the index you've entered is out of range because bmptk-make does not allow for throwing exceptions by default, instead it will return 0.
     /// @return

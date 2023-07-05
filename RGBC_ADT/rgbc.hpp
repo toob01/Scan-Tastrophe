@@ -14,7 +14,7 @@
  * Operators included are: +, +=, -, -=, *, *=, /, /=, <<, |, |=, &, &=, <, <=, >, >=, ==, !=, []
  * One constructor is included: (uint16_t, uint16_t, uint16_t, uint16_t)
  * Internal variables are red, green, blue, clear are private. Getters and setters are provided. 
- * Dependencies: stdint.h, iostream.h, hwlib.hpp */
+ * Dependencies: stdint.h, hwlib.hpp */
 class rgbc {
 private:
     uint16_t red;
@@ -277,16 +277,16 @@ public:
     /// @details
     /// This operator[] allows for the capability of addressing the contents of an rgbc value by index in order R, G, B, C.
     /// Thus, to address the red, green, blue, and clear values, we can use rgbc[0], rgbc[1], rgbc[2], and rgbc[3] respectively.
-    /// NOTE : operator[] does not check if the index you've entered is out of range because bmptk-make does not allow for throwing exceptions, instead it will return 0.
+    /// NOTE : operator[] does not check if the index you've entered is out of range because bmptk-make does not allow for throwing exceptions by default, instead it will return 0.
     /// @return
-    /// Reference to the addressed colour value.
+    /// Reference to the addressed colour value, or 0 on index out of range
     uint16_t& operator[](int index);
 
     /// @brief 
     /// Insertion operator for rgbc values, using hwlib::ostream
     /// @details
     /// This operator<< adds the contents of an rgbc value as formatted string to a hwlib::ostream object.
-    /// e.g. hwlib::cout << "values : " << rgbc(1, 2, 3, 4) would result in string : "values : { r:1, g:2, b:3, c:4 }"
+    /// e.g. hwlib::cout << "values : " << rgbc(1, 2, 3, 4) would result in string : "values : 1;2;3;4"
     /// @return   
     /// hwlib::ostream object with added string
     friend hwlib::ostream& operator<<(hwlib::ostream & lhs, rgbc rhs);
