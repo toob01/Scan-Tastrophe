@@ -5,6 +5,7 @@ The codebase makes extensive use of [hwlib](https://github.com/wovo/hwlib) to ad
 With use of [bmptk](https://github.com/wovo/bmptk) it's possible to compile the program for other microcontrollers as well.
 
 The codebase is documented with Doxygen comments, and generated documentation can be found in the DOCS folder.
+Alternatively, if you would like to generate the documentation yourself, you can use Doxywizard on windows and open `Doxyfile` or run `doxygen Doxyfile` in your Linux shell from the Scan-Tastrophe folder. 
 
 # Repository Contents
 Scan-Tastrophe includes one library for use with the TCS34725/7 range of colour sensors in combination with [hwlib](https://github.com/wovo/hwlib).
