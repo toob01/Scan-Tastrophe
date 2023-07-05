@@ -10,7 +10,7 @@
 
 // this file contains Doxygen comments
 
-/// @file rgbc.hpp
+/// @file rgbc.cpp
 
 #include "rgbc.hpp"
 
