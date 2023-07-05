@@ -12,8 +12,8 @@
 /* This is an ADT that represents red, green, blue, and clear colour values in 16-bit unsigned integers.
  * It is primarily expected to be used in combination with the TCS3472 line of colours sensors.
  * Operators included are: +, +=, -, -=, *, *=, /, /=, <<, |, |=, &, &=, <, <=, >, >=, ==, !=, []
- * One constructor is included: (uint16_t, uint16_t, uint16_t, uint16_t)
- * Internal variables are red, green, blue, clear are private. Getters and setters are provided. 
+ * One constructor is included: (uint16_t, uint16_t, uint16_t, uint16_t), with default values (0, 0, 0, 0)
+ * Internal variables red, green, blue, clear are private. Getters and setters are provided. 
  * Dependencies: stdint.h, hwlib.hpp */
 class rgbc {
 private:
@@ -23,12 +23,12 @@ private:
     uint16_t clear;
 public:
     /// @brief 
-    /// Constructor from explicit unsigned 16-bit integer values
+    /// Constructor from unsigned 8-bit integer values
     /// @details
     /* This constructor initializes an RGBC value collection.
-     * The constructor has no default values, and does not allow for partial initialization
-     * all parameters must get an explicit value, this is to avoid unexpected behaviour. */
-    rgbc(uint16_t red, uint16_t green, uint16_t blue, uint16_t clear);
+     * The constructor has default values (0, 0, 0, 0), thus allowing for empty initialization.
+     * Be mindful when using the empty constructor, as the values (0, 0, 0, 0) are plausible results from your colour sensor. */
+    rgbc(uint16_t red = 0, uint16_t green = 0, uint16_t blue = 0, uint16_t clear = 0);
 
     /// @brief
     /// Getter for red colour value

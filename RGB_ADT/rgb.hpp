@@ -12,8 +12,8 @@
 /* This is an ADT that represents red, green, and clear colour values in 8-bit unsigned integers.
  * It is primarily expected to be used in combination with the TCS3472 line of colours sensors.
  * Operators included are: +, +=, -, -=, *, *=, /, /=, <<, |, |=, &, &=, <, <=, >, >=, ==, !=, []
- * One constructor is included: (uint8_t, uint8_t, uint8_t)
- * Internal variables are red, green, blue are private. Getters and setters are provided. 
+ * One constructor is included: (uint8_t, uint8_t, uint8_t), with default values (0, 0, 0)
+ * Internal variables red, green, blue are private. Getters and setters are provided. 
  * Dependencies: stdint.h, hwlib.hpp */
 class rgb {
 private:
@@ -22,12 +22,12 @@ private:
     uint8_t blue;
 public:
     /// @brief 
-    /// Constructor from explicit unsigned 8-bit integer values
+    /// Constructor from unsigned 8-bit integer values
     /// @details
     /* This constructor initializes an RGB value collection.
-     * The constructor has no default values, and does not allow for partial initialization
-     * all parameters must get an explicit value, this is to avoid unexpected behaviour. */
-    rgb(uint8_t red, uint8_t green, uint8_t blue);
+     * The constructor has default values (0, 0, 0), thus allowing for empty initialization.
+     * Be mindful when using the empty constructor, as the values (0, 0, 0) are plausible results from your colour sensor. */
+    rgb(uint8_t red = 0, uint8_t green = 0, uint8_t blue = 0);
 
     /// @brief
     /// Getter for red colour value

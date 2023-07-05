@@ -53,6 +53,21 @@ TEST_CASE("constructor"){
             x.clear_get() == 4444));
 }
 
+TEST_CASE("constructor, empty"){
+    rgbc x;
+    REQUIRE((x.red_get() == 0 &&
+            x.green_get() == 0 &&
+            x.blue_get() == 0));
+}
+
+TEST_CASE("constructor, partial"){
+    rgbc x(1111, 2222);
+    REQUIRE((x.red_get() == 1111 &&
+            x.green_get() == 2222 &&
+            x.blue_get() == 0));
+}
+
+
 TEST_CASE("equality, equal"){
     rgbc x(1111, 2222, 3333, 4444);
     rgbc y(1111, 2222, 3333, 4444);

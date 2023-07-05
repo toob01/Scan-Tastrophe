@@ -34,11 +34,25 @@ TEST_CASE("blue setter"){
     REQUIRE(x.blue_get() == 3);
 }
 
-TEST_CASE("constructor"){
+TEST_CASE("constructor, explicit values"){
     rgb x(1, 2, 3);
     REQUIRE((x.red_get() == 1 &&
             x.green_get() == 2 &&
             x.blue_get() == 3));
+}
+
+TEST_CASE("constructor, empty"){
+    rgb x;
+    REQUIRE((x.red_get() == 0 &&
+            x.green_get() == 0 &&
+            x.blue_get() == 0));
+}
+
+TEST_CASE("constructor, partial"){
+    rgb x(1, 2);
+    REQUIRE((x.red_get() == 1 &&
+            x.green_get() == 2 &&
+            x.blue_get() == 0));
 }
 
 TEST_CASE("equality, equal"){
