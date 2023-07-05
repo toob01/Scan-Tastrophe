@@ -12,7 +12,7 @@
 SOURCES := 
 
 # header files in this project
-HEADERS := mux.hpp
+HEADERS := tca9548a.hpp
 
 # other places to look for files for this project
 SEARCH  := 

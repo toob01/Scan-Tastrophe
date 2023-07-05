@@ -1,5 +1,5 @@
 #include "hwlib.hpp"
-#include "mux.hpp"
+#include "tca9548a.hpp"
 #include <array>
 #include <iomanip>
 
@@ -18,7 +18,7 @@ int main(void){
     
     uint8_t mux_address = 0x70;
     
-    auto mux = i2c_mux(i2c_bus, mux_address);
+    auto mux = tca9548a(i2c_bus, mux_address);
     uint8_t data[2] = {0, 0};
     mux.select(0);
     { // select enable register
@@ -42,32 +42,4 @@ int main(void){
         trans.read(data, 2);
     }
     hwlib::cout << hwlib::bin << ((data[0] << 8) | data[1]);
-    
-//    int red_data[8] = {};
-//    
-//    for(uint8_t t=0; t<7; t++){
-//        mux.select(t);
-//        { // TODO: PLEASE FUCKING COMMENT WHY YOU'RE USING IF TRUE OR CURLY BRACES
-//            auto trans = hwlib::i2c_write_transaction(i2c_bus, 0x29);
-//            trans.write(0b10000000);
-//            trans.write(0b00000011);
-//        }
-//        {
-//            auto start = hwlib::i2c_write_transaction(i2c_bus, 0x29);
-//            hwlib::wait_ms(150);
-//            start.write(0b10110100);
-//        }
-//        {
-//            auto trans = hwlib::i2c_read_transaction(i2c_bus, 0x29);
-//            trans.read(data, 2);
-//        }
-//    red_data[t] = (data[0] << 8) | data[1];
-        
-//    }
-//    hwlib::cout << "| " << hwlib::setfill(' ') << hwlib::setw(5) << red_data[4] << " | " << hwlib::setfill(' ') << hwlib::setw(5) << red_data[0] << " |" << "\n";
-//    hwlib::cout << "| " << hwlib::setfill(' ') << hwlib::setw(5) << red_data[5] << " | " << hwlib::setfill(' ') << hwlib::setw(5) << red_data[1] << " |" << "\n";
-//    hwlib::cout << "| " << hwlib::setfill(' ') << hwlib::setw(5) << red_data[6] << " | " << hwlib::setfill(' ') << hwlib::setw(5) << red_data[2] << " |" << "\n";
-//    hwlib::cout << "| " << hwlib::setfill(' ') << hwlib::setw(5) << red_data[7] << " | " << hwlib::setfill(' ') << hwlib::setw(5) << red_data[3] << " |" << "\n";
-//    hwlib::cout << "\n";
-    
 }
