@@ -173,14 +173,12 @@ TEST_CASE("bitwise OR rgbc with rgbc"){
 TEST_CASE("bitwise OR rgbc with mask, friend lhs"){
     rgbc x(0, 0, 0, 0);
     rgbc z = x | 0b1;
-    hwlib::cout << "THIS IS THE OUTPUT OF Z IN OR FRIEND LHS: " << z << hwlib::endl;
     REQUIRE(z == rgbc(1, 1, 1, 1));
 }
 
 TEST_CASE("bitwise OR rgbc with mask, friend rhs"){
     rgbc x(0, 0, 0, 0);
     rgbc z = 0b1 | x;
-    hwlib::cout << "THIS IS THE OUTPUT OF Z IN OR FRIEND RHS: " << z << hwlib::endl;
     REQUIRE(z == rgbc(1, 1, 1, 1));
 }
 
@@ -297,9 +295,19 @@ TEST_CASE("index operator, write"){
     REQUIRE (x[3] == 40);
 }
 
+TEST_CASE("index operator, out of range"){
+    rgbc x(0, 1, 2, 3);
+    REQUIRE (x[0] == 0);
+    REQUIRE (x[1] == 1);
+    REQUIRE (x[2] == 2);
+    REQUIRE (x[3] == 3);
+    REQUIRE(x[4] == 0);
+}
+
 TEST_CASE("insertion operator hwlib::ostream"){
     rgbc x(1, 2, 3, 4);
-    hwlib::cout << x << hwlib::endl;
-    hwlib::cout << "If you just saw an terminal output '{ r:1, g:2, b:3, c:4 }' then the << operator is working correctly!" << hwlib::endl;
+    hwlib::cout << "\x1b[37;41m MANUAL TEST CASE BECAUSE HWLIB DOESN'T HAVE STRINGSTREAM, PLEASE REVIEW: \x1b[39;49m" << hwlib::endl;
+    hwlib::cout << "\x1b[32m" << x << "\x1b[39;49m" << hwlib::endl;
+    hwlib::cout << "If you just saw an terminal output \x1b[32m'{ r:1, g:2, b:3, c:4 }' \x1b[39;49m then the << operator is working \x1b[32m correctly! \x1b[39;49m" << hwlib::endl;
     REQUIRE(true);
 }
