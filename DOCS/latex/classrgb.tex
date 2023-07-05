@@ -1,0 +1,481 @@
+\hypertarget{classrgb}{}\doxysection{rgb Class Reference}
+\label{classrgb}\index{rgb@{rgb}}
+
+
+RGB value Abstract Data\+Type.  
+
+
+
+
+{\ttfamily \#include $<$rgb.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classrgb_a0ee8f8f011efaa66e51faca42c25dc96}\label{classrgb_a0ee8f8f011efaa66e51faca42c25dc96}} 
+{\bfseries rgb} (uint8\+\_\+t red=0, uint8\+\_\+t green=0, uint8\+\_\+t blue=0)
+\begin{DoxyCompactList}\small\item\em Constructor from unsigned 8-\/bit integer values. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrgb_ad8ed24e244cd542a32c368acc61394de}\label{classrgb_ad8ed24e244cd542a32c368acc61394de}} 
+uint8\+\_\+t {\bfseries red\+\_\+get} () const
+\begin{DoxyCompactList}\small\item\em Getter for red colour value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrgb_a4362c7c0b6f3a9a80d33bbc2a5150c38}\label{classrgb_a4362c7c0b6f3a9a80d33bbc2a5150c38}} 
+uint8\+\_\+t {\bfseries green\+\_\+get} () const
+\begin{DoxyCompactList}\small\item\em Getter for green colour value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrgb_a553b97865134f252fdb9edca004af053}\label{classrgb_a553b97865134f252fdb9edca004af053}} 
+uint8\+\_\+t {\bfseries blue\+\_\+get} () const
+\begin{DoxyCompactList}\small\item\em Getter for blue colour value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrgb_acc443f74e211e4979a1001350a37d287}\label{classrgb_acc443f74e211e4979a1001350a37d287}} 
+void {\bfseries red\+\_\+set} (uint8\+\_\+t new\+\_\+red)
+\begin{DoxyCompactList}\small\item\em Setter for red colour value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrgb_ac1055b8f6aaf7daaabee93ceeff1eb56}\label{classrgb_ac1055b8f6aaf7daaabee93ceeff1eb56}} 
+void {\bfseries green\+\_\+set} (uint8\+\_\+t new\+\_\+green)
+\begin{DoxyCompactList}\small\item\em Setter for green colour value ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrgb_a3f2e2a40c5559d6dcc9d8edb99efb4ce}\label{classrgb_a3f2e2a40c5559d6dcc9d8edb99efb4ce}} 
+void {\bfseries blue\+\_\+set} (uint8\+\_\+t new\+\_\+blue)
+\begin{DoxyCompactList}\small\item\em Setter for blue colour value ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgb}{rgb}} \mbox{\hyperlink{classrgb_a4bdf73a80998698640d9ab2ea390756b}{operator+}} (const \mbox{\hyperlink{classrgb}{rgb}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Add two rgb values together. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgb}{rgb}} \& \mbox{\hyperlink{classrgb_adfca03033bcc2153fabf5ca1d3658335}{operator+=}} (const \mbox{\hyperlink{classrgb}{rgb}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Add one rgb value into another. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgb}{rgb}} \mbox{\hyperlink{classrgb_a5be897188b205b37a50aa22b0295d83e}{operator-\/}} (const \mbox{\hyperlink{classrgb}{rgb}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Subract two rgb values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgb}{rgb}} \& \mbox{\hyperlink{classrgb_a6592fb938c623f894b96159387bd1ac1}{operator-\/=}} (const \mbox{\hyperlink{classrgb}{rgb}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Subtract an rgb value from another. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgb}{rgb}} \mbox{\hyperlink{classrgb_a6f0d0c2946c69b360aeaf5d52d40e3ce}{operator$\ast$}} (const \mbox{\hyperlink{classrgb}{rgb}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Multiply two rgb values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgb}{rgb}} \& \mbox{\hyperlink{classrgb_a41e1b9430079b7edf2712a15349f3619}{operator$\ast$=}} (const \mbox{\hyperlink{classrgb}{rgb}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Mutiply an rgb value by another. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgb}{rgb}} \& \mbox{\hyperlink{classrgb_ab5e685e0de53cf1ac430fbc5ab57fbdd}{operator$\ast$=}} (const int \&factor)
+\begin{DoxyCompactList}\small\item\em Multiply an rgb value by a factor, modifying the original. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgb}{rgb}} \mbox{\hyperlink{classrgb_ae67093625077763317e583c346a858a7}{operator/}} (const \mbox{\hyperlink{classrgb}{rgb}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Divide two rgb values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgb}{rgb}} \& \mbox{\hyperlink{classrgb_abdf95c8638fe79d11ed637c764174126}{operator/=}} (const \mbox{\hyperlink{classrgb}{rgb}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Divide an rgb value by another. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgb}{rgb}} \& \mbox{\hyperlink{classrgb_aae397911384634b1fda6fa9fea075293}{operator/=}} (const int \&factor)
+\begin{DoxyCompactList}\small\item\em Divide an rgb value by a factor, modifying the original. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgb}{rgb}} \mbox{\hyperlink{classrgb_a8d80cbd82a34377b9ef42614cf2b57c9}{operator$\vert$}} (const \mbox{\hyperlink{classrgb}{rgb}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Bitwise OR two rgb values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgb}{rgb}} \& \mbox{\hyperlink{classrgb_a4a39dce2197fcc45b85499e288bdfaa9}{operator$\vert$=}} (const \mbox{\hyperlink{classrgb}{rgb}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Bitwise OR two rgb values, modifying the original. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgb}{rgb}} \& \mbox{\hyperlink{classrgb_a8da2c422ae193fd27028db233b9ae47f}{operator$\vert$=}} (const int \&mask)
+\begin{DoxyCompactList}\small\item\em Bitwise OR an rgb value with a integer mask, modifying the original. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgb}{rgb}} \mbox{\hyperlink{classrgb_ad0bd5ebff2134bc6dda5122878137e56}{operator\&}} (const \mbox{\hyperlink{classrgb}{rgb}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Bitwise AND two rgb values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgb}{rgb}} \& \mbox{\hyperlink{classrgb_a721606d4ddf19583361b71d272f575d2}{operator\&=}} (const \mbox{\hyperlink{classrgb}{rgb}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Bitwise AND two rgb values, modifying the original. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgb}{rgb}} \& \mbox{\hyperlink{classrgb_aa216bfd355ece6f545e5e04829b45ef4}{operator\&=}} (const int \&mask)
+\begin{DoxyCompactList}\small\item\em Bitwise AND an rgb value with a integer mask, modifying the original. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrgb_a36ebe6a5ee63387b7918d0e03c359f15}{operator==}} (const \mbox{\hyperlink{classrgb}{rgb}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Compare two rgb values for equality. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrgb_a0ff1c513e4ea438a6f2b83d9d60d326c}{operator!=}} (const \mbox{\hyperlink{classrgb}{rgb}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Compare two rgb values for inequality. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrgb_ad77a75df14acca894e4dcb49e6befb3a}{operator$<$}} (const \mbox{\hyperlink{classrgb}{rgb}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Compare two rgb values for less than. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrgb_a946c3c4e1e32a21a3bacb2c57aeb06dd}{operator$<$=}} (const \mbox{\hyperlink{classrgb}{rgb}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Compare two rgb values for less or equal than. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrgb_a18fcafd58e75e92be11972aff0e94ee6}{operator$>$}} (const \mbox{\hyperlink{classrgb}{rgb}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Compare two rgb values for more than. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrgb_a9a28b07951f4b654519ec22d35a3d810}{operator$>$=}} (const \mbox{\hyperlink{classrgb}{rgb}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Compare two rgb values for more or equal than. \end{DoxyCompactList}\item 
+uint8\+\_\+t \& \mbox{\hyperlink{classrgb_aa9ba0b192ae3757fb270f95c66bd7810}{operator\mbox{[}$\,$\mbox{]}}} (int index)
+\begin{DoxyCompactList}\small\item\em Indexing operator for rgb value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrgb}{rgb}} \mbox{\hyperlink{classrgb_ae47112960afd21918b9c25f0dbbcb3c1}{operator$\ast$}} (const \mbox{\hyperlink{classrgb}{rgb}} \&lhs, const int \&factor)
+\begin{DoxyCompactList}\small\item\em Multiply an rgb value by a factor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrgb_a8dc268d02f1f30e054027cc1c87c7ec0}\label{classrgb_a8dc268d02f1f30e054027cc1c87c7ec0}} 
+\mbox{\hyperlink{classrgb}{rgb}} {\bfseries operator$\ast$} (const int \&factor, const \mbox{\hyperlink{classrgb}{rgb}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Multiply an rgb value by a factor \+: ivnerted parameters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgb}{rgb}} \mbox{\hyperlink{classrgb_ad024eb45cf0f90da302176f0b482130f}{operator/}} (const \mbox{\hyperlink{classrgb}{rgb}} \&lhs, const int \&factor)
+\begin{DoxyCompactList}\small\item\em Divide an rgb value by a factor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgb}{rgb}} \mbox{\hyperlink{classrgb_ab0e0e2efaf3ffca382dfedeb9c6a1b72}{operator$\vert$}} (\mbox{\hyperlink{classrgb}{rgb}} rhs, const int \&mask)
+\begin{DoxyCompactList}\small\item\em Bitwise OR an rgb value with an integer mask. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrgb_a6ab7cd6ee489066f4c3bdbadb44d7c09}\label{classrgb_a6ab7cd6ee489066f4c3bdbadb44d7c09}} 
+\mbox{\hyperlink{classrgb}{rgb}} {\bfseries operator$\vert$} (const int \&mask, \mbox{\hyperlink{classrgb}{rgb}} rhs)
+\begin{DoxyCompactList}\small\item\em Bitwise OR an rgb value with an integer mask \+: inverted parameters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgb}{rgb}} \mbox{\hyperlink{classrgb_ac7104a6c066f38354c502b7ef4ee59b7}{operator\&}} (\mbox{\hyperlink{classrgb}{rgb}} rhs, const int \&mask)
+\begin{DoxyCompactList}\small\item\em Bitwise AND an rgb value with an integer mask. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrgb_a4ff1c8fabf8209709a6972cc0064c983}\label{classrgb_a4ff1c8fabf8209709a6972cc0064c983}} 
+\mbox{\hyperlink{classrgb}{rgb}} {\bfseries operator\&} (const int \&mask, \mbox{\hyperlink{classrgb}{rgb}} rhs)
+\begin{DoxyCompactList}\small\item\em Bitwise AND an rgb value with an integer mask \+: inverted parameters. \end{DoxyCompactList}\item 
+hwlib\+::ostream \& \mbox{\hyperlink{classrgb_afabdb691b59cc270ef08bf6b1b12a30c}{operator$<$$<$}} (hwlib\+::ostream \&lhs, \mbox{\hyperlink{classrgb}{rgb}} rhs)
+\begin{DoxyCompactList}\small\item\em Insertion operator for rgb values, using hwlib\+::ostream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+RGB value Abstract Data\+Type. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classrgb_a0ff1c513e4ea438a6f2b83d9d60d326c}\label{classrgb_a0ff1c513e4ea438a6f2b83d9d60d326c}} 
+\index{rgb@{rgb}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool rgb\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb}{rgb}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Compare two rgb values for inequality. 
+
+This operator!= tests for inequality between two rgb values. If, and only if none of the corresponding contents are equal, this operator returns true, else it returns false. \mbox{\Hypertarget{classrgb_ad0bd5ebff2134bc6dda5122878137e56}\label{classrgb_ad0bd5ebff2134bc6dda5122878137e56}} 
+\index{rgb@{rgb}!operator\&@{operator\&}}
+\index{operator\&@{operator\&}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator\&()}{operator\&()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} rgb\+::operator\& (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb}{rgb}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Bitwise AND two rgb values. 
+
+This operator\& performs a bitwise AND operation on the contents of an rgb value with another\textquotesingle{}s. e.\+g. \mbox{\hyperlink{classrgb}{rgb(1, 0, 1)}} \& \mbox{\hyperlink{classrgb}{rgb(0, 1, 0)}} = \mbox{\hyperlink{classrgb}{rgb(0, 0, 0)}} \begin{DoxyReturn}{Returns}
+~\newline
+ New rgb object with result of Bitwise AND operation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgb_aa216bfd355ece6f545e5e04829b45ef4}\label{classrgb_aa216bfd355ece6f545e5e04829b45ef4}} 
+\index{rgb@{rgb}!operator\&=@{operator\&=}}
+\index{operator\&=@{operator\&=}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator\&=()}{operator\&=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} \& rgb\+::operator\&= (\begin{DoxyParamCaption}\item[{const int \&}]{mask }\end{DoxyParamCaption})}
+
+
+
+Bitwise AND an rgb value with a integer mask, modifying the original. 
+
+\begin{DoxyReturn}{Returns}
+~\newline
+ Modified rgb value object by reference 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgb_a721606d4ddf19583361b71d272f575d2}\label{classrgb_a721606d4ddf19583361b71d272f575d2}} 
+\index{rgb@{rgb}!operator\&=@{operator\&=}}
+\index{operator\&=@{operator\&=}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator\&=()}{operator\&=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} \& rgb\+::operator\&= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb}{rgb}} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Bitwise AND two rgb values, modifying the original. 
+
+\begin{DoxyReturn}{Returns}
+~\newline
+ Modified rgb value object by reference 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgb_a6f0d0c2946c69b360aeaf5d52d40e3ce}\label{classrgb_a6f0d0c2946c69b360aeaf5d52d40e3ce}} 
+\index{rgb@{rgb}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} rgb\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb}{rgb}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Multiply two rgb values. 
+
+This operator$\ast$ multiplies the contents of one rgb value by another, by taking the product of each corresponding r, g, b value. e.\+g. \mbox{\hyperlink{classrgb}{rgb(1, 2, 3)}} $\ast$ \mbox{\hyperlink{classrgb}{rgb(1, 2, 3)}} = \mbox{\hyperlink{classrgb}{rgb(1, 4, 9)}} \begin{DoxyReturn}{Returns}
+New rgb object with multiplied contents 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgb_ab5e685e0de53cf1ac430fbc5ab57fbdd}\label{classrgb_ab5e685e0de53cf1ac430fbc5ab57fbdd}} 
+\index{rgb@{rgb}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} \& rgb\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{const int \&}]{factor }\end{DoxyParamCaption})}
+
+
+
+Multiply an rgb value by a factor, modifying the original. 
+
+\begin{DoxyReturn}{Returns}
+~\newline
+ Modified rgb value object by reference 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgb_a41e1b9430079b7edf2712a15349f3619}\label{classrgb_a41e1b9430079b7edf2712a15349f3619}} 
+\index{rgb@{rgb}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} \& rgb\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb}{rgb}} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Mutiply an rgb value by another. 
+
+This operator$\ast$= multiplies the contents of one rgb value by another, modifying the original contents of the rgb value. \begin{DoxyReturn}{Returns}
+Modified rgb value object by reference 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgb_a4bdf73a80998698640d9ab2ea390756b}\label{classrgb_a4bdf73a80998698640d9ab2ea390756b}} 
+\index{rgb@{rgb}!operator+@{operator+}}
+\index{operator+@{operator+}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} rgb\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb}{rgb}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Add two rgb values together. 
+
+This operator+ adds one rgb value to another, by taking the sum of each corresponding r, g, b value. e.\+g. \mbox{\hyperlink{classrgb}{rgb(1, 2, 3)}} + \mbox{\hyperlink{classrgb}{rgb(1, 2, 3)}} = \mbox{\hyperlink{classrgb}{rgb(2, 4, 6)}} \begin{DoxyReturn}{Returns}
+New rgb object with summed contents 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgb_adfca03033bcc2153fabf5ca1d3658335}\label{classrgb_adfca03033bcc2153fabf5ca1d3658335}} 
+\index{rgb@{rgb}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} \& rgb\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb}{rgb}} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Add one rgb value into another. 
+
+This operator+= adds the contents of one rgb value to another, modifying the original contents of the rgb value. \begin{DoxyReturn}{Returns}
+Modified rgb value object by reference 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgb_a5be897188b205b37a50aa22b0295d83e}\label{classrgb_a5be897188b205b37a50aa22b0295d83e}} 
+\index{rgb@{rgb}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} rgb\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb}{rgb}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Subract two rgb values. 
+
+This operator-\/ subtracts the contents of one rgb value from another, by taking the difference of each corresponding r, g, b value. \begin{DoxyReturn}{Returns}
+New rgb object with subtracted contents 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgb_a6592fb938c623f894b96159387bd1ac1}\label{classrgb_a6592fb938c623f894b96159387bd1ac1}} 
+\index{rgb@{rgb}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} \& rgb\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb}{rgb}} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Subtract an rgb value from another. 
+
+This operator-\/= subtracts the contents of one rgb value from another, modifying the original contents of the rgb value. \begin{DoxyReturn}{Returns}
+Modified rgb value object by reference 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgb_ae67093625077763317e583c346a858a7}\label{classrgb_ae67093625077763317e583c346a858a7}} 
+\index{rgb@{rgb}!operator/@{operator/}}
+\index{operator/@{operator/}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} rgb\+::operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb}{rgb}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Divide two rgb values. 
+
+This operator/ divides the contents of an rgb value by another, by taking the quotient of each corresponding r, g, b value. \begin{DoxyReturn}{Returns}
+~\newline
+ New rgb value with divided contents 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgb_aae397911384634b1fda6fa9fea075293}\label{classrgb_aae397911384634b1fda6fa9fea075293}} 
+\index{rgb@{rgb}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} \& rgb\+::operator/= (\begin{DoxyParamCaption}\item[{const int \&}]{factor }\end{DoxyParamCaption})}
+
+
+
+Divide an rgb value by a factor, modifying the original. 
+
+\begin{DoxyReturn}{Returns}
+~\newline
+ Modified rgb value object by refernce 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgb_abdf95c8638fe79d11ed637c764174126}\label{classrgb_abdf95c8638fe79d11ed637c764174126}} 
+\index{rgb@{rgb}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} \& rgb\+::operator/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb}{rgb}} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Divide an rgb value by another. 
+
+This operator/= divides the contents of one rgb value by another, modifying the original contents of the rgb value. \begin{DoxyReturn}{Returns}
+~\newline
+ Modified rgb value object by reference 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgb_ad77a75df14acca894e4dcb49e6befb3a}\label{classrgb_ad77a75df14acca894e4dcb49e6befb3a}} 
+\index{rgb@{rgb}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool rgb\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb}{rgb}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Compare two rgb values for less than. 
+
+This operator\texorpdfstring{$<$}{<} tests if all contents of an rgb value are less than the contents of a given rgb value. If, and only if all corresponding contents are less than the given contents, this operator returns true, else it returns false. \mbox{\Hypertarget{classrgb_a946c3c4e1e32a21a3bacb2c57aeb06dd}\label{classrgb_a946c3c4e1e32a21a3bacb2c57aeb06dd}} 
+\index{rgb@{rgb}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
+{\footnotesize\ttfamily bool rgb\+::operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb}{rgb}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Compare two rgb values for less or equal than. 
+
+This operator\texorpdfstring{$<$}{<}= tests if all contents of an rgb value are less than or equal to the contents of a given rgb value. If, and only if all corresponding contents are less than or equal to the given contents, this operator returns true, else it returns false. \mbox{\Hypertarget{classrgb_a36ebe6a5ee63387b7918d0e03c359f15}\label{classrgb_a36ebe6a5ee63387b7918d0e03c359f15}} 
+\index{rgb@{rgb}!operator==@{operator==}}
+\index{operator==@{operator==}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool rgb\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb}{rgb}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Compare two rgb values for equality. 
+
+This operator== tests for equality between two rgb values. If, and only if all corresponding contents are equal, this operator returns true, else it returns false. \mbox{\Hypertarget{classrgb_a18fcafd58e75e92be11972aff0e94ee6}\label{classrgb_a18fcafd58e75e92be11972aff0e94ee6}} 
+\index{rgb@{rgb}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool rgb\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb}{rgb}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Compare two rgb values for more than. 
+
+This operator\texorpdfstring{$>$}{>} tests if all contents of an rgb value are more than the contents of a given rgb value. If, and only if all correspondig contents are more than the given contents, this operator returns true, else it returns false. \mbox{\Hypertarget{classrgb_a9a28b07951f4b654519ec22d35a3d810}\label{classrgb_a9a28b07951f4b654519ec22d35a3d810}} 
+\index{rgb@{rgb}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
+{\footnotesize\ttfamily bool rgb\+::operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb}{rgb}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Compare two rgb values for more or equal than. 
+
+This operator\texorpdfstring{$>$}{>}= tests if all contents of an rgb value are more or equal to the contents of a given rgb value. If, and only if all corresponding contents are less than or equal to the given contents, this operator returns true, else it returns false. \mbox{\Hypertarget{classrgb_aa9ba0b192ae3757fb270f95c66bd7810}\label{classrgb_aa9ba0b192ae3757fb270f95c66bd7810}} 
+\index{rgb@{rgb}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily uint8\+\_\+t \& rgb\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Indexing operator for rgb value. 
+
+This operator\mbox{[}\mbox{]} allows for the capability of addressing the contents of an rgb value by index in order R, G, B. Thus, to address the red, green, and blue values, we can use rgb\mbox{[}0\mbox{]}, rgb\mbox{[}1\mbox{]}, and rgb\mbox{[}2\mbox{]} respectively. NOTE \+: operator\mbox{[}\mbox{]} does not check if the index you\textquotesingle{}ve entered is out of range because bmptk-\/make does not allow for throwing exceptions by default, instead it will return 0. \begin{DoxyReturn}{Returns}
+Reference to the addressed colour value, or 0 on index out of range 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgb_a8d80cbd82a34377b9ef42614cf2b57c9}\label{classrgb_a8d80cbd82a34377b9ef42614cf2b57c9}} 
+\index{rgb@{rgb}!operator\texttt{"|}@{operator\texttt{"|}}}
+\index{operator\texttt{"|}@{operator\texttt{"|}}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator\texttt{"|}()}{operator|()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} rgb\+::operator$\vert$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb}{rgb}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Bitwise OR two rgb values. 
+
+This operator$\vert$ performs a Bitwise OR operation on the contents of an rgb value with another\textquotesingle{}s. e.\+g. \mbox{\hyperlink{classrgb}{rgb(1, 0, 1)}} $\vert$ \mbox{\hyperlink{classrgb}{rgb(0, 1, 0)}} = \mbox{\hyperlink{classrgb}{rgb(1, 1, 1)}} \begin{DoxyReturn}{Returns}
+~\newline
+ New rgb object with result of Bitwise OR operation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgb_a8da2c422ae193fd27028db233b9ae47f}\label{classrgb_a8da2c422ae193fd27028db233b9ae47f}} 
+\index{rgb@{rgb}!operator\texttt{"|}=@{operator\texttt{"|}=}}
+\index{operator\texttt{"|}=@{operator\texttt{"|}=}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator\texttt{"|}=()}{operator|=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} \& rgb\+::operator$\vert$= (\begin{DoxyParamCaption}\item[{const int \&}]{mask }\end{DoxyParamCaption})}
+
+
+
+Bitwise OR an rgb value with a integer mask, modifying the original. 
+
+\begin{DoxyReturn}{Returns}
+~\newline
+ Modified rgb value object by reference 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgb_a4a39dce2197fcc45b85499e288bdfaa9}\label{classrgb_a4a39dce2197fcc45b85499e288bdfaa9}} 
+\index{rgb@{rgb}!operator\texttt{"|}=@{operator\texttt{"|}=}}
+\index{operator\texttt{"|}=@{operator\texttt{"|}=}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator\texttt{"|}=()}{operator|=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} \& rgb\+::operator$\vert$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb}{rgb}} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Bitwise OR two rgb values, modifying the original. 
+
+\begin{DoxyReturn}{Returns}
+~\newline
+ Modified rgb value object by reference 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classrgb_ac7104a6c066f38354c502b7ef4ee59b7}\label{classrgb_ac7104a6c066f38354c502b7ef4ee59b7}} 
+\index{rgb@{rgb}!operator\&@{operator\&}}
+\index{operator\&@{operator\&}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator\&}{operator\&}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} operator\& (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgb}{rgb}}}]{rhs,  }\item[{const int \&}]{mask }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Bitwise AND an rgb value with an integer mask. 
+
+This operator\& performs a Bitwise AND operation on the contents of an rgb value with a given mask. e.\+g. \mbox{\hyperlink{classrgb}{rgb(1, 0, 1, 0)}} \& 0b1 = \mbox{\hyperlink{classrgb}{rgb(1, 0, 1)}} \begin{DoxyReturn}{Returns}
+~\newline
+ New rgb object with result of Bitwise AND operation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgb_ae47112960afd21918b9c25f0dbbcb3c1}\label{classrgb_ae47112960afd21918b9c25f0dbbcb3c1}} 
+\index{rgb@{rgb}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$}{operator*}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb}{rgb}} \&}]{lhs,  }\item[{const int \&}]{factor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Multiply an rgb value by a factor. 
+
+This operator$\ast$ multiplies the contents of an rgb value by a given factor, by taking the product of the contents and the factor. e.\+g. \mbox{\hyperlink{classrgb}{rgb(1, 2, 3)}} $\ast$ 2 = \mbox{\hyperlink{classrgb}{rgb(2, 4, 6)}} \begin{DoxyReturn}{Returns}
+~\newline
+ New rgb object with multiplied contents 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgb_ad024eb45cf0f90da302176f0b482130f}\label{classrgb_ad024eb45cf0f90da302176f0b482130f}} 
+\index{rgb@{rgb}!operator/@{operator/}}
+\index{operator/@{operator/}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator/}{operator/}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb}{rgb}} \&}]{lhs,  }\item[{const int \&}]{factor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Divide an rgb value by a factor. 
+
+This operator/ divides the contents of an rgb value by a given factor, by taking the quotient of the contents and the factor. e.\+g. \mbox{\hyperlink{classrgb}{rgb(2, 4, 6)}} / 2 = \mbox{\hyperlink{classrgb}{rgb(1, 2, 3)}} \begin{DoxyReturn}{Returns}
+~\newline
+ New rgb object with divided contents 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgb_afabdb691b59cc270ef08bf6b1b12a30c}\label{classrgb_afabdb691b59cc270ef08bf6b1b12a30c}} 
+\index{rgb@{rgb}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily hwlib\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{hwlib\+::ostream \&}]{lhs,  }\item[{\mbox{\hyperlink{classrgb}{rgb}}}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Insertion operator for rgb values, using hwlib\+::ostream. 
+
+This operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} adds the contents of an rgb value as formatted string to a hwlib\+::ostream object. e.\+g. hwlib\+::cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} \char`\"{}values \+: \char`\"{} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} \mbox{\hyperlink{classrgb}{rgb(1, 2, 3)}}; would result in string \+: \char`\"{}values \+: 1;2;3\char`\"{} \begin{DoxyReturn}{Returns}
+~\newline
+ hwlib\+::ostream object with added string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgb_ab0e0e2efaf3ffca382dfedeb9c6a1b72}\label{classrgb_ab0e0e2efaf3ffca382dfedeb9c6a1b72}} 
+\index{rgb@{rgb}!operator\texttt{"|}@{operator\texttt{"|}}}
+\index{operator\texttt{"|}@{operator\texttt{"|}}!rgb@{rgb}}
+\doxysubsubsection{\texorpdfstring{operator\texttt{"|}}{operator|}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} operator$\vert$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgb}{rgb}}}]{rhs,  }\item[{const int \&}]{mask }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Bitwise OR an rgb value with an integer mask. 
+
+This operator$\vert$ performs a Bitwise OR operation on the contents of an rgb value with a given mask. e.\+g. \mbox{\hyperlink{classrgb}{rgb(0, 0, 0)}} $\vert$ 0b1 = \mbox{\hyperlink{classrgb}{rgb(1, 1, 1)}} \begin{DoxyReturn}{Returns}
+~\newline
+ New rgb object with result of Bitwise OR operation 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+RGB\+\_\+\+ADT/\mbox{\hyperlink{rgb_8hpp}{rgb.\+hpp}}\item 
+RGB\+\_\+\+ADT/\mbox{\hyperlink{rgb_8cpp}{rgb.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,42 @@
+\hypertarget{tca9548a_8hpp_source}{}\doxysection{tca9548a.\+hpp}
+\label{tca9548a_8hpp_source}\index{TCA9548A/tca9548a.hpp@{TCA9548A/tca9548a.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ =============================================================}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ File\ \ \ \ \ \ \ \ \ :\ tca9458a.hpp}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ Copyright\ \ \ \ :\ tobias.bosch@student.hu.nl\ 2023}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ (See\ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ =============================================================}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ this\ file\ contains\ Doxygen\ comments}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ TCA9458A\_HPP}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ TCA9458A\_HPP}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}hwlib.hpp"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtca9548a}{tca9548a}}\ \{}
+\DoxyCodeLine{00026\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00027\ \ \ \ \ hwlib::i2c\_bus\_bit\_banged\_scl\_sda\ \&\ i2c\_bus;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ address;}
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{classtca9548a_a3efb72b700103103ed1bf7d3fc1422ed}{tca9548a}}(hwlib::i2c\_bus\_bit\_banged\_scl\_sda\ \&\ c\_i2c\_bus,\ uint8\_t\ c\_address):}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ i2c\_bus(c\_i2c\_bus),}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ address(c\_address)}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \{\};}
+\DoxyCodeLine{00036\ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classtca9548a_afec9e52bb64dca9bf71f29a3afaf9120}{select}}(\textcolor{keywordtype}{int}\ output)\{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (output\ >\ 7)\ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ trans\ =\ hwlib::i2c\_write\_transaction(i2c\_bus,\ address);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ trans.write(1\ <<\ output);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ output;}
+\DoxyCodeLine{00047\ \ \ \ \ \};}
+\DoxyCodeLine{00048\ \};\ \textcolor{comment}{//\ class\ tca9548a}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TCA9458A\_HPP}}
+
+\end{DoxyCode}

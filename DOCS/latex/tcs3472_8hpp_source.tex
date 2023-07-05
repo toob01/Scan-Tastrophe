@@ -1,0 +1,129 @@
+\hypertarget{tcs3472_8hpp_source}{}\doxysection{tcs3472.\+hpp}
+\label{tcs3472_8hpp_source}\index{TCS3472/tcs3472.hpp@{TCS3472/tcs3472.hpp}}
+\mbox{\hyperlink{tcs3472_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ =============================================================}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ File\ \ \ \ \ \ \ \ \ :\ tcs3472.hpp}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ Copyright\ \ \ \ :\ tobias.bosch@student.hu.nl\ 2023}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ (See\ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ =============================================================}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ this\ file\ contains\ Doxygen\ comments}}
+\DoxyCodeLine{00013\ \textcolor{comment}{}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ TCS3472\_HPP}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ TCS3472\_HPP}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ TCS\ 0x29}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}hwlib.hpp"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}../RGBC\_ADT/rgbc.hpp"{}}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}../RGB\_ADT/rgb.hpp"{}}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ RDATA\ 0x16}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ GDATA\ 0x18}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ BDATA\ 0x1A}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ CDATA\ 0x14}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ H\_CDATA\ 0x15}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ H\_RDATA\ 0x17}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ H\_BDATA\ 0x19}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ H\_GDATA\ 0x1B}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ TCS\_ENABLE\ 0x00}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ TCS\_ATIME\ 0x01}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ TCS\_WTIME\ 0x03}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ TCS\_AGAIN\ 0x0F}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ TCS\_STATUS\ 0x13}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ SET\_WEN\ 0x08}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ SET\_AEN\ 0x02}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ SET\_PON\ 0x01}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ SET\_ATIME\_2\_4MS\ 0xFF}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ SET\_ATIME\_24MS\ 0xF6}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ SET\_ATIME\_50MS\ 0xEB}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ SET\_ATIME\_101MS\ 0xD5}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ SET\_ATIME\_154MS\ 0xC0}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ SET\_ATIME\_200MS\ 0XAC}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ SET\_ATIME\_267MS\ 0X90}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ SET\_ATIME\_320MS\ 0X7A}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ SET\_ATIME\_385MS\ 0X5F}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ SET\_ATIME\_420MS\ 0X50}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ SET\_ATIME\_500MS\ 0X2F}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ SET\_ATIME\_532MS\ 0X22}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ SET\_ATIME\_570MS\ 0X12}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ SET\_ATIME\_614MS\ 0x00}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ SET\_WTIME\_2\_4MS\ 0xFF}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ SET\_WTIME\_24MS\ 0xF6}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ SET\_WTIME\_50MS\ 0xEB}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ SET\_WTIME\_101MS\ 0xD5}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ SET\_WTIME\_154MS\ 0xC0}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ SET\_WTIME\_200MS\ 0XAC}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ SET\_WTIME\_267MS\ 0X90}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ SET\_WTIME\_320MS\ 0X7A}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ SET\_WTIME\_385MS\ 0X5F}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ SET\_WTIME\_420MS\ 0X50}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ SET\_WTIME\_500MS\ 0X2F}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ SET\_WTIME\_532MS\ 0X22}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ SET\_WTIME\_570MS\ 0X12}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ SET\_WTIME\_614MS\ 0x00}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ SET\_AGAIN\_1X\ 0x00}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ SET\_AGAIN\_4X\ 0x01}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ SET\_AGAIN\_16X\ 0x02}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#define\ SET\_AGAIN\_60X\ 0x03}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00114\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtcs3472}{tcs3472}}\ \{}
+\DoxyCodeLine{00115\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ hwlib::i2c\_primitives\ \&\ bus;}
+\DoxyCodeLine{00118\ \ \ \ \ uint8\_t\ enable\_option;}
+\DoxyCodeLine{00119\ \ \ \ \ uint8\_t\ atime\_option;}
+\DoxyCodeLine{00120\ \ \ \ \ uint8\_t\ wtime\_option;}
+\DoxyCodeLine{00121\ \ \ \ \ uint8\_t\ again\_option;}
+\DoxyCodeLine{00122\ \ \ \ \ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_active\_register\_single\_byte(uint8\_t\ reg\_address);}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_active\_register\_multi\_byte(uint8\_t\ reg\_address);}
+\DoxyCodeLine{00125\ \ \ \ \ std::array<uint8\_t,\ 2>\ read\_color\_register(uint8\_t\ reg\_address);}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_wait\_time();}
+\DoxyCodeLine{00127\ \ \ \ \ }
+\DoxyCodeLine{00128\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00138\ \ \ \ \ \mbox{\hyperlink{classtcs3472}{tcs3472}}(hwlib::i2c\_primitives\ \&\ c\_bus,\ uint8\_t\ c\_enable\_option=SET\_AEN|SET\_PON,\ uint8\_t\ c\_atime\_option=SET\_ATIME\_2\_4MS,\ uint8\_t\ c\_wtime\_option=SET\_WTIME\_2\_4MS,\ uint8\_t\ c\_again\_option=SET\_AGAIN\_1X);}
+\DoxyCodeLine{00139\ \ \ \ \ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classtcs3472_a2085ab6363aaa26e69536add89ef563d}{read\_register}}(uint8\_t\ reg\_address);}
+\DoxyCodeLine{00142\ \ \ \ \ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classtcs3472_a4798aed1f5663cd3157b798be8c02020}{read\_clear}}();}
+\DoxyCodeLine{00145\ \ \ \ \ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classtcs3472_a948ce29d8ff8291147056e3ba942848b}{read\_red}}();}
+\DoxyCodeLine{00148\ \ \ \ \ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classtcs3472_abdd5dcd8ff187dee5b7b6acb459d3f8b}{read\_green}}();}
+\DoxyCodeLine{00151\ \ \ \ \ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classtcs3472_a5cded88ec6e2d44792cd89ea4515609a}{read\_blue}}();}
+\DoxyCodeLine{00154\ \ \ \ \ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtcs3472_afd2c4fe107bd75af61f055e165f4e3cc}{sleep}}();}
+\DoxyCodeLine{00160\ \ \ \ \ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtcs3472_ae5491d8a1c76a7cbf7c8a614bddd11eb}{wake}}();}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtcs3472_ae55e40594840214c331eb59b9c512b82}{start}}();}
+\DoxyCodeLine{00169\ \ \ \ \ }
+\DoxyCodeLine{00174\ \ \ \ \ \mbox{\hyperlink{classrgbc}{rgbc}}\ \mbox{\hyperlink{classtcs3472_a018fae2958f5cce22071f35f7a6f3846}{read\_rgbc}}();}
+\DoxyCodeLine{00175\ \ \ \ \ }
+\DoxyCodeLine{00182\ \ \ \ \ \mbox{\hyperlink{classrgb}{rgb}}\ \mbox{\hyperlink{classtcs3472_a8da74f56ca3decef04f1910032ff298d}{calculate\_rgb}}(\mbox{\hyperlink{classrgbc}{rgbc}}\ \&\ rgbc\_data);}
+\DoxyCodeLine{00183\ \ \ \ \ }
+\DoxyCodeLine{00196\ \ \ \ \ \mbox{\hyperlink{classrgb}{rgb}}\ \mbox{\hyperlink{classtcs3472_a8da74f56ca3decef04f1910032ff298d}{calculate\_rgb}}(\textcolor{keywordtype}{int}\ red,\ \textcolor{keywordtype}{int}\ green,\ \textcolor{keywordtype}{int}\ blue,\ \textcolor{keywordtype}{int}\ clear);}
+\DoxyCodeLine{00197\ \ \ \ \ }
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classtcs3472_a90995fcc1198c99faba6a78ecc155cd4}{calculate\_rgb\_integer}}(\mbox{\hyperlink{classrgbc}{rgbc}}\ \&\ rgbc\_data);}
+\DoxyCodeLine{00205\ \ \ \ \ }
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtcs3472_a0c7fce5a1d931a140327489fb2b8e2a3}{reload\_config}}();}
+\DoxyCodeLine{00212\ \};}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TCS3472\_HPP}}
+
+\end{DoxyCode}

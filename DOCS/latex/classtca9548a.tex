@@ -1,0 +1,45 @@
+\hypertarget{classtca9548a}{}\doxysection{tca9548a Class Reference}
+\label{classtca9548a}\index{tca9548a@{tca9548a}}
+
+
+Simple class to use \mbox{\hyperlink{classtca9548a}{tca9548a}} 8-\/output I2C multiplexer.  
+
+
+
+
+{\ttfamily \#include $<$tca9548a.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtca9548a_a3efb72b700103103ed1bf7d3fc1422ed}\label{classtca9548a_a3efb72b700103103ed1bf7d3fc1422ed}} 
+{\bfseries tca9548a} (hwlib\+::i2c\+\_\+bus\+\_\+bit\+\_\+banged\+\_\+scl\+\_\+sda \&c\+\_\+i2c\+\_\+bus, uint8\+\_\+t c\+\_\+address)
+\begin{DoxyCompactList}\small\item\em Construct from hwlib i2c bus object and 8-\/bit i2c address. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classtca9548a_afec9e52bb64dca9bf71f29a3afaf9120}{select}} (int output)
+\begin{DoxyCompactList}\small\item\em Select multiplexer output 0 through 7. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Simple class to use \mbox{\hyperlink{classtca9548a}{tca9548a}} 8-\/output I2C multiplexer. 
+
+Very simple implementation of communication with the \mbox{\hyperlink{classtca9548a}{tca9548a}} I2C multiplexer Provides one constructor\+: (hwlib\+::i2c\+\_\+bus, uint8\+\_\+t) Address of device can be specified 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtca9548a_afec9e52bb64dca9bf71f29a3afaf9120}\label{classtca9548a_afec9e52bb64dca9bf71f29a3afaf9120}} 
+\index{tca9548a@{tca9548a}!select@{select}}
+\index{select@{select}!tca9548a@{tca9548a}}
+\doxysubsubsection{\texorpdfstring{select()}{select()}}
+{\footnotesize\ttfamily int tca9548a\+::select (\begin{DoxyParamCaption}\item[{int}]{output }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Select multiplexer output 0 through 7. 
+
+\begin{DoxyReturn}{Returns}
+-\/1 on invalid selection, selected output on success 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+TCA9548\+A/tca9548a.\+hpp\end{DoxyCompactItemize}

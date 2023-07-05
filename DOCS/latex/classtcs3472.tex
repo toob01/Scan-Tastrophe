@@ -1,0 +1,191 @@
+\hypertarget{classtcs3472}{}\doxysection{tcs3472 Class Reference}
+\label{classtcs3472}\index{tcs3472@{tcs3472}}
+
+
+Interface for TCS3472(5/7) color sensor using (abstractions and functions from) HWLIB.  
+
+
+
+
+{\ttfamily \#include $<$tcs3472.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtcs3472_a90a51fb64654894e1365c1e468544391}{tcs3472}} (hwlib\+::i2c\+\_\+primitives \&c\+\_\+bus, uint8\+\_\+t c\+\_\+enable\+\_\+option=SET\+\_\+\+AEN$\vert$SET\+\_\+\+PON, uint8\+\_\+t c\+\_\+atime\+\_\+option=SET\+\_\+\+ATIME\+\_\+2\+\_\+4\+MS, uint8\+\_\+t c\+\_\+wtime\+\_\+option=SET\+\_\+\+WTIME\+\_\+2\+\_\+4\+MS, uint8\+\_\+t c\+\_\+again\+\_\+option=SET\+\_\+\+AGAIN\+\_\+1X)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classtcs3472}{tcs3472}} color sensor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtcs3472_a2085ab6363aaa26e69536add89ef563d}\label{classtcs3472_a2085ab6363aaa26e69536add89ef563d}} 
+int {\bfseries read\+\_\+register} (uint8\+\_\+t reg\+\_\+address)
+\begin{DoxyCompactList}\small\item\em Read a register specified by address. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtcs3472_a4798aed1f5663cd3157b798be8c02020}\label{classtcs3472_a4798aed1f5663cd3157b798be8c02020}} 
+int {\bfseries read\+\_\+clear} ()
+\begin{DoxyCompactList}\small\item\em Read 16-\/bit data from Clear data register. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtcs3472_a948ce29d8ff8291147056e3ba942848b}\label{classtcs3472_a948ce29d8ff8291147056e3ba942848b}} 
+int {\bfseries read\+\_\+red} ()
+\begin{DoxyCompactList}\small\item\em Read 16-\/bit data from Red data register. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtcs3472_abdd5dcd8ff187dee5b7b6acb459d3f8b}\label{classtcs3472_abdd5dcd8ff187dee5b7b6acb459d3f8b}} 
+int {\bfseries read\+\_\+green} ()
+\begin{DoxyCompactList}\small\item\em Read 16-\/bit data from Green data register. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtcs3472_a5cded88ec6e2d44792cd89ea4515609a}\label{classtcs3472_a5cded88ec6e2d44792cd89ea4515609a}} 
+int {\bfseries read\+\_\+blue} ()
+\begin{DoxyCompactList}\small\item\em Read 16-\/bit data from Blue data register. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtcs3472_afd2c4fe107bd75af61f055e165f4e3cc}{sleep}} ()
+\begin{DoxyCompactList}\small\item\em Put device in sleep state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtcs3472_ae5491d8a1c76a7cbf7c8a614bddd11eb}{wake}} ()
+\begin{DoxyCompactList}\small\item\em Put device in wake / idle state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtcs3472_ae55e40594840214c331eb59b9c512b82}\label{classtcs3472_ae55e40594840214c331eb59b9c512b82}} 
+void {\bfseries start} ()
+\begin{DoxyCompactList}\small\item\em Start a sense cycle. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \mbox{\hyperlink{classtcs3472_a018fae2958f5cce22071f35f7a6f3846}{read\+\_\+rgbc}} ()
+\begin{DoxyCompactList}\small\item\em Read raw data from red, green, blue, and clear registers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgb}{rgb}} \mbox{\hyperlink{classtcs3472_a8da74f56ca3decef04f1910032ff298d}{calculate\+\_\+rgb}} (\mbox{\hyperlink{classrgbc}{rgbc}} \&rgbc\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Convert values from 16-\/bit RGBC to 8-\/bit RGB representation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgb}{rgb}} \mbox{\hyperlink{classtcs3472_a6fa61d43c6f8ca9107c8cb5351f112bc}{calculate\+\_\+rgb}} (int red, int green, int blue, int clear)
+\begin{DoxyCompactList}\small\item\em Convert values from 16-\/bit RGBC to 8-\/bit RGB representation, individual parameters per channel. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classtcs3472_a90995fcc1198c99faba6a78ecc155cd4}{calculate\+\_\+rgb\+\_\+integer}} (\mbox{\hyperlink{classrgbc}{rgbc}} \&rgbc\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Convert values from 16-\/bit RGBC to one continuous 24-\/bit integer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtcs3472_a0c7fce5a1d931a140327489fb2b8e2a3}{reload\+\_\+config}} ()
+\begin{DoxyCompactList}\small\item\em Write current configuration to device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for TCS3472(5/7) color sensor using (abstractions and functions from) HWLIB. 
+
+This class provides an interface for the TCS3472(5/7) color sensor This implementation only works for sensors with I2C address 0x29, which most of these sensors will have. To use this sensor in amounts more than one or with other devices that have the same address, you have the option to either define multiple I2C busses, or use an I2C multiplexer like the TCA9548A (I recommend the latter). If you happen to have a sensor that has a discrepant address and you haven\textquotesingle{}t been able to figure out how to make it work, feel free to contact me at \href{mailto:tobias.bosch@student.hu.nl}{\texttt{ tobias.\+bosch@student.\+hu.\+nl}}, I am happy to offer assistance \+:)
+
+Limitations\+:
+\begin{DoxyItemize}
+\item no capabilities for the interrupt output that some TCS3472 devices may have.
+\item no capabilities for the WLONG option.
+\item no capabilities for calibrating sensors 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtcs3472_a90a51fb64654894e1365c1e468544391}\label{classtcs3472_a90a51fb64654894e1365c1e468544391}} 
+\index{tcs3472@{tcs3472}!tcs3472@{tcs3472}}
+\index{tcs3472@{tcs3472}!tcs3472@{tcs3472}}
+\doxysubsubsection{\texorpdfstring{tcs3472()}{tcs3472()}}
+{\footnotesize\ttfamily tcs3472\+::tcs3472 (\begin{DoxyParamCaption}\item[{hwlib\+::i2c\+\_\+primitives \&}]{c\+\_\+bus,  }\item[{uint8\+\_\+t}]{c\+\_\+enable\+\_\+option = {\ttfamily SET\+\_\+AEN$\vert$SET\+\_\+PON},  }\item[{uint8\+\_\+t}]{c\+\_\+atime\+\_\+option = {\ttfamily SET\+\_\+ATIME\+\_\+2\+\_\+4MS},  }\item[{uint8\+\_\+t}]{c\+\_\+wtime\+\_\+option = {\ttfamily SET\+\_\+WTIME\+\_\+2\+\_\+4MS},  }\item[{uint8\+\_\+t}]{c\+\_\+again\+\_\+option = {\ttfamily SET\+\_\+AGAIN\+\_\+1X} }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{classtcs3472}{tcs3472}} color sensor. 
+
+This constructor creates an interface for the \mbox{\hyperlink{classtcs3472}{tcs3472}} color sensor. Default values are\+:
+\begin{DoxyItemize}
+\item TCS\+\_\+\+ENABLE \+: AEN $\vert$ PON
+\item ATIME \+: 2.\+4 ms
+\item WTIME \+: 2.\+4 ms
+\item AGAIN \+: 1X 
+\end{DoxyItemize}
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtcs3472_a6fa61d43c6f8ca9107c8cb5351f112bc}\label{classtcs3472_a6fa61d43c6f8ca9107c8cb5351f112bc}} 
+\index{tcs3472@{tcs3472}!calculate\_rgb@{calculate\_rgb}}
+\index{calculate\_rgb@{calculate\_rgb}!tcs3472@{tcs3472}}
+\doxysubsubsection{\texorpdfstring{calculate\_rgb()}{calculate\_rgb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} tcs3472\+::calculate\+\_\+rgb (\begin{DoxyParamCaption}\item[{int}]{red,  }\item[{int}]{green,  }\item[{int}]{blue,  }\item[{int}]{clear }\end{DoxyParamCaption})}
+
+
+
+Convert values from 16-\/bit RGBC to 8-\/bit RGB representation, individual parameters per channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em red} & (16-\/bit) integer red channel value \\
+\hline
+{\em green} & (16-\/bit) integer green channel value \\
+\hline
+{\em blue} & (16-\/bit) integer blue channel value \\
+\hline
+{\em clear} & (16-\/bit) integer clear channel value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+RGB object with uint8\+\_\+t data per channel 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtcs3472_a8da74f56ca3decef04f1910032ff298d}\label{classtcs3472_a8da74f56ca3decef04f1910032ff298d}} 
+\index{tcs3472@{tcs3472}!calculate\_rgb@{calculate\_rgb}}
+\index{calculate\_rgb@{calculate\_rgb}!tcs3472@{tcs3472}}
+\doxysubsubsection{\texorpdfstring{calculate\_rgb()}{calculate\_rgb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} tcs3472\+::calculate\+\_\+rgb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgbc}{rgbc}} \&}]{rgbc\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Convert values from 16-\/bit RGBC to 8-\/bit RGB representation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rgbc} & RGBC object with 16-\/bit RGBC data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+RGB object with uint8\+\_\+t data per channel 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtcs3472_a90995fcc1198c99faba6a78ecc155cd4}\label{classtcs3472_a90995fcc1198c99faba6a78ecc155cd4}} 
+\index{tcs3472@{tcs3472}!calculate\_rgb\_integer@{calculate\_rgb\_integer}}
+\index{calculate\_rgb\_integer@{calculate\_rgb\_integer}!tcs3472@{tcs3472}}
+\doxysubsubsection{\texorpdfstring{calculate\_rgb\_integer()}{calculate\_rgb\_integer()}}
+{\footnotesize\ttfamily int tcs3472\+::calculate\+\_\+rgb\+\_\+integer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgbc}{rgbc}} \&}]{rgbc\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Convert values from 16-\/bit RGBC to one continuous 24-\/bit integer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rgbc\+\_\+data} & RGBC object with 16-\/bit RGBC data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+24-\/bit integer, bytes corresponding to red, green, and blue 8-\/bit data 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtcs3472_a018fae2958f5cce22071f35f7a6f3846}\label{classtcs3472_a018fae2958f5cce22071f35f7a6f3846}} 
+\index{tcs3472@{tcs3472}!read\_rgbc@{read\_rgbc}}
+\index{read\_rgbc@{read\_rgbc}!tcs3472@{tcs3472}}
+\doxysubsubsection{\texorpdfstring{read\_rgbc()}{read\_rgbc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} tcs3472\+::read\+\_\+rgbc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Read raw data from red, green, blue, and clear registers. 
+
+\begin{DoxyReturn}{Returns}
+RGBC object with uint16\+\_\+t data per channel 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtcs3472_a0c7fce5a1d931a140327489fb2b8e2a3}\label{classtcs3472_a0c7fce5a1d931a140327489fb2b8e2a3}} 
+\index{tcs3472@{tcs3472}!reload\_config@{reload\_config}}
+\index{reload\_config@{reload\_config}!tcs3472@{tcs3472}}
+\doxysubsubsection{\texorpdfstring{reload\_config()}{reload\_config()}}
+{\footnotesize\ttfamily void tcs3472\+::reload\+\_\+config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Write current configuration to device. 
+
+Write the current configuration (typically this is as configured in constructor) to the device again Useful for working with multiplexer \mbox{\Hypertarget{classtcs3472_afd2c4fe107bd75af61f055e165f4e3cc}\label{classtcs3472_afd2c4fe107bd75af61f055e165f4e3cc}} 
+\index{tcs3472@{tcs3472}!sleep@{sleep}}
+\index{sleep@{sleep}!tcs3472@{tcs3472}}
+\doxysubsubsection{\texorpdfstring{sleep()}{sleep()}}
+{\footnotesize\ttfamily void tcs3472\+::sleep (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Put device in sleep state. 
+
+Write the current enable option (typically this is as configured in constructor) explicitly without PON bit to the enable register. \mbox{\Hypertarget{classtcs3472_ae5491d8a1c76a7cbf7c8a614bddd11eb}\label{classtcs3472_ae5491d8a1c76a7cbf7c8a614bddd11eb}} 
+\index{tcs3472@{tcs3472}!wake@{wake}}
+\index{wake@{wake}!tcs3472@{tcs3472}}
+\doxysubsubsection{\texorpdfstring{wake()}{wake()}}
+{\footnotesize\ttfamily void tcs3472\+::wake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Put device in wake / idle state. 
+
+Write the current enable option (typically this is as configured in constructor) explicitely with PON bit to the enable register. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+TCS3472/\mbox{\hyperlink{tcs3472_8hpp}{tcs3472.\+hpp}}\item 
+TCS3472/\mbox{\hyperlink{tcs3472_8cpp}{tcs3472.\+cpp}}\end{DoxyCompactItemize}

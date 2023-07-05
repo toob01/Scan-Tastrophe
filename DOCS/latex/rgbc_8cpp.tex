@@ -1,0 +1,78 @@
+\hypertarget{rgbc_8cpp}{}\doxysection{RGBC\+\_\+\+ADT/rgbc.cpp File Reference}
+\label{rgbc_8cpp}\index{RGBC\_ADT/rgbc.cpp@{RGBC\_ADT/rgbc.cpp}}
+{\ttfamily \#include \char`\"{}rgbc.\+hpp\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \mbox{\hyperlink{rgbc_8cpp_a7ecd0f820dece8c159552f8bcd506a03}{operator$\ast$}} (const \mbox{\hyperlink{classrgbc}{rgbc}} \&lhs, const int \&factor)
+\item 
+\mbox{\Hypertarget{rgbc_8cpp_a7221c6885cb20bfb11f7857579bcb290}\label{rgbc_8cpp_a7221c6885cb20bfb11f7857579bcb290}} 
+\mbox{\hyperlink{classrgbc}{rgbc}} {\bfseries operator$\ast$} (const int \&factor, const \mbox{\hyperlink{classrgbc}{rgbc}} \&rhs)
+\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \mbox{\hyperlink{rgbc_8cpp_a49bf0384bcc0fb61f8862dd3e5b9adca}{operator/}} (const \mbox{\hyperlink{classrgbc}{rgbc}} \&lhs, const int \&factor)
+\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \mbox{\hyperlink{rgbc_8cpp_ae2919b505cc7585f127d3efef72cd3df}{operator$\vert$}} (\mbox{\hyperlink{classrgbc}{rgbc}} lhs, const int \&mask)
+\item 
+\mbox{\Hypertarget{rgbc_8cpp_aa2ca6be999930b3bccbda151ae8b93c4}\label{rgbc_8cpp_aa2ca6be999930b3bccbda151ae8b93c4}} 
+\mbox{\hyperlink{classrgbc}{rgbc}} {\bfseries operator$\vert$} (const int \&mask, \mbox{\hyperlink{classrgbc}{rgbc}} rhs)
+\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \mbox{\hyperlink{rgbc_8cpp_aae2fb613c66b2ef926318f8967d4f545}{operator\&}} (\mbox{\hyperlink{classrgbc}{rgbc}} lhs, const int \&mask)
+\item 
+\mbox{\Hypertarget{rgbc_8cpp_a30e99782e43e3ef852c5ff8aa7d103c7}\label{rgbc_8cpp_a30e99782e43e3ef852c5ff8aa7d103c7}} 
+\mbox{\hyperlink{classrgbc}{rgbc}} {\bfseries operator\&} (const int \&mask, \mbox{\hyperlink{classrgbc}{rgbc}} rhs)
+\item 
+hwlib\+::ostream \& \mbox{\hyperlink{rgbc_8cpp_a4cb428f36d9aa75b5d4f63b96700d035}{operator$<$$<$}} (hwlib\+::ostream \&lhs, \mbox{\hyperlink{classrgbc}{rgbc}} rhs)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{rgbc_8cpp_aae2fb613c66b2ef926318f8967d4f545}\label{rgbc_8cpp_aae2fb613c66b2ef926318f8967d4f545}} 
+\index{rgbc.cpp@{rgbc.cpp}!operator\&@{operator\&}}
+\index{operator\&@{operator\&}!rgbc.cpp@{rgbc.cpp}}
+\doxysubsubsection{\texorpdfstring{operator\&()}{operator\&()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} operator\& (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgbc}{rgbc}}}]{lhs,  }\item[{const int \&}]{mask }\end{DoxyParamCaption})}
+
+This operator\& performs a Bitwise AND operation on the contents of an rgbc value with a given mask. e.\+g. \mbox{\hyperlink{classrgbc}{rgbc(1, 0, 1, 0)}} \& 0b1 = \mbox{\hyperlink{classrgbc}{rgbc(1, 0, 1, 0)}} \begin{DoxyReturn}{Returns}
+~\newline
+ New rgbc object with result of Bitwise AND operation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rgbc_8cpp_a7ecd0f820dece8c159552f8bcd506a03}\label{rgbc_8cpp_a7ecd0f820dece8c159552f8bcd506a03}} 
+\index{rgbc.cpp@{rgbc.cpp}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!rgbc.cpp@{rgbc.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgbc}{rgbc}} \&}]{lhs,  }\item[{const int \&}]{factor }\end{DoxyParamCaption})}
+
+This operator$\ast$ multiplies the contents of an rgbc value by a given factor, by taking the product of the contents and the factor. e.\+g. \mbox{\hyperlink{classrgbc}{rgbc(1, 2, 3, 4)}} $\ast$ 2 = \mbox{\hyperlink{classrgbc}{rgbc(2, 4, 6, 8)}} \begin{DoxyReturn}{Returns}
+~\newline
+ New rgbc object with multiplied contents 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rgbc_8cpp_a49bf0384bcc0fb61f8862dd3e5b9adca}\label{rgbc_8cpp_a49bf0384bcc0fb61f8862dd3e5b9adca}} 
+\index{rgbc.cpp@{rgbc.cpp}!operator/@{operator/}}
+\index{operator/@{operator/}!rgbc.cpp@{rgbc.cpp}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgbc}{rgbc}} \&}]{lhs,  }\item[{const int \&}]{factor }\end{DoxyParamCaption})}
+
+This operator/ divides the contents of an rgbc value by a given factor, by taking the quotient of the contents and the factor. e.\+g. \mbox{\hyperlink{classrgbc}{rgbc(2, 4, 6, 8)}} / 2 = \mbox{\hyperlink{classrgbc}{rgbc(1, 2, 3, 4)}} \begin{DoxyReturn}{Returns}
+~\newline
+ New rgbc object with divided contents 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rgbc_8cpp_a4cb428f36d9aa75b5d4f63b96700d035}\label{rgbc_8cpp_a4cb428f36d9aa75b5d4f63b96700d035}} 
+\index{rgbc.cpp@{rgbc.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!rgbc.cpp@{rgbc.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily hwlib\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{hwlib\+::ostream \&}]{lhs,  }\item[{\mbox{\hyperlink{classrgbc}{rgbc}}}]{rhs }\end{DoxyParamCaption})}
+
+This operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} adds the contents of an rgbc value as formatted string to a hwlib\+::ostream object. e.\+g. hwlib\+::cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} \char`\"{}values \+: \char`\"{} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} \mbox{\hyperlink{classrgbc}{rgbc(1, 2, 3, 4)}} would result in string \+: \char`\"{}values \+: 1;2;3;4\char`\"{} \begin{DoxyReturn}{Returns}
+~\newline
+ hwlib\+::ostream object with added string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rgbc_8cpp_ae2919b505cc7585f127d3efef72cd3df}\label{rgbc_8cpp_ae2919b505cc7585f127d3efef72cd3df}} 
+\index{rgbc.cpp@{rgbc.cpp}!operator\texttt{"|}@{operator\texttt{"|}}}
+\index{operator\texttt{"|}@{operator\texttt{"|}}!rgbc.cpp@{rgbc.cpp}}
+\doxysubsubsection{\texorpdfstring{operator\texttt{"|}()}{operator|()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} operator$\vert$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgbc}{rgbc}}}]{lhs,  }\item[{const int \&}]{mask }\end{DoxyParamCaption})}
+
+This operator$\vert$ performs a Bitwise OR operation on the contents of an rgbc value with a given mask. e.\+g. \mbox{\hyperlink{classrgbc}{rgbc(0, 0, 0, 0)}} $\vert$ 0b1 = \mbox{\hyperlink{classrgbc}{rgbc(1, 1, 1, 1)}} \begin{DoxyReturn}{Returns}
+~\newline
+ New rgbc object with result of Bitwise OR operation 
+\end{DoxyReturn}

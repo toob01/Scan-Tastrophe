@@ -1,0 +1,78 @@
+\hypertarget{rgb_8cpp}{}\doxysection{RGB\+\_\+\+ADT/rgb.cpp File Reference}
+\label{rgb_8cpp}\index{RGB\_ADT/rgb.cpp@{RGB\_ADT/rgb.cpp}}
+{\ttfamily \#include \char`\"{}rgb.\+hpp\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrgb}{rgb}} \mbox{\hyperlink{rgb_8cpp_ae47112960afd21918b9c25f0dbbcb3c1}{operator$\ast$}} (const \mbox{\hyperlink{classrgb}{rgb}} \&lhs, const int \&factor)
+\item 
+\mbox{\Hypertarget{rgb_8cpp_a8dc268d02f1f30e054027cc1c87c7ec0}\label{rgb_8cpp_a8dc268d02f1f30e054027cc1c87c7ec0}} 
+\mbox{\hyperlink{classrgb}{rgb}} {\bfseries operator$\ast$} (const int \&factor, const \mbox{\hyperlink{classrgb}{rgb}} \&rhs)
+\item 
+\mbox{\hyperlink{classrgb}{rgb}} \mbox{\hyperlink{rgb_8cpp_ad024eb45cf0f90da302176f0b482130f}{operator/}} (const \mbox{\hyperlink{classrgb}{rgb}} \&lhs, const int \&factor)
+\item 
+\mbox{\hyperlink{classrgb}{rgb}} \mbox{\hyperlink{rgb_8cpp_a62fa2a2df8aef3dfc9c0e710d0620822}{operator$\vert$}} (\mbox{\hyperlink{classrgb}{rgb}} lhs, const int \&mask)
+\item 
+\mbox{\Hypertarget{rgb_8cpp_a6ab7cd6ee489066f4c3bdbadb44d7c09}\label{rgb_8cpp_a6ab7cd6ee489066f4c3bdbadb44d7c09}} 
+\mbox{\hyperlink{classrgb}{rgb}} {\bfseries operator$\vert$} (const int \&mask, \mbox{\hyperlink{classrgb}{rgb}} rhs)
+\item 
+\mbox{\hyperlink{classrgb}{rgb}} \mbox{\hyperlink{rgb_8cpp_af703c01458cca6f6a34182aec79f7f47}{operator\&}} (\mbox{\hyperlink{classrgb}{rgb}} lhs, const int \&mask)
+\item 
+\mbox{\Hypertarget{rgb_8cpp_a4ff1c8fabf8209709a6972cc0064c983}\label{rgb_8cpp_a4ff1c8fabf8209709a6972cc0064c983}} 
+\mbox{\hyperlink{classrgb}{rgb}} {\bfseries operator\&} (const int \&mask, \mbox{\hyperlink{classrgb}{rgb}} rhs)
+\item 
+hwlib\+::ostream \& \mbox{\hyperlink{rgb_8cpp_afabdb691b59cc270ef08bf6b1b12a30c}{operator$<$$<$}} (hwlib\+::ostream \&lhs, \mbox{\hyperlink{classrgb}{rgb}} rhs)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{rgb_8cpp_af703c01458cca6f6a34182aec79f7f47}\label{rgb_8cpp_af703c01458cca6f6a34182aec79f7f47}} 
+\index{rgb.cpp@{rgb.cpp}!operator\&@{operator\&}}
+\index{operator\&@{operator\&}!rgb.cpp@{rgb.cpp}}
+\doxysubsubsection{\texorpdfstring{operator\&()}{operator\&()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} operator\& (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgb}{rgb}}}]{lhs,  }\item[{const int \&}]{mask }\end{DoxyParamCaption})}
+
+This operator\& performs a Bitwise AND operation on the contents of an rgb value with a given mask. e.\+g. \mbox{\hyperlink{classrgb}{rgb(1, 0, 1, 0)}} \& 0b1 = \mbox{\hyperlink{classrgb}{rgb(1, 0, 1)}} \begin{DoxyReturn}{Returns}
+~\newline
+ New rgb object with result of Bitwise AND operation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rgb_8cpp_ae47112960afd21918b9c25f0dbbcb3c1}\label{rgb_8cpp_ae47112960afd21918b9c25f0dbbcb3c1}} 
+\index{rgb.cpp@{rgb.cpp}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!rgb.cpp@{rgb.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb}{rgb}} \&}]{lhs,  }\item[{const int \&}]{factor }\end{DoxyParamCaption})}
+
+This operator$\ast$ multiplies the contents of an rgb value by a given factor, by taking the product of the contents and the factor. e.\+g. \mbox{\hyperlink{classrgb}{rgb(1, 2, 3)}} $\ast$ 2 = \mbox{\hyperlink{classrgb}{rgb(2, 4, 6)}} \begin{DoxyReturn}{Returns}
+~\newline
+ New rgb object with multiplied contents 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rgb_8cpp_ad024eb45cf0f90da302176f0b482130f}\label{rgb_8cpp_ad024eb45cf0f90da302176f0b482130f}} 
+\index{rgb.cpp@{rgb.cpp}!operator/@{operator/}}
+\index{operator/@{operator/}!rgb.cpp@{rgb.cpp}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb}{rgb}} \&}]{lhs,  }\item[{const int \&}]{factor }\end{DoxyParamCaption})}
+
+This operator/ divides the contents of an rgb value by a given factor, by taking the quotient of the contents and the factor. e.\+g. \mbox{\hyperlink{classrgb}{rgb(2, 4, 6)}} / 2 = \mbox{\hyperlink{classrgb}{rgb(1, 2, 3)}} \begin{DoxyReturn}{Returns}
+~\newline
+ New rgb object with divided contents 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rgb_8cpp_afabdb691b59cc270ef08bf6b1b12a30c}\label{rgb_8cpp_afabdb691b59cc270ef08bf6b1b12a30c}} 
+\index{rgb.cpp@{rgb.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!rgb.cpp@{rgb.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily hwlib\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{hwlib\+::ostream \&}]{lhs,  }\item[{\mbox{\hyperlink{classrgb}{rgb}}}]{rhs }\end{DoxyParamCaption})}
+
+This operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} adds the contents of an rgb value as formatted string to a hwlib\+::ostream object. e.\+g. hwlib\+::cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} \char`\"{}values \+: \char`\"{} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} \mbox{\hyperlink{classrgb}{rgb(1, 2, 3)}}; would result in string \+: \char`\"{}values \+: 1;2;3\char`\"{} \begin{DoxyReturn}{Returns}
+~\newline
+ hwlib\+::ostream object with added string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rgb_8cpp_a62fa2a2df8aef3dfc9c0e710d0620822}\label{rgb_8cpp_a62fa2a2df8aef3dfc9c0e710d0620822}} 
+\index{rgb.cpp@{rgb.cpp}!operator\texttt{"|}@{operator\texttt{"|}}}
+\index{operator\texttt{"|}@{operator\texttt{"|}}!rgb.cpp@{rgb.cpp}}
+\doxysubsubsection{\texorpdfstring{operator\texttt{"|}()}{operator|()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb}{rgb}} operator$\vert$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgb}{rgb}}}]{lhs,  }\item[{const int \&}]{mask }\end{DoxyParamCaption})}
+
+This operator$\vert$ performs a Bitwise OR operation on the contents of an rgb value with a given mask. e.\+g. \mbox{\hyperlink{classrgb}{rgb(0, 0, 0)}} $\vert$ 0b1 = \mbox{\hyperlink{classrgb}{rgb(1, 1, 1)}} \begin{DoxyReturn}{Returns}
+~\newline
+ New rgb object with result of Bitwise OR operation 
+\end{DoxyReturn}

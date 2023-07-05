@@ -1,0 +1,122 @@
+\hypertarget{rgbc_8hpp_source}{}\doxysection{rgbc.\+hpp}
+\label{rgbc_8hpp_source}\index{RGBC\_ADT/rgbc.hpp@{RGBC\_ADT/rgbc.hpp}}
+\mbox{\hyperlink{rgbc_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ =============================================================}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ File\ \ \ \ \ \ \ \ \ :\ rgbc.hpp}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ Copyright\ \ \ \ :\ tobias.bosch@student.hu.nl\ 2023}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ (See\ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ =============================================================}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ this\ file\ contains\ Doxygen\ comments}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ RGBC\_HPP}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ RGBC\_HPP}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}hwlib.hpp"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{/*\ This\ is\ an\ ADT\ that\ represents\ red,\ green,\ blue,\ and\ clear\ colour\ values\ in\ 16-\/bit\ unsigned\ integers.}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ It\ is\ primarily\ expected\ to\ be\ used\ in\ combination\ with\ the\ TCS3472\ line\ of\ colours\ sensors.}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ Operators\ included\ are:\ +,\ +=,\ -\/,\ -\/=,\ *,\ *=,\ /,\ /=,\ <<,\ |,\ |=,\ \&,\ \&=,\ <,\ <=,\ >,\ >=,\ ==,\ !=,\ []}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ One\ constructor\ is\ included:\ (uint16\_t,\ uint16\_t,\ uint16\_t,\ uint16\_t),\ with\ default\ values\ (0,\ 0,\ 0,\ 0)}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ Internal\ variables\ red,\ green,\ blue,\ clear\ are\ private.\ Getters\ and\ setters\ are\ provided.\ }}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ Dependencies:\ stdint.h,\ hwlib.hpp\ */}}
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrgbc}{rgbc}}\ \{}
+\DoxyCodeLine{00031\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00032\ \ \ \ \ uint16\_t\ red;}
+\DoxyCodeLine{00033\ \ \ \ \ uint16\_t\ green;}
+\DoxyCodeLine{00034\ \ \ \ \ uint16\_t\ blue;}
+\DoxyCodeLine{00035\ \ \ \ \ uint16\_t\ clear;}
+\DoxyCodeLine{00036\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{/*\ This\ constructor\ initializes\ an\ RGBC\ value\ collection.}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ \ \ \ \ *\ The\ constructor\ has\ default\ values\ (0,\ 0,\ 0,\ 0),\ thus\ allowing\ for\ empty\ initialization.}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ \ \ \ \ *\ Be\ mindful\ when\ using\ the\ empty\ constructor,\ as\ the\ values\ (0,\ 0,\ 0,\ 0)\ are\ plausible\ results\ from\ your\ colour\ sensor.\ */}}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classrgbc}{rgbc}}(uint16\_t\ red\ =\ 0,\ uint16\_t\ green\ =\ 0,\ uint16\_t\ blue\ =\ 0,\ uint16\_t\ clear\ =\ 0);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00047\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{classrgbc_a5d5854a949bb48f7c1e6176002ebf053}{red\_get}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00051\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{classrgbc_afe1fc8949f6eedbf54bf09081576a17f}{green\_get}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00052\ \ \ \ \ }
+\DoxyCodeLine{00055\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{classrgbc_a2e5acac6c46c72c7977133531d7484f2}{blue\_get}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00056\ \ \ \ \ }
+\DoxyCodeLine{00059\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{classrgbc_a02d8f0b15cbb5ba1e83152d190ea092e}{clear\_get}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgbc_aa9901b96704c36369dc4e9aa5e574b78}{red\_set}}(uint16\_t\ new\_red);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgbc_a0b456458b88d339833d4b09f6e70e1ac}{green\_set}}(uint16\_t\ new\_green);}
+\DoxyCodeLine{00068\ \ \ \ \ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgbc_a8e746d7dbf01b23cda8d6169870b8090}{blue\_set}}(uint16\_t\ new\_blue);}
+\DoxyCodeLine{00072\ \ \ \ \ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgbc_ad6ba87291c71e0a5b1e0fd2c9bd2d54a}{clear\_set}}(uint16\_t\ new\_clear);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{classrgbc}{rgbc}}\ \mbox{\hyperlink{classrgbc_ab732008ab9f32d10f1f4ef878dc260eb}{operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \&\ rhs)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{classrgbc}{rgbc}}\&\ \mbox{\hyperlink{classrgbc_abfedfb5206bc4c3c1f271fb2d9d8b268}{operator+=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \&\ rhs);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{classrgbc}{rgbc}}\ \mbox{\hyperlink{classrgbc_aeae7527cc2a45f0459a685a6c2ba13fa}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \&\ rhs)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{classrgbc}{rgbc}}\&\ \mbox{\hyperlink{classrgbc_a1b68991390ca55b19f71d66257fc9537}{operator-\/=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \&\ rhs);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{classrgbc}{rgbc}}\ \mbox{\hyperlink{classrgbc_a7ecd0f820dece8c159552f8bcd506a03}{operator*}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \&\ rhs)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \mbox{\hyperlink{classrgbc_a7ecd0f820dece8c159552f8bcd506a03}{operator*}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \&\ lhs,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&\ factor);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \mbox{\hyperlink{classrgbc_a7ecd0f820dece8c159552f8bcd506a03}{operator*}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&\ factor,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \&\ rhs);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00138\ \ \ \ \ \mbox{\hyperlink{classrgbc}{rgbc}}\&\ \mbox{\hyperlink{classrgbc_ac33119df8926aa3bf42b64c1c8738b8c}{operator*=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \&\ rhs);}
+\DoxyCodeLine{00139\ \ \ \ \ }
+\DoxyCodeLine{00144\ \ \ \ \ \mbox{\hyperlink{classrgbc}{rgbc}}\&\ \mbox{\hyperlink{classrgbc_ac33119df8926aa3bf42b64c1c8738b8c}{operator*=}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&\ factor);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00152\ \ \ \ \ \mbox{\hyperlink{classrgbc}{rgbc}}\ \mbox{\hyperlink{classrgbc_a49bf0384bcc0fb61f8862dd3e5b9adca}{operator/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \&\ rhs)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \mbox{\hyperlink{classrgbc_a49bf0384bcc0fb61f8862dd3e5b9adca}{operator/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \&\ lhs,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&\ factor);}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00169\ \ \ \ \ \mbox{\hyperlink{classrgbc}{rgbc}}\&\ \mbox{\hyperlink{classrgbc_aa3ea06daf7f32f0c7bb780dab9e3451c}{operator/=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \&\ rhs);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00175\ \ \ \ \ \mbox{\hyperlink{classrgbc}{rgbc}}\&\ \mbox{\hyperlink{classrgbc_aa3ea06daf7f32f0c7bb780dab9e3451c}{operator/=}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&\ factor);}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00184\ \ \ \ \ \mbox{\hyperlink{classrgbc}{rgbc}}\ \mbox{\hyperlink{classrgbc_ab14e7eb23ebfd01ba48a912a20f83b8a}{operator|}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \&\ rhs)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \mbox{\hyperlink{classrgbc_ab14e7eb23ebfd01ba48a912a20f83b8a}{operator|}}(\mbox{\hyperlink{classrgbc}{rgbc}}\ rhs,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&\ mask);}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \mbox{\hyperlink{classrgbc_ab14e7eb23ebfd01ba48a912a20f83b8a}{operator|}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&\ mask,\ \mbox{\hyperlink{classrgbc}{rgbc}}\ rhs);}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00203\ \ \ \ \ \mbox{\hyperlink{classrgbc}{rgbc}}\&\ \mbox{\hyperlink{classrgbc_af1d1e5cff271452236f93a00fdebe954}{operator|=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \&\ rhs);}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00209\ \ \ \ \ \mbox{\hyperlink{classrgbc}{rgbc}}\&\ \mbox{\hyperlink{classrgbc_af1d1e5cff271452236f93a00fdebe954}{operator|=}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&\ mask);}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00218\ \ \ \ \ \mbox{\hyperlink{classrgbc}{rgbc}}\ \mbox{\hyperlink{classrgbc_a0af2d8e44e01ce3b46d1765d3027b9db}{operator\&}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \&\ rhs)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \mbox{\hyperlink{classrgbc_a0af2d8e44e01ce3b46d1765d3027b9db}{operator\&}}(\mbox{\hyperlink{classrgbc}{rgbc}}\ rhs,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&\ mask);}
+\DoxyCodeLine{00228\ \ \ \ \ }
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \mbox{\hyperlink{classrgbc_a0af2d8e44e01ce3b46d1765d3027b9db}{operator\&}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&\ mask,\ \mbox{\hyperlink{classrgbc}{rgbc}}\ rhs);}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00237\ \ \ \ \ \mbox{\hyperlink{classrgbc}{rgbc}}\&\ \mbox{\hyperlink{classrgbc_adf59ce9b4dadbc481e260f301582f806}{operator\&=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \&\ rhs);}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00243\ \ \ \ \ \mbox{\hyperlink{classrgbc}{rgbc}}\&\ \mbox{\hyperlink{classrgbc_adf59ce9b4dadbc481e260f301582f806}{operator\&=}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&\ mask);}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgbc_abe9375876ebc03417440f8a0c4234f4b}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \&\ rhs)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgbc_a25f02c09a7a691342e6638d3ef62d140}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \&\ rhs)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgbc_a52283e9896eb05d1d5833b7a27a114fb}{operator<}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \&\ rhs)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgbc_ae6ac856bdece646de764aef97d6f92c7}{operator<=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \&\ rhs)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgbc_aefda08c64fff15cc991502a5871efdb5}{operator>}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \&\ rhs)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00285\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgbc_af43c6c9d65dba87606210e9c71216f09}{operator>=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgbc}{rgbc}}\ \&\ rhs)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00295\ \ \ \ \ uint16\_t\&\ \mbox{\hyperlink{classrgbc_aee6c1471b6efda1dc45f846f6c02bbcf}{operator[]}}(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keyword}{friend}\ hwlib::ostream\&\ \mbox{\hyperlink{classrgbc_a4cb428f36d9aa75b5d4f63b96700d035}{operator<<}}(hwlib::ostream\ \&\ lhs,\ \mbox{\hyperlink{classrgbc}{rgbc}}\ rhs);}
+\DoxyCodeLine{00305\ \};}
+\DoxyCodeLine{00306\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ RGBC\_HPP}}
+
+\end{DoxyCode}

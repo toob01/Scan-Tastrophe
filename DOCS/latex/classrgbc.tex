@@ -1,0 +1,488 @@
+\hypertarget{classrgbc}{}\doxysection{rgbc Class Reference}
+\label{classrgbc}\index{rgbc@{rgbc}}
+
+
+RGBC value Abstract Data\+Type.  
+
+
+
+
+{\ttfamily \#include $<$rgbc.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classrgbc_aac0b6f8687345100bf166a3c57878282}\label{classrgbc_aac0b6f8687345100bf166a3c57878282}} 
+{\bfseries rgbc} (uint16\+\_\+t red=0, uint16\+\_\+t green=0, uint16\+\_\+t blue=0, uint16\+\_\+t clear=0)
+\begin{DoxyCompactList}\small\item\em Constructor from unsigned 8-\/bit integer values. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrgbc_a5d5854a949bb48f7c1e6176002ebf053}\label{classrgbc_a5d5854a949bb48f7c1e6176002ebf053}} 
+uint16\+\_\+t {\bfseries red\+\_\+get} () const
+\begin{DoxyCompactList}\small\item\em Getter for red colour value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrgbc_afe1fc8949f6eedbf54bf09081576a17f}\label{classrgbc_afe1fc8949f6eedbf54bf09081576a17f}} 
+uint16\+\_\+t {\bfseries green\+\_\+get} () const
+\begin{DoxyCompactList}\small\item\em Getter for green colour value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrgbc_a2e5acac6c46c72c7977133531d7484f2}\label{classrgbc_a2e5acac6c46c72c7977133531d7484f2}} 
+uint16\+\_\+t {\bfseries blue\+\_\+get} () const
+\begin{DoxyCompactList}\small\item\em Getter for blue colour value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrgbc_a02d8f0b15cbb5ba1e83152d190ea092e}\label{classrgbc_a02d8f0b15cbb5ba1e83152d190ea092e}} 
+uint16\+\_\+t {\bfseries clear\+\_\+get} () const
+\begin{DoxyCompactList}\small\item\em Getter for clear brightness / combined colour value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrgbc_aa9901b96704c36369dc4e9aa5e574b78}\label{classrgbc_aa9901b96704c36369dc4e9aa5e574b78}} 
+void {\bfseries red\+\_\+set} (uint16\+\_\+t new\+\_\+red)
+\begin{DoxyCompactList}\small\item\em Setter for red colour value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrgbc_a0b456458b88d339833d4b09f6e70e1ac}\label{classrgbc_a0b456458b88d339833d4b09f6e70e1ac}} 
+void {\bfseries green\+\_\+set} (uint16\+\_\+t new\+\_\+green)
+\begin{DoxyCompactList}\small\item\em Setter for green colour value ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrgbc_a8e746d7dbf01b23cda8d6169870b8090}\label{classrgbc_a8e746d7dbf01b23cda8d6169870b8090}} 
+void {\bfseries blue\+\_\+set} (uint16\+\_\+t new\+\_\+blue)
+\begin{DoxyCompactList}\small\item\em Setter for blue colour value ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrgbc_ad6ba87291c71e0a5b1e0fd2c9bd2d54a}\label{classrgbc_ad6ba87291c71e0a5b1e0fd2c9bd2d54a}} 
+void {\bfseries clear\+\_\+set} (uint16\+\_\+t new\+\_\+clear)
+\begin{DoxyCompactList}\small\item\em Setter for clear brightness / combined colour value ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \mbox{\hyperlink{classrgbc_ab732008ab9f32d10f1f4ef878dc260eb}{operator+}} (const \mbox{\hyperlink{classrgbc}{rgbc}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Add two rgbc values together. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \& \mbox{\hyperlink{classrgbc_abfedfb5206bc4c3c1f271fb2d9d8b268}{operator+=}} (const \mbox{\hyperlink{classrgbc}{rgbc}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Add one rgbc value into another. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \mbox{\hyperlink{classrgbc_aeae7527cc2a45f0459a685a6c2ba13fa}{operator-\/}} (const \mbox{\hyperlink{classrgbc}{rgbc}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Subract two rgbc values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \& \mbox{\hyperlink{classrgbc_a1b68991390ca55b19f71d66257fc9537}{operator-\/=}} (const \mbox{\hyperlink{classrgbc}{rgbc}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Subtract an rgbc value from another. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \mbox{\hyperlink{classrgbc_ab59d68104e51255c516f448efe03a286}{operator$\ast$}} (const \mbox{\hyperlink{classrgbc}{rgbc}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Multiply two rgbc values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \& \mbox{\hyperlink{classrgbc_ac33119df8926aa3bf42b64c1c8738b8c}{operator$\ast$=}} (const \mbox{\hyperlink{classrgbc}{rgbc}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Mutiply an rgbc value by another. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \& \mbox{\hyperlink{classrgbc_a6cc6a566d1c17d1a2331e73d2598b789}{operator$\ast$=}} (const int \&factor)
+\begin{DoxyCompactList}\small\item\em Multiply an rgbc value by a factor, modifying the original. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \mbox{\hyperlink{classrgbc_a0a094f1ba30f29fb04f695644dc50716}{operator/}} (const \mbox{\hyperlink{classrgbc}{rgbc}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Divide two rgbc values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \& \mbox{\hyperlink{classrgbc_aa3ea06daf7f32f0c7bb780dab9e3451c}{operator/=}} (const \mbox{\hyperlink{classrgbc}{rgbc}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Divide an rgbc value by another. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \& \mbox{\hyperlink{classrgbc_a3790c78eb564798f80f5aef6bf3914ce}{operator/=}} (const int \&factor)
+\begin{DoxyCompactList}\small\item\em Divide an rgbc value by a factor, modifying the original. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \mbox{\hyperlink{classrgbc_a49155ce5edbe789e7d508d889818fcf8}{operator$\vert$}} (const \mbox{\hyperlink{classrgbc}{rgbc}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Bitwise OR two rgbc values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \& \mbox{\hyperlink{classrgbc_af1d1e5cff271452236f93a00fdebe954}{operator$\vert$=}} (const \mbox{\hyperlink{classrgbc}{rgbc}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Bitwise OR two rgbc values, modifying the original. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \& \mbox{\hyperlink{classrgbc_ac8029e9303f124a6a1e46f9d5d5401bb}{operator$\vert$=}} (const int \&mask)
+\begin{DoxyCompactList}\small\item\em Bitwise OR an rgbc value with a integer mask, modifying the original. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \mbox{\hyperlink{classrgbc_aec9bc5ec453db20378c93b152fb24ccc}{operator\&}} (const \mbox{\hyperlink{classrgbc}{rgbc}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Bitwise AND two rgbc values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \& \mbox{\hyperlink{classrgbc_adf59ce9b4dadbc481e260f301582f806}{operator\&=}} (const \mbox{\hyperlink{classrgbc}{rgbc}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Bitwise AND two rgbc values, modifying the original. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \& \mbox{\hyperlink{classrgbc_acddcd5c26c589435c4e41c0d7947dddd}{operator\&=}} (const int \&mask)
+\begin{DoxyCompactList}\small\item\em Bitwise AND an rgbc value with a integer mask, modifying the original. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrgbc_abe9375876ebc03417440f8a0c4234f4b}{operator==}} (const \mbox{\hyperlink{classrgbc}{rgbc}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Compare two rgbc values for equality. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrgbc_a25f02c09a7a691342e6638d3ef62d140}{operator!=}} (const \mbox{\hyperlink{classrgbc}{rgbc}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Compare two rgbc values for inequality. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrgbc_a52283e9896eb05d1d5833b7a27a114fb}{operator$<$}} (const \mbox{\hyperlink{classrgbc}{rgbc}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Compare two rgbc values for less than. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrgbc_ae6ac856bdece646de764aef97d6f92c7}{operator$<$=}} (const \mbox{\hyperlink{classrgbc}{rgbc}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Compare two rgbc values for less or equal than. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrgbc_aefda08c64fff15cc991502a5871efdb5}{operator$>$}} (const \mbox{\hyperlink{classrgbc}{rgbc}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Compare two rgbc values for more than. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrgbc_af43c6c9d65dba87606210e9c71216f09}{operator$>$=}} (const \mbox{\hyperlink{classrgbc}{rgbc}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Compare two rgbc values for more or equal than. \end{DoxyCompactList}\item 
+uint16\+\_\+t \& \mbox{\hyperlink{classrgbc_aee6c1471b6efda1dc45f846f6c02bbcf}{operator\mbox{[}$\,$\mbox{]}}} (int index)
+\begin{DoxyCompactList}\small\item\em Indexing operator for rgbc value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \mbox{\hyperlink{classrgbc_a7ecd0f820dece8c159552f8bcd506a03}{operator$\ast$}} (const \mbox{\hyperlink{classrgbc}{rgbc}} \&lhs, const int \&factor)
+\begin{DoxyCompactList}\small\item\em Multiply an rgbc value by a factor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrgbc_a7221c6885cb20bfb11f7857579bcb290}\label{classrgbc_a7221c6885cb20bfb11f7857579bcb290}} 
+\mbox{\hyperlink{classrgbc}{rgbc}} {\bfseries operator$\ast$} (const int \&factor, const \mbox{\hyperlink{classrgbc}{rgbc}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Multiply an rgbc value by a factor \+: ivnerted parameters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \mbox{\hyperlink{classrgbc_a49bf0384bcc0fb61f8862dd3e5b9adca}{operator/}} (const \mbox{\hyperlink{classrgbc}{rgbc}} \&lhs, const int \&factor)
+\begin{DoxyCompactList}\small\item\em Divide an rgbc value by a factor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \mbox{\hyperlink{classrgbc_ab14e7eb23ebfd01ba48a912a20f83b8a}{operator$\vert$}} (\mbox{\hyperlink{classrgbc}{rgbc}} rhs, const int \&mask)
+\begin{DoxyCompactList}\small\item\em Bitwise OR an rgbc value with an integer mask. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrgbc_aa2ca6be999930b3bccbda151ae8b93c4}\label{classrgbc_aa2ca6be999930b3bccbda151ae8b93c4}} 
+\mbox{\hyperlink{classrgbc}{rgbc}} {\bfseries operator$\vert$} (const int \&mask, \mbox{\hyperlink{classrgbc}{rgbc}} rhs)
+\begin{DoxyCompactList}\small\item\em Bitwise OR an rgbc value with an integer mask \+: inverted parameters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrgbc}{rgbc}} \mbox{\hyperlink{classrgbc_a0af2d8e44e01ce3b46d1765d3027b9db}{operator\&}} (\mbox{\hyperlink{classrgbc}{rgbc}} rhs, const int \&mask)
+\begin{DoxyCompactList}\small\item\em Bitwise AND an rgbc value with an integer mask. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrgbc_a30e99782e43e3ef852c5ff8aa7d103c7}\label{classrgbc_a30e99782e43e3ef852c5ff8aa7d103c7}} 
+\mbox{\hyperlink{classrgbc}{rgbc}} {\bfseries operator\&} (const int \&mask, \mbox{\hyperlink{classrgbc}{rgbc}} rhs)
+\begin{DoxyCompactList}\small\item\em Bitwise AND an rgbc value with an integer mask \+: inverted parameters. \end{DoxyCompactList}\item 
+hwlib\+::ostream \& \mbox{\hyperlink{classrgbc_a4cb428f36d9aa75b5d4f63b96700d035}{operator$<$$<$}} (hwlib\+::ostream \&lhs, \mbox{\hyperlink{classrgbc}{rgbc}} rhs)
+\begin{DoxyCompactList}\small\item\em Insertion operator for rgbc values, using hwlib\+::ostream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+RGBC value Abstract Data\+Type. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classrgbc_a25f02c09a7a691342e6638d3ef62d140}\label{classrgbc_a25f02c09a7a691342e6638d3ef62d140}} 
+\index{rgbc@{rgbc}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool rgbc\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgbc}{rgbc}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Compare two rgbc values for inequality. 
+
+This operator!= tests for inequality between two rgbc values. If, and only if none of the corresponding contents are equal, this operator returns true, else it returns false. \mbox{\Hypertarget{classrgbc_aec9bc5ec453db20378c93b152fb24ccc}\label{classrgbc_aec9bc5ec453db20378c93b152fb24ccc}} 
+\index{rgbc@{rgbc}!operator\&@{operator\&}}
+\index{operator\&@{operator\&}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator\&()}{operator\&()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} rgbc\+::operator\& (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgbc}{rgbc}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Bitwise AND two rgbc values. 
+
+This operator\& performs a bitwise AND operation on the contents of an rgbc value with another\textquotesingle{}s. e.\+g. \mbox{\hyperlink{classrgbc}{rgbc(1, 0, 1, 0)}} \& \mbox{\hyperlink{classrgbc}{rgbc(0, 1, 0, 1)}} = \mbox{\hyperlink{classrgbc}{rgbc(0, 0, 0, 0)}} \begin{DoxyReturn}{Returns}
+~\newline
+ New rgbc object with result of Bitwise AND operation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgbc_acddcd5c26c589435c4e41c0d7947dddd}\label{classrgbc_acddcd5c26c589435c4e41c0d7947dddd}} 
+\index{rgbc@{rgbc}!operator\&=@{operator\&=}}
+\index{operator\&=@{operator\&=}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator\&=()}{operator\&=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} \& rgbc\+::operator\&= (\begin{DoxyParamCaption}\item[{const int \&}]{mask }\end{DoxyParamCaption})}
+
+
+
+Bitwise AND an rgbc value with a integer mask, modifying the original. 
+
+\begin{DoxyReturn}{Returns}
+~\newline
+ Modified rgbc value object by reference 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgbc_adf59ce9b4dadbc481e260f301582f806}\label{classrgbc_adf59ce9b4dadbc481e260f301582f806}} 
+\index{rgbc@{rgbc}!operator\&=@{operator\&=}}
+\index{operator\&=@{operator\&=}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator\&=()}{operator\&=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} \& rgbc\+::operator\&= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgbc}{rgbc}} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Bitwise AND two rgbc values, modifying the original. 
+
+\begin{DoxyReturn}{Returns}
+~\newline
+ Modified rgbc value object by reference 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgbc_ab59d68104e51255c516f448efe03a286}\label{classrgbc_ab59d68104e51255c516f448efe03a286}} 
+\index{rgbc@{rgbc}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} rgbc\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgbc}{rgbc}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Multiply two rgbc values. 
+
+This operator$\ast$ multiplies the contents of one rgbc value by another, by taking the product of each corresponding r, g, b, c value. e.\+g. \mbox{\hyperlink{classrgbc}{rgbc(1, 2, 3, 4)}} $\ast$ \mbox{\hyperlink{classrgbc}{rgbc(1, 2, 3, 4)}} = \mbox{\hyperlink{classrgbc}{rgbc(1, 4, 9, 16)}} \begin{DoxyReturn}{Returns}
+New rgbc object with multiplied contents 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgbc_a6cc6a566d1c17d1a2331e73d2598b789}\label{classrgbc_a6cc6a566d1c17d1a2331e73d2598b789}} 
+\index{rgbc@{rgbc}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} \& rgbc\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{const int \&}]{factor }\end{DoxyParamCaption})}
+
+
+
+Multiply an rgbc value by a factor, modifying the original. 
+
+\begin{DoxyReturn}{Returns}
+~\newline
+ Modified rgbc value object by reference 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgbc_ac33119df8926aa3bf42b64c1c8738b8c}\label{classrgbc_ac33119df8926aa3bf42b64c1c8738b8c}} 
+\index{rgbc@{rgbc}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} \& rgbc\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgbc}{rgbc}} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Mutiply an rgbc value by another. 
+
+This operator$\ast$= multiplies the contents of one rgbc value by another, modifying the original contents of the rgbc value. \begin{DoxyReturn}{Returns}
+Modified rgbc value object by reference 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgbc_ab732008ab9f32d10f1f4ef878dc260eb}\label{classrgbc_ab732008ab9f32d10f1f4ef878dc260eb}} 
+\index{rgbc@{rgbc}!operator+@{operator+}}
+\index{operator+@{operator+}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} rgbc\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgbc}{rgbc}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Add two rgbc values together. 
+
+This operator+ adds one rgbc value to another, by taking the sum of each corresponding r, g, b, c value. e.\+g. \mbox{\hyperlink{classrgbc}{rgbc(1, 2, 3, 4)}} + \mbox{\hyperlink{classrgbc}{rgbc(1, 2, 3, 4)}} = \mbox{\hyperlink{classrgbc}{rgbc(2, 4, 6, 8)}} \begin{DoxyReturn}{Returns}
+New rgbc object with summed contents 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgbc_abfedfb5206bc4c3c1f271fb2d9d8b268}\label{classrgbc_abfedfb5206bc4c3c1f271fb2d9d8b268}} 
+\index{rgbc@{rgbc}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} \& rgbc\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgbc}{rgbc}} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Add one rgbc value into another. 
+
+This operator+= adds the contents of one rgbc value to another, modifying the original contents of the rgbc value. \begin{DoxyReturn}{Returns}
+Modified rgbc value object by reference 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgbc_aeae7527cc2a45f0459a685a6c2ba13fa}\label{classrgbc_aeae7527cc2a45f0459a685a6c2ba13fa}} 
+\index{rgbc@{rgbc}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} rgbc\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgbc}{rgbc}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Subract two rgbc values. 
+
+This operator-\/ subtracts the contents of one rgbc value from another, by taking the difference of each corresponding r, g, b, c value. \begin{DoxyReturn}{Returns}
+New rgbc object with subtracted contents 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgbc_a1b68991390ca55b19f71d66257fc9537}\label{classrgbc_a1b68991390ca55b19f71d66257fc9537}} 
+\index{rgbc@{rgbc}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} \& rgbc\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgbc}{rgbc}} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Subtract an rgbc value from another. 
+
+This operator-\/= subtracts the contents of one rgbc value from another, modifying the original contents of the rgbc value. \begin{DoxyReturn}{Returns}
+Modified rgbc value object by reference 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgbc_a0a094f1ba30f29fb04f695644dc50716}\label{classrgbc_a0a094f1ba30f29fb04f695644dc50716}} 
+\index{rgbc@{rgbc}!operator/@{operator/}}
+\index{operator/@{operator/}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} rgbc\+::operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgbc}{rgbc}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Divide two rgbc values. 
+
+This operator/ divides the contents of an rgbc value by another, by taking the quotient of each corresponding r, g, b, c value. \begin{DoxyReturn}{Returns}
+~\newline
+ New rgbc value with divided contents 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgbc_a3790c78eb564798f80f5aef6bf3914ce}\label{classrgbc_a3790c78eb564798f80f5aef6bf3914ce}} 
+\index{rgbc@{rgbc}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} \& rgbc\+::operator/= (\begin{DoxyParamCaption}\item[{const int \&}]{factor }\end{DoxyParamCaption})}
+
+
+
+Divide an rgbc value by a factor, modifying the original. 
+
+\begin{DoxyReturn}{Returns}
+~\newline
+ Modified rgbc value object by refernce 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgbc_aa3ea06daf7f32f0c7bb780dab9e3451c}\label{classrgbc_aa3ea06daf7f32f0c7bb780dab9e3451c}} 
+\index{rgbc@{rgbc}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} \& rgbc\+::operator/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgbc}{rgbc}} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Divide an rgbc value by another. 
+
+This operator/= divides the contents of one rgbc value by another, modifying the original contents of the rgbc value. \begin{DoxyReturn}{Returns}
+~\newline
+ Modified rgbc value object by reference 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgbc_a52283e9896eb05d1d5833b7a27a114fb}\label{classrgbc_a52283e9896eb05d1d5833b7a27a114fb}} 
+\index{rgbc@{rgbc}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool rgbc\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgbc}{rgbc}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Compare two rgbc values for less than. 
+
+This operator\texorpdfstring{$<$}{<} tests if all contents of an rgbc value are less than the contents of a given rgbc value. If, and only if all corresponding contents are less than the given contents, this operator returns true, else it returns false. \mbox{\Hypertarget{classrgbc_ae6ac856bdece646de764aef97d6f92c7}\label{classrgbc_ae6ac856bdece646de764aef97d6f92c7}} 
+\index{rgbc@{rgbc}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
+{\footnotesize\ttfamily bool rgbc\+::operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgbc}{rgbc}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Compare two rgbc values for less or equal than. 
+
+This operator\texorpdfstring{$<$}{<}= tests if all contents of an rgbc value are less than or equal to the contents of a given rgbc value. If, and only if all corresponding contents are less than or equal to the given contents, this operator returns true, else it returns false. \mbox{\Hypertarget{classrgbc_abe9375876ebc03417440f8a0c4234f4b}\label{classrgbc_abe9375876ebc03417440f8a0c4234f4b}} 
+\index{rgbc@{rgbc}!operator==@{operator==}}
+\index{operator==@{operator==}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool rgbc\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgbc}{rgbc}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Compare two rgbc values for equality. 
+
+This operator== tests for equality between two rgbc values. If, and only if all corresponding contents are equal, this operator returns true, else it returns false. \mbox{\Hypertarget{classrgbc_aefda08c64fff15cc991502a5871efdb5}\label{classrgbc_aefda08c64fff15cc991502a5871efdb5}} 
+\index{rgbc@{rgbc}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool rgbc\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgbc}{rgbc}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Compare two rgbc values for more than. 
+
+This operator\texorpdfstring{$>$}{>} tests if all contents of an rgbc value are more than the contents of a given rgbc value. If, and only if all correspondig contents are more than the given contents, this operator returns true, else it returns false. \mbox{\Hypertarget{classrgbc_af43c6c9d65dba87606210e9c71216f09}\label{classrgbc_af43c6c9d65dba87606210e9c71216f09}} 
+\index{rgbc@{rgbc}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
+{\footnotesize\ttfamily bool rgbc\+::operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgbc}{rgbc}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Compare two rgbc values for more or equal than. 
+
+This operator\texorpdfstring{$>$}{>}= tests if all contents of an rgbc value are more or equal to the contents of a given rgbc value. If, and only if all corresponding contents are less than or equal to the given contents, this operator returns true, else it returns false. \mbox{\Hypertarget{classrgbc_aee6c1471b6efda1dc45f846f6c02bbcf}\label{classrgbc_aee6c1471b6efda1dc45f846f6c02bbcf}} 
+\index{rgbc@{rgbc}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily uint16\+\_\+t \& rgbc\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Indexing operator for rgbc value. 
+
+This operator\mbox{[}\mbox{]} allows for the capability of addressing the contents of an rgbc value by index in order R, G, B, C. Thus, to address the red, green, blue, and clear values, we can use rgbc\mbox{[}0\mbox{]}, rgbc\mbox{[}1\mbox{]}, rgbc\mbox{[}2\mbox{]}, and rgbc\mbox{[}3\mbox{]} respectively. NOTE \+: operator\mbox{[}\mbox{]} does not check if the index you\textquotesingle{}ve entered is out of range because bmptk-\/make does not allow for throwing exceptions by default, instead it will return 0. \begin{DoxyReturn}{Returns}
+Reference to the addressed colour value, or 0 on index out of range 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgbc_a49155ce5edbe789e7d508d889818fcf8}\label{classrgbc_a49155ce5edbe789e7d508d889818fcf8}} 
+\index{rgbc@{rgbc}!operator\texttt{"|}@{operator\texttt{"|}}}
+\index{operator\texttt{"|}@{operator\texttt{"|}}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator\texttt{"|}()}{operator|()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} rgbc\+::operator$\vert$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgbc}{rgbc}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Bitwise OR two rgbc values. 
+
+This operator$\vert$ performs a Bitwise OR operation on the contents of an rgbc value with another\textquotesingle{}s. e.\+g. \mbox{\hyperlink{classrgbc}{rgbc(1, 0, 1, 0)}} $\vert$ \mbox{\hyperlink{classrgbc}{rgbc(0, 1, 0, 1)}} = \mbox{\hyperlink{classrgbc}{rgbc(1, 1, 1, 1)}} \begin{DoxyReturn}{Returns}
+~\newline
+ New rgbc object with result of Bitwise OR operation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgbc_ac8029e9303f124a6a1e46f9d5d5401bb}\label{classrgbc_ac8029e9303f124a6a1e46f9d5d5401bb}} 
+\index{rgbc@{rgbc}!operator\texttt{"|}=@{operator\texttt{"|}=}}
+\index{operator\texttt{"|}=@{operator\texttt{"|}=}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator\texttt{"|}=()}{operator|=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} \& rgbc\+::operator$\vert$= (\begin{DoxyParamCaption}\item[{const int \&}]{mask }\end{DoxyParamCaption})}
+
+
+
+Bitwise OR an rgbc value with a integer mask, modifying the original. 
+
+\begin{DoxyReturn}{Returns}
+~\newline
+ Modified rgbc value object by reference 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgbc_af1d1e5cff271452236f93a00fdebe954}\label{classrgbc_af1d1e5cff271452236f93a00fdebe954}} 
+\index{rgbc@{rgbc}!operator\texttt{"|}=@{operator\texttt{"|}=}}
+\index{operator\texttt{"|}=@{operator\texttt{"|}=}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator\texttt{"|}=()}{operator|=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} \& rgbc\+::operator$\vert$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgbc}{rgbc}} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Bitwise OR two rgbc values, modifying the original. 
+
+\begin{DoxyReturn}{Returns}
+~\newline
+ Modified rgbc value object by reference 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classrgbc_a0af2d8e44e01ce3b46d1765d3027b9db}\label{classrgbc_a0af2d8e44e01ce3b46d1765d3027b9db}} 
+\index{rgbc@{rgbc}!operator\&@{operator\&}}
+\index{operator\&@{operator\&}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator\&}{operator\&}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} operator\& (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgbc}{rgbc}}}]{rhs,  }\item[{const int \&}]{mask }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Bitwise AND an rgbc value with an integer mask. 
+
+This operator\& performs a Bitwise AND operation on the contents of an rgbc value with a given mask. e.\+g. \mbox{\hyperlink{classrgbc}{rgbc(1, 0, 1, 0)}} \& 0b1 = \mbox{\hyperlink{classrgbc}{rgbc(1, 0, 1, 0)}} \begin{DoxyReturn}{Returns}
+~\newline
+ New rgbc object with result of Bitwise AND operation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgbc_a7ecd0f820dece8c159552f8bcd506a03}\label{classrgbc_a7ecd0f820dece8c159552f8bcd506a03}} 
+\index{rgbc@{rgbc}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$}{operator*}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgbc}{rgbc}} \&}]{lhs,  }\item[{const int \&}]{factor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Multiply an rgbc value by a factor. 
+
+This operator$\ast$ multiplies the contents of an rgbc value by a given factor, by taking the product of the contents and the factor. e.\+g. \mbox{\hyperlink{classrgbc}{rgbc(1, 2, 3, 4)}} $\ast$ 2 = \mbox{\hyperlink{classrgbc}{rgbc(2, 4, 6, 8)}} \begin{DoxyReturn}{Returns}
+~\newline
+ New rgbc object with multiplied contents 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgbc_a49bf0384bcc0fb61f8862dd3e5b9adca}\label{classrgbc_a49bf0384bcc0fb61f8862dd3e5b9adca}} 
+\index{rgbc@{rgbc}!operator/@{operator/}}
+\index{operator/@{operator/}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator/}{operator/}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgbc}{rgbc}} \&}]{lhs,  }\item[{const int \&}]{factor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Divide an rgbc value by a factor. 
+
+This operator/ divides the contents of an rgbc value by a given factor, by taking the quotient of the contents and the factor. e.\+g. \mbox{\hyperlink{classrgbc}{rgbc(2, 4, 6, 8)}} / 2 = \mbox{\hyperlink{classrgbc}{rgbc(1, 2, 3, 4)}} \begin{DoxyReturn}{Returns}
+~\newline
+ New rgbc object with divided contents 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgbc_a4cb428f36d9aa75b5d4f63b96700d035}\label{classrgbc_a4cb428f36d9aa75b5d4f63b96700d035}} 
+\index{rgbc@{rgbc}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily hwlib\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{hwlib\+::ostream \&}]{lhs,  }\item[{\mbox{\hyperlink{classrgbc}{rgbc}}}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Insertion operator for rgbc values, using hwlib\+::ostream. 
+
+This operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} adds the contents of an rgbc value as formatted string to a hwlib\+::ostream object. e.\+g. hwlib\+::cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} \char`\"{}values \+: \char`\"{} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} \mbox{\hyperlink{classrgbc}{rgbc(1, 2, 3, 4)}} would result in string \+: \char`\"{}values \+: 1;2;3;4\char`\"{} \begin{DoxyReturn}{Returns}
+~\newline
+ hwlib\+::ostream object with added string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrgbc_ab14e7eb23ebfd01ba48a912a20f83b8a}\label{classrgbc_ab14e7eb23ebfd01ba48a912a20f83b8a}} 
+\index{rgbc@{rgbc}!operator\texttt{"|}@{operator\texttt{"|}}}
+\index{operator\texttt{"|}@{operator\texttt{"|}}!rgbc@{rgbc}}
+\doxysubsubsection{\texorpdfstring{operator\texttt{"|}}{operator|}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgbc}{rgbc}} operator$\vert$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgbc}{rgbc}}}]{rhs,  }\item[{const int \&}]{mask }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Bitwise OR an rgbc value with an integer mask. 
+
+This operator$\vert$ performs a Bitwise OR operation on the contents of an rgbc value with a given mask. e.\+g. \mbox{\hyperlink{classrgbc}{rgbc(0, 0, 0, 0)}} $\vert$ 0b1 = \mbox{\hyperlink{classrgbc}{rgbc(1, 1, 1, 1)}} \begin{DoxyReturn}{Returns}
+~\newline
+ New rgbc object with result of Bitwise OR operation 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+RGBC\+\_\+\+ADT/\mbox{\hyperlink{rgbc_8hpp}{rgbc.\+hpp}}\item 
+RGBC\+\_\+\+ADT/\mbox{\hyperlink{rgbc_8cpp}{rgbc.\+cpp}}\end{DoxyCompactItemize}

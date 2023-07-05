@@ -1,0 +1,189 @@
+\hypertarget{tcs3472_8hpp}{}\doxysection{TCS3472/tcs3472.hpp File Reference}
+\label{tcs3472_8hpp}\index{TCS3472/tcs3472.hpp@{TCS3472/tcs3472.hpp}}
+{\ttfamily \#include \char`\"{}hwlib.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+RGBC\+\_\+\+ADT/rgbc.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+RGB\+\_\+\+ADT/rgb.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$array$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtcs3472}{tcs3472}}
+\begin{DoxyCompactList}\small\item\em Interface for TCS3472(5/7) color sensor using (abstractions and functions from) HWLIB. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a406f093557790cbb822f20d1e21c0566}\label{tcs3472_8hpp_a406f093557790cbb822f20d1e21c0566}} 
+\#define {\bfseries TCS}~0x29
+\begin{DoxyCompactList}\small\item\em I2C address of TCS3742 color sensor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Color register (low bit) address definitions.}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_ac44cbcdd450c41da61bbbffe2cc49e01}\label{tcs3472_8hpp_ac44cbcdd450c41da61bbbffe2cc49e01}} 
+\#define {\bfseries RDATA}~0x16
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a2646a97960454e940653503e5ab96b4d}\label{tcs3472_8hpp_a2646a97960454e940653503e5ab96b4d}} 
+\#define {\bfseries GDATA}~0x18
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_ac6368eb3a3667ce7e51ee01a5a9a4c2a}\label{tcs3472_8hpp_ac6368eb3a3667ce7e51ee01a5a9a4c2a}} 
+\#define {\bfseries BDATA}~0x1A
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a72048b767e62a20b79bde41af5b4615c}\label{tcs3472_8hpp_a72048b767e62a20b79bde41af5b4615c}} 
+\#define {\bfseries CDATA}~0x14
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Optional high bit address definitions}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_ad6baa9f68c4d11bfab993a2713856557}\label{tcs3472_8hpp_ad6baa9f68c4d11bfab993a2713856557}} 
+\#define {\bfseries H\+\_\+\+CDATA}~0x15
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_ac981d0221e929621d92cce38b1b22fcf}\label{tcs3472_8hpp_ac981d0221e929621d92cce38b1b22fcf}} 
+\#define {\bfseries H\+\_\+\+RDATA}~0x17
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a9fad7cfc8c997ea0e0492f4d3a9e9894}\label{tcs3472_8hpp_a9fad7cfc8c997ea0e0492f4d3a9e9894}} 
+\#define {\bfseries H\+\_\+\+BDATA}~0x19
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_ac8a440e152d7032bf97bb45623fdb306}\label{tcs3472_8hpp_ac8a440e152d7032bf97bb45623fdb306}} 
+\#define {\bfseries H\+\_\+\+GDATA}~0x1B
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Device configuration register address definitions}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a227fe718de635f29deef6e91ff599f65}\label{tcs3472_8hpp_a227fe718de635f29deef6e91ff599f65}} 
+\#define {\bfseries TCS\+\_\+\+ENABLE}~0x00
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_af7a5bb0b80ab2f8da65095851155feb5}\label{tcs3472_8hpp_af7a5bb0b80ab2f8da65095851155feb5}} 
+\#define {\bfseries TCS\+\_\+\+ATIME}~0x01
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a94af7f2495285985cd4f32c23f70298a}\label{tcs3472_8hpp_a94af7f2495285985cd4f32c23f70298a}} 
+\#define {\bfseries TCS\+\_\+\+WTIME}~0x03
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a758be996d6a50ad3b20ad4ccc3193a1b}\label{tcs3472_8hpp_a758be996d6a50ad3b20ad4ccc3193a1b}} 
+\#define {\bfseries TCS\+\_\+\+AGAIN}~0x0F
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a5bf01d50d197216a22058f9ba1cc1e94}\label{tcs3472_8hpp_a5bf01d50d197216a22058f9ba1cc1e94}} 
+\#define {\bfseries TCS\+\_\+\+STATUS}~0x13
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Enable register options}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_abc36b6928f41a9e85aea1994bef081f6}\label{tcs3472_8hpp_abc36b6928f41a9e85aea1994bef081f6}} 
+\#define {\bfseries SET\+\_\+\+WEN}~0x08
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a370a8654263d8f86b7361576b7fc0652}\label{tcs3472_8hpp_a370a8654263d8f86b7361576b7fc0652}} 
+\#define {\bfseries SET\+\_\+\+AEN}~0x02
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a4eee39f59f3b732dbeb81e5b4a428536}\label{tcs3472_8hpp_a4eee39f59f3b732dbeb81e5b4a428536}} 
+\#define {\bfseries SET\+\_\+\+PON}~0x01
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Integration time definitions}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_aa2a466a2d299483dd676bb811a2c4dcb}\label{tcs3472_8hpp_aa2a466a2d299483dd676bb811a2c4dcb}} 
+\#define {\bfseries SET\+\_\+\+ATIME\+\_\+2\+\_\+4\+MS}~0x\+FF
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a954b8da46967f4a8cf41ab272030b734}\label{tcs3472_8hpp_a954b8da46967f4a8cf41ab272030b734}} 
+\#define {\bfseries SET\+\_\+\+ATIME\+\_\+24\+MS}~0x\+F6
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a768067e5569feb18c21b0162cb0642ad}\label{tcs3472_8hpp_a768067e5569feb18c21b0162cb0642ad}} 
+\#define {\bfseries SET\+\_\+\+ATIME\+\_\+50\+MS}~0x\+EB
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a9601e4790252b15d9c928a36b8d573a3}\label{tcs3472_8hpp_a9601e4790252b15d9c928a36b8d573a3}} 
+\#define {\bfseries SET\+\_\+\+ATIME\+\_\+101\+MS}~0x\+D5
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a7af4f608eb374142409bd5f4736da43d}\label{tcs3472_8hpp_a7af4f608eb374142409bd5f4736da43d}} 
+\#define {\bfseries SET\+\_\+\+ATIME\+\_\+154\+MS}~0x\+C0
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a594bfafb034b284cc1f11712f1868f37}\label{tcs3472_8hpp_a594bfafb034b284cc1f11712f1868f37}} 
+\#define {\bfseries SET\+\_\+\+ATIME\+\_\+200\+MS}~0\+XAC
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_ae1a48d442974e5248b521e9999ec3279}\label{tcs3472_8hpp_ae1a48d442974e5248b521e9999ec3279}} 
+\#define {\bfseries SET\+\_\+\+ATIME\+\_\+267\+MS}~0\+X90
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a1ff6ad7724d75c5dfe27a5caad009356}\label{tcs3472_8hpp_a1ff6ad7724d75c5dfe27a5caad009356}} 
+\#define {\bfseries SET\+\_\+\+ATIME\+\_\+320\+MS}~0\+X7A
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a27dffa798878d153fc2a5f75e8e0be13}\label{tcs3472_8hpp_a27dffa798878d153fc2a5f75e8e0be13}} 
+\#define {\bfseries SET\+\_\+\+ATIME\+\_\+385\+MS}~0\+X5F
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_af4241e15c3cb2172f0e44706300230ac}\label{tcs3472_8hpp_af4241e15c3cb2172f0e44706300230ac}} 
+\#define {\bfseries SET\+\_\+\+ATIME\+\_\+420\+MS}~0\+X50
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a85b534e12e23154e23ec4471275dff79}\label{tcs3472_8hpp_a85b534e12e23154e23ec4471275dff79}} 
+\#define {\bfseries SET\+\_\+\+ATIME\+\_\+500\+MS}~0\+X2F
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a2159ca493ef3d42446eebfdfdee28b44}\label{tcs3472_8hpp_a2159ca493ef3d42446eebfdfdee28b44}} 
+\#define {\bfseries SET\+\_\+\+ATIME\+\_\+532\+MS}~0\+X22
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a31be4d1aa3bb67a4fe15151fe28b603c}\label{tcs3472_8hpp_a31be4d1aa3bb67a4fe15151fe28b603c}} 
+\#define {\bfseries SET\+\_\+\+ATIME\+\_\+570\+MS}~0\+X12
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a04aed32b7ba3669923a6832c282088b2}\label{tcs3472_8hpp_a04aed32b7ba3669923a6832c282088b2}} 
+\#define {\bfseries SET\+\_\+\+ATIME\+\_\+614\+MS}~0x00
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Wait time definitions}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a94e008919d33c4a705f48cc85a317afb}\label{tcs3472_8hpp_a94e008919d33c4a705f48cc85a317afb}} 
+\#define {\bfseries SET\+\_\+\+WTIME\+\_\+2\+\_\+4\+MS}~0x\+FF
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a9f2d45113831a58960c21ed75a31076b}\label{tcs3472_8hpp_a9f2d45113831a58960c21ed75a31076b}} 
+\#define {\bfseries SET\+\_\+\+WTIME\+\_\+24\+MS}~0x\+F6
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a884aab28de9aa2963f3a42cdd26ef4cc}\label{tcs3472_8hpp_a884aab28de9aa2963f3a42cdd26ef4cc}} 
+\#define {\bfseries SET\+\_\+\+WTIME\+\_\+50\+MS}~0x\+EB
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a61c5afc9347088c9269897ed9dd6933f}\label{tcs3472_8hpp_a61c5afc9347088c9269897ed9dd6933f}} 
+\#define {\bfseries SET\+\_\+\+WTIME\+\_\+101\+MS}~0x\+D5
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_abc08f2910f5de24a3e6b3f3c56d3a89b}\label{tcs3472_8hpp_abc08f2910f5de24a3e6b3f3c56d3a89b}} 
+\#define {\bfseries SET\+\_\+\+WTIME\+\_\+154\+MS}~0x\+C0
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_addb5d7b5811e4b36d49b9ef9ee64aef5}\label{tcs3472_8hpp_addb5d7b5811e4b36d49b9ef9ee64aef5}} 
+\#define {\bfseries SET\+\_\+\+WTIME\+\_\+200\+MS}~0\+XAC
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_aa3df058e18d982f66f3a06cca4a63344}\label{tcs3472_8hpp_aa3df058e18d982f66f3a06cca4a63344}} 
+\#define {\bfseries SET\+\_\+\+WTIME\+\_\+267\+MS}~0\+X90
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a18bb860cc1112566d29b9be564ace710}\label{tcs3472_8hpp_a18bb860cc1112566d29b9be564ace710}} 
+\#define {\bfseries SET\+\_\+\+WTIME\+\_\+320\+MS}~0\+X7A
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a4e56aa92e28cf97f1adb09f7bd99d83f}\label{tcs3472_8hpp_a4e56aa92e28cf97f1adb09f7bd99d83f}} 
+\#define {\bfseries SET\+\_\+\+WTIME\+\_\+385\+MS}~0\+X5F
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a7e1f1d026f6f16cf892db6efa34a5d82}\label{tcs3472_8hpp_a7e1f1d026f6f16cf892db6efa34a5d82}} 
+\#define {\bfseries SET\+\_\+\+WTIME\+\_\+420\+MS}~0\+X50
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a670db381439bb37a3b08a5647c1fed0c}\label{tcs3472_8hpp_a670db381439bb37a3b08a5647c1fed0c}} 
+\#define {\bfseries SET\+\_\+\+WTIME\+\_\+500\+MS}~0\+X2F
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_aa57654de87c9a14e8d2faddce237bf5b}\label{tcs3472_8hpp_aa57654de87c9a14e8d2faddce237bf5b}} 
+\#define {\bfseries SET\+\_\+\+WTIME\+\_\+532\+MS}~0\+X22
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a899b25bacc84321fbe8f00bd4e442d22}\label{tcs3472_8hpp_a899b25bacc84321fbe8f00bd4e442d22}} 
+\#define {\bfseries SET\+\_\+\+WTIME\+\_\+570\+MS}~0\+X12
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a35e279adba2bb581fedd39d9582be9c4}\label{tcs3472_8hpp_a35e279adba2bb581fedd39d9582be9c4}} 
+\#define {\bfseries SET\+\_\+\+WTIME\+\_\+614\+MS}~0x00
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Gain definitions}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a046ad708804d86255a58628bc92a41b1}\label{tcs3472_8hpp_a046ad708804d86255a58628bc92a41b1}} 
+\#define {\bfseries SET\+\_\+\+AGAIN\+\_\+1X}~0x00
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_afb447ab0f8bd28488302350c4dc1c4ab}\label{tcs3472_8hpp_afb447ab0f8bd28488302350c4dc1c4ab}} 
+\#define {\bfseries SET\+\_\+\+AGAIN\+\_\+4X}~0x01
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_ab5c7164dcf112cefcb2a7605f8478b51}\label{tcs3472_8hpp_ab5c7164dcf112cefcb2a7605f8478b51}} 
+\#define {\bfseries SET\+\_\+\+AGAIN\+\_\+16X}~0x02
+\item 
+\mbox{\Hypertarget{tcs3472_8hpp_a5bdce7ae74e331ddbfbaacb99fe21217}\label{tcs3472_8hpp_a5bdce7ae74e331ddbfbaacb99fe21217}} 
+\#define {\bfseries SET\+\_\+\+AGAIN\+\_\+60X}~0x03
+\end{DoxyCompactItemize}
+\end{Indent}
