@@ -1,7 +1,7 @@
 # Scan-Tastrophe: the miniature photoscanner
 
 The Scan-Tastrophe is a rudimentary photoscanner with 4 x 4 pixel resolution, making use of the TCS3472 colour sensor.
-All code in this repository was written by me at Hogeschool Utrecht, the Netherlands. It makes extensive use of [hwlib](https://github.com/wovo/hwlib) to address an Arduino Due microcontroller.
+The codebase makes extensive use of [hwlib](https://github.com/wovo/hwlib) to address an Arduino Due microcontroller.
 With use of [bmptk](https://github.com/wovo/bmptk) it's possible to compile the program for other microcontrollers as well.
 
 The codebase is documented with Doxygen comments, and generated documentation can be found in the DOCS folder.
