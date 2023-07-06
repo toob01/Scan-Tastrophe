@@ -44,12 +44,12 @@ int main(void){
         hwlib::wait_ms(1000);
     }
     { // select clear register in two byte thingy mode
-        auto fuck = hwlib::i2c_write_transaction(i2c_bus, 0x29);
-        fuck.write(0b10110100);
+        auto select = hwlib::i2c_write_transaction(i2c_bus, 0x29);
+        select.write(0b10110100);
     }
     { // read 2 bytes from clear register
         auto trans = hwlib::i2c_read_transaction(i2c_bus, 0x29);
         trans.read(data, 2);
     }
-    hwlib::cout << hwlib::bin << ((data[0] << 8) | data[1]);
+    hwlib::cout << hwlib::bin << ((data[1] << 8) | data[0]);
 }
